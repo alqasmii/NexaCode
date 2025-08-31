@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nexa Codes - Modern Heritage Design System */
+
+@layer base {
+  :root {
+    /* Light Theme */
+    --background: 0 0% 98%;
+    --foreground: 210 22% 15%;
+    
+    /* Primary Brand Colors */
+    --primary-navy: 210 57% 21%; /* Deep navy blue #1a365d */
+    --primary-navy-foreground: 0 0% 100%;
+    
+    --secondary-purple: 256 46% 30%; /* Rich purple #553c9a */
+    --secondary-purple-foreground: 0 0% 100%;
+    
+    --accent-gold: 45 93% 47%; /* Warm gold #d69e2e */
+    --accent-gold-foreground: 210 22% 22%;
+    
+    --accent-turquoise: 176 39% 34%; /* Turquoise #319795 */
+    --accent-turquoise-foreground: 0 0% 100%;
+    
+    --neutral-gray: 214 32% 91%; /* Light gray #e2e8f0 */
+    --neutral-gray-foreground: 210 22% 22%;
+
+    /* Semantic Colors */
+    --primary: 210 57% 21%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 210 22% 22%;
+    
+    --accent: 256 46% 30%;
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 220 14% 94%;
+    --muted-foreground: 215 16% 47%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 210 22% 15%;
+    
+    --border: 214 32% 88%;
+    --input: 214 32% 91%;
+    --ring: 256 46% 30%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 176 39% 34%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 45 93% 47%;
+    --warning-foreground: 210 22% 22%;
+    
+    /* Design System Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--secondary-purple)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--accent-gold)), hsl(var(--accent-turquoise)));
+    --gradient-feature: linear-gradient(180deg, transparent, hsl(var(--primary-navy) / 0.05));
+    
+    /* Islamic Geometric Pattern */
+    --pattern-geometric: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23553c9a' fill-opacity='0.03'%3E%3Cpath d='M30 30l15-15v30l-15-15zm-15 15l15-15v30l-15-15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    
+    /* Shadows & Elevations */
+    --shadow-sm: 0 1px 2px 0 hsl(var(--primary-navy) / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(var(--primary-navy) / 0.1), 0 2px 4px -1px hsl(var(--primary-navy) / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(var(--primary-navy) / 0.1), 0 4px 6px -2px hsl(var(--primary-navy) / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(var(--primary-navy) / 0.1), 0 10px 10px -5px hsl(var(--primary-navy) / 0.04);
+    --shadow-glow: 0 0 40px hsl(var(--accent-gold) / 0.3);
+    
+    /* Radius */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    
+    /* Transitions */
+    --transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    /* Dark Theme - Professional Dark Mode */
+    --background: 0 0% 3%; /* Nearly black */
+    --foreground: 0 0% 95%;
+    
+    /* Enhanced Brand Colors for Dark Mode */
+    --primary-navy: 210 57% 35%; /* Lighter navy for contrast */
+    --primary-navy-foreground: 0 0% 100%;
+    
+    --secondary-purple: 256 46% 45%; /* Brighter purple */
+    --secondary-purple-foreground: 0 0% 100%;
+    
+    --accent-gold: 45 93% 55%; /* Brighter gold */
+    --accent-gold-foreground: 0 0% 10%;
+    
+    --accent-turquoise: 176 39% 50%; /* Brighter turquoise */
+    --accent-turquoise-foreground: 0 0% 100%;
+    
+    /* Semantic Colors - Dark Mode */
+    --primary: 210 57% 35%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 85%;
+    
+    --accent: 256 46% 45%;
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 65%;
+    
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 95%;
+    
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
+    --ring: 256 46% 45%;
+    
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 176 39% 50%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 45 93% 55%;
+    --warning-foreground: 0 0% 10%;
+    
+    /* Dark Mode Specific Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 57% 25%), hsl(256 46% 35%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 6%), hsl(0 0% 10%));
+    --gradient-accent: linear-gradient(90deg, hsl(45 93% 55%), hsl(176 39% 50%));
+    --gradient-feature: linear-gradient(180deg, transparent, hsl(210 57% 25% / 0.1));
+    
+    /* Dark Mode Pattern */
+    --pattern-geometric: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23553c9a' fill-opacity='0.08'%3E%3Cpath d='M30 30l15-15v30l-15-15zm-15 15l15-15v30l-15-15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-poppins transition-colors duration-300;
+    background-image: var(--pattern-geometric);
+    background-attachment: fixed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cairo font-semibold;
+    letter-spacing: -0.025em;
+  }
+  
+  /* Arabic text styling */
+  [lang="ar"], .arabic {
+    @apply font-cairo;
+    direction: rtl;
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+  
+  /* Geometric Pattern Overlay */
+  .pattern-overlay {
+    position: relative;
+  }
+  
+  .pattern-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--pattern-geometric);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  /* Islamic-inspired decorative elements */
+  .islamic-border {
+    border-image: linear-gradient(45deg, 
+      hsl(var(--accent-gold)), 
+      hsl(var(--accent-turquoise)), 
+      hsl(var(--secondary-purple))
+    ) 1;
+  }
+  
+  /* Premium product card */
+  .premium-card {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--accent-gold) / 0.2);
+    box-shadow: var(--shadow-lg), 0 0 20px hsl(var(--accent-gold) / 0.1);
+  }
+  
+  /* Theme Transition */
+  * {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+}
