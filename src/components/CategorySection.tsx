@@ -3,13 +3,6 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-// Import category images
-import appsImage from '@/assets/category-apps.jpg';
-import subscriptionsImage from '@/assets/category-subscriptions.jpg';
-import gamingImage from '@/assets/category-gaming.jpg';
-import codesImage from '@/assets/category-codes.jpg';
-import servicesImage from '@/assets/category-services.jpg';
-
 const CategorySection = () => {
   const categories = [
     {
@@ -18,7 +11,7 @@ const CategorySection = () => {
       titleAr: 'التطبيقات المحمولة',
       description: 'Premium iOS & Android applications',
       descriptionAr: 'تطبيقات متميزة للآيفون والأندرويد',
-      image: appsImage,
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
       itemCount: '2,500+',
       trending: true,
       gradient: 'from-primary-navy to-secondary-purple',
@@ -34,7 +27,7 @@ const CategorySection = () => {
       titleAr: 'الاشتراكات',
       description: 'Netflix, Spotify, Adobe & more',
       descriptionAr: 'نتفليكس، سبوتيفاي، أدوبي والمزيد',
-      image: subscriptionsImage,
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80",
       itemCount: '150+',
       trending: false,
       gradient: 'from-secondary-purple to-accent-turquoise',
@@ -50,7 +43,7 @@ const CategorySection = () => {
       titleAr: 'الألعاب',
       description: 'Game accounts, skins & currencies',
       descriptionAr: 'حسابات الألعاب والعملات الرقمية',
-      image: gamingImage,
+      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
       itemCount: '5,000+',
       trending: true,
       gradient: 'from-accent-turquoise to-accent-gold',
@@ -66,7 +59,7 @@ const CategorySection = () => {
       titleAr: 'أكواد التفعيل',
       description: 'Software licenses & product keys',
       descriptionAr: 'تراخيص البرامج ومفاتيح المنتجات',
-      image: codesImage,
+      image: "https://images.unsplash.com/photo-1558618666-fbd25c85cd64?auto=format&fit=crop&w=800&q=80",
       itemCount: '1,200+',
       trending: false,
       gradient: 'from-accent-gold to-primary-navy',
@@ -82,7 +75,7 @@ const CategorySection = () => {
       titleAr: 'الخدمات الرقمية',
       description: 'VPN, hosting, cloud storage',
       descriptionAr: 'في بي ان، استضافة، تخزين سحابي',
-      image: servicesImage,
+      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80",
       itemCount: '800+',
       trending: true,
       gradient: 'from-secondary-purple to-accent-gold',
@@ -230,3 +223,5 @@ const CategorySection = () => {
     </section>
   );
 };
+
+export default CategorySection;

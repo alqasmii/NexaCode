@@ -2,7 +2,6 @@ import { ChevronLeft, ChevronRight, Star, Shield, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useState, useEffect } from 'react';
-import heroImage from '@/assets/hero-marketplace.jpg';
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -72,7 +71,7 @@ const HeroSection = () => {
       {/* Hero Image */}
       <div className="absolute inset-0">
         <img 
-          src={heroImage} 
+          src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=80" 
           alt="Nexa Codes Digital Marketplace" 
           className="w-full h-full object-cover opacity-20"
         />
@@ -190,3 +189,5 @@ const HeroSection = () => {
     </section>
   );
 };
+
+export default HeroSection;
