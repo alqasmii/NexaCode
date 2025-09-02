@@ -16,7 +16,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         
-        // Nexa Codes Custom Variants
+        // Nexo Codes Custom Variants
         hero: "bg-gradient-hero text-primary-navy-foreground hover:shadow-glow hover:-translate-y-0.5 transition-all duration-300 ease-bounce",
         accent: "bg-gradient-accent text-accent-gold-foreground hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 ease-bounce",
         premium: "bg-gradient-card border border-accent-gold/20 text-foreground hover:border-accent-gold/40 hover:shadow-glow transition-all duration-300",

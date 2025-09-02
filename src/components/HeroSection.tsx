@@ -72,7 +72,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <img 
           src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=80" 
-          alt="Nexa Codes Digital Marketplace" 
+          alt="Nexo Codes Digital Marketplace" 
           className="w-full h-full object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-hero/80"></div>

@@ -29,7 +29,7 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				
-				// Nexa Codes Brand Colors
+				// Nexo Codes Brand Colors
 				'primary-navy': {
 					DEFAULT: 'hsl(var(--primary-navy))',
 					foreground: 'hsl(var(--primary-navy-foreground))'

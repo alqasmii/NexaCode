@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Search, ShoppingCart, User, Globe, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Link } from 'react-router-dom';
 import ThemeToggle from '@/components/ThemeToggle';
 
 const Navigation = () => {
@@ -21,7 +22,7 @@ const Navigation = () => {
       <div className="bg-primary-navy text-primary-navy-foreground py-2">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-sm">
-            <p>🎉 Welcome to Nexa Codes - Premium Digital Marketplace for the GCC</p>
+            <p>🎉 Welcome to Nexo Codes - Premium Digital Marketplace for the GCC</p>
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1">
                 <Globe className="h-4 w-4" />
@@ -38,23 +39,23 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-cairo font-bold text-primary-navy dark:text-accent-gold">
-              نكسا كودز
+            <Link to="/" className="text-2xl font-cairo font-bold text-primary-navy dark:text-accent-gold hover:opacity-80 transition-opacity">
+              نيكسو كودز
               <span className="text-accent-gold mx-2">•</span>
-              Nexa Codes
-            </h1>
+              Nexo Codes
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {categories.map((category) => (
-              <a
+              <Link
                 key={category.name}
-                href={category.href}
+                to={category.href}
                 className="text-foreground hover:text-accent-gold transition-colors font-medium"
               >
                 {category.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -116,13 +117,13 @@ const Navigation = () => {
           <div className="container mx-auto px-4 py-4">
             <div className="flex flex-col space-y-4">
               {categories.map((category) => (
-                <a
+                <Link
                   key={category.name}
-                  href={category.href}
+                  to={category.href}
                   className="text-foreground hover:text-accent-gold transition-colors font-medium py-2"
                 >
                   {category.name}
-                </a>
+                </Link>
               ))}
               <div className="flex flex-col space-y-2 pt-4 border-t border-border">
                 <Button variant="ghost" className="justify-start">

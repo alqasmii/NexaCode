@@ -14,8 +14,8 @@ const TestimonialsSection = () => {
       locationAr: 'مسقط، عُمان',
       avatar: 'AR',
       rating: 5,
-      text: 'Nexa Codes has been a game-changer for my business. The quality of digital products and the instant delivery service is exceptional. Highly recommended for anyone in the GCC region.',
-      textAr: 'نكسا كودز غيّر مجرى أعمالي. جودة المنتجات الرقمية وخدمة التسليم الفوري استثنائية.',
+      text: 'Nexo Codes has been a game-changer for my business. The quality of digital products and the instant delivery service is exceptional. Highly recommended for anyone in the GCC region.',
+      textAr: 'نيكسو كودز غيّر مجرى أعمالي. جودة المنتجات الرقمية وخدمة التسليم الفوري استثنائية.',
       product: 'Adobe Creative Suite'
     },
     {
@@ -28,8 +28,8 @@ const TestimonialsSection = () => {
       locationAr: 'دبي، الإمارات',
       avatar: 'FZ',
       rating: 5,
-      text: 'I have been using Nexa Codes for over a year now. Their customer service is outstanding, and I always find exactly what I need. The platform is user-friendly and secure.',
-      textAr: 'أستخدم نكسا كودز منذ أكثر من عام. خدمة العملاء ممتازة وأجد دائماً ما أحتاجه.',
+      text: 'I have been using Nexo Codes for over a year now. Their customer service is outstanding, and I always find exactly what I need. The platform is user-friendly and secure.',
+      textAr: 'أستخدم نيكسو كودز منذ أكثر من عام. خدمة العملاء ممتازة وأجد دائماً ما أحتاجه.',
       product: 'Design Software Bundle'
     },
     {
@@ -42,7 +42,7 @@ const TestimonialsSection = () => {
       locationAr: 'الرياض، السعودية',
       avatar: 'MR',
       rating: 5,
-      text: 'As an IT professional, I appreciate the authenticity and quality of software licenses available on Nexa Codes. They have never disappointed me with their service.',
+      text: 'As an IT professional, I appreciate the authenticity and quality of software licenses available on Nexo Codes. They have never disappointed me with their service.',
       textAr: 'كمتخصص في تقنية المعلومات، أقدر أصالة وجودة تراخيص البرامج المتوفرة.',
       product: 'Windows Server License'
     },
@@ -70,8 +70,8 @@ const TestimonialsSection = () => {
       locationAr: 'مدينة الكويت، الكويت',
       avatar: 'KO',
       rating: 5,
-      text: 'Nexa Codes is my go-to platform for all digital subscriptions. The variety is amazing, and the prices are very reasonable for the GCC market. Excellent service!',
-      textAr: 'نكسا كودز منصتي المفضلة لجميع الاشتراكات الرقمية. التنوع مذهل والأسعار معقولة.',
+      text: 'Nexo Codes is my go-to platform for all digital subscriptions. The variety is amazing, and the prices are very reasonable for the GCC market. Excellent service!',
+      textAr: 'نيكسو كودز منصتي المفضلة لجميع الاشتراكات الرقمية. التنوع مذهل والأسعار معقولة.',
       product: 'Business Subscriptions'
     },
     {
@@ -102,7 +102,7 @@ const TestimonialsSection = () => {
             ماذا يقول عملاؤنا
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Join thousands of satisfied customers across the GCC who trust Nexa Codes for their digital needs
+            Join thousands of satisfied customers across the GCC who trust Nexo Codes for their digital needs
           </p>
           
           {/* Rating Summary */}

@@ -96,9 +96,9 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <h2 className="text-2xl font-cairo font-bold mb-4">
-              نكسا كودز
+              نيكسو كودز
               <span className="text-accent-gold mx-2">•</span>
-              Nexa Codes
+              Nexo Codes
             </h2>
             <p className="text-primary-navy-foreground/80 mb-6">
               The leading digital marketplace for premium apps, subscriptions, and digital services in the GCC region. Trusted by thousands of customers across the Middle East.
@@ -116,7 +116,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-accent-gold shrink-0" />
-                <span className="text-sm">hello@nexacodes.com</span>
+                <span className="text-sm">hello@nexocodes.com</span>
               </div>
             </div>
 
@@ -189,7 +189,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2 text-sm text-primary-navy-foreground/80">
-              <span>© 2024 Nexa Codes. All rights reserved.</span>
+              <span>© 2024 Nexo Codes. All rights reserved.</span>
               <span>Made with</span>
               <Heart className="h-4 w-4 text-accent-gold fill-accent-gold" />
               <span>in Oman</span>
