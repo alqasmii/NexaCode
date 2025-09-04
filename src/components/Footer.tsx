@@ -1,10 +1,32 @@
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Heart, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { toast } from '@/hooks/use-toast';
 import { useLanguage } from '@/hooks/useLanguage';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Footer = () => {
   const { t, isRTL } = useLanguage();
+  const [email, setEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    
+    setIsSubscribing(true);
+    // Simulate API call
+    setTimeout(() => {
+      toast({
+        title: "Successfully Subscribed! 🎉",
+        description: "Thank you for subscribing to our newsletter. You'll receive our latest updates and exclusive offers.",
+        duration: 5000,
+      });
+      setEmail('');
+      setIsSubscribing(false);
+    }, 1000);
+  };
 
   const footerLinks = {
     products: [
@@ -58,15 +80,34 @@ const Footer = () => {
             <p className="text-primary-navy-foreground/80 mb-6">
               {t('footer.subscribeDesc')}
             </p>
-            <div className={`flex flex-col sm:flex-row gap-4 max-w-md mx-auto ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
+            <form onSubmit={handleNewsletterSubmit} className={`flex flex-col sm:flex-row gap-4 max-w-md mx-auto ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Input 
+                type="email"
                 placeholder={t('footer.emailPlaceholder')}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="bg-primary-navy-foreground/10 border-primary-navy-foreground/20 text-primary-navy-foreground placeholder:text-primary-navy-foreground/60"
+                required
               />
-              <Button variant="accent" className="w-full group-hover:shadow-lg transition-all">
-                {t('footer.subscribe')}
+              <Button 
+                type="submit" 
+                variant="accent" 
+                className="w-full group hover:shadow-lg transition-all"
+                disabled={isSubscribing}
+              >
+                {isSubscribing ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    {t('footer.subscribing')}
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4 mr-2" />
+                    {t('footer.subscribe')}
+                  </>
+                )}
               </Button>
-            </div>
+            </form>
             <p className="text-xs text-primary-navy-foreground/60 mt-4">
               {t('footer.bySubscribing')}
             </p>
@@ -107,15 +148,17 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex gap-4">
               {[
-                { icon: Facebook, href: '#', label: 'Facebook' },
-                { icon: Twitter, href: '#', label: 'Twitter' },
-                { icon: Instagram, href: '#', label: 'Instagram' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn' }
+                { icon: Facebook, href: 'https://facebook.com/nexocodes', label: 'Facebook' },
+                { icon: Twitter, href: 'https://twitter.com/nexocodes', label: 'Twitter' },
+                { icon: Instagram, href: 'https://instagram.com/nexocodes', label: 'Instagram' },
+                { icon: Linkedin, href: 'https://linkedin.com/company/nexocodes', label: 'LinkedIn' }
               ].map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
-                  className="bg-primary-navy-foreground/10 hover:bg-accent-gold hover:text-accent-gold-foreground p-2 rounded-lg transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary-navy-foreground/10 hover:bg-accent-gold hover:text-accent-gold-foreground p-2 rounded-lg transition-all duration-300 hover:scale-110"
                   aria-label={social.label}
                 >
                   <social.icon className="h-5 w-5" />
@@ -130,12 +173,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.products.map((link) => (
                 <li key={link.key}>
-                  <a 
-                    href={link.href}
-                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm"
+                  <Link 
+                    to={link.href}
+                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm hover:underline"
                   >
                     {t(link.key)}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -146,12 +189,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.key}>
-                  <a 
-                    href={link.href}
-                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm"
+                  <Link 
+                    to={link.href}
+                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm hover:underline"
                   >
                     {t(link.key)}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -162,12 +205,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.key}>
-                  <a 
-                    href={link.href}
-                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm"
+                  <Link 
+                    to={link.href}
+                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm hover:underline"
                   >
                     {t(link.key)}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -178,12 +221,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.key}>
-                  <a 
-                    href={link.href}
-                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm"
+                  <Link 
+                    to={link.href}
+                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm hover:underline"
                   >
                     {t(link.key)}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

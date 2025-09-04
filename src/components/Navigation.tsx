@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, ShoppingCart, User, Globe, Menu, X, LogOut, UserCheck, Shield } from 'lucide-react';
+import { Search, ShoppingCart, User, Globe, Menu, X, LogOut, UserCheck, Shield, Bell } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
 import ThemeToggle from '@/components/ThemeToggle';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { AuthModal } from '@/components/auth/AuthModal';
@@ -21,8 +22,17 @@ import { useLanguage } from '@/hooks/useLanguage';
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const { user, loading, signOut, isAdmin } = useAuth();
   const { t, language } = useLanguage();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      // Navigate to search results page
+      window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
+    }
+  };
 
   const categories = [
     { name: t('category.apps'), href: '/apps' },
@@ -75,17 +85,39 @@ const Navigation = () => {
 
           {/* Search Bar */}
           <div className="hidden lg:flex items-center max-w-md flex-1 mx-8">
-            <div className="relative w-full">
+            <form onSubmit={handleSearch} className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <Input
                 placeholder={t('nav.search')}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 bg-muted border-0 focus:ring-2 focus:ring-accent-gold"
               />
-            </div>
+            </form>
           </div>
 
           {/* Right Actions */}
           <div className="flex items-center space-x-4">
+            {/* Notifications */}
+            {user && (
+              <Button variant="ghost" size="sm" className="relative">
+                <Bell className="h-5 w-5" />
+                <Badge className="absolute -top-1 -right-1 h-5 w-5 text-xs flex items-center justify-center bg-red-500 text-white">
+                  2
+                </Badge>
+              </Button>
+            )}
+            
+            {/* Shopping Cart */}
+            <Button variant="ghost" size="sm" className="relative" asChild>
+              <Link to="/cart">
+                <ShoppingCart className="h-5 w-5" />
+                <Badge className="absolute -top-1 -right-1 h-5 w-5 text-xs flex items-center justify-center bg-accent-gold text-accent-gold-foreground">
+                  0
+                </Badge>
+              </Link>
+            </Button>
+            
             <LanguageToggle />
             <ThemeToggle />
             
@@ -130,13 +162,17 @@ const Navigation = () => {
                       <DropdownMenuSeparator />
                     </>
                   )}
-                  <DropdownMenuItem>
-                    <UserCheck className="mr-2 h-4 w-4" />
-                    <span>{t('nav.profile')}</span>
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile" className="flex items-center">
+                      <UserCheck className="mr-2 h-4 w-4" />
+                      <span>{t('nav.profile')}</span>
+                    </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <ShoppingCart className="mr-2 h-4 w-4" />
-                    <span>{t('nav.orders')}</span>
+                  <DropdownMenuItem asChild>
+                    <Link to="/orders" className="flex items-center">
+                      <ShoppingCart className="mr-2 h-4 w-4" />
+                      <span>{t('nav.orders')}</span>
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={signOut}>

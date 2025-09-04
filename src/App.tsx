@@ -12,6 +12,8 @@ import Subscriptions from "./pages/Subscriptions";
 import Gaming from "./pages/Gaming";
 import Codes from "./pages/Codes";
 import Services from "./pages/Services";
+import Cart from "./pages/Cart";
+import Search from "./pages/Search";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -32,6 +34,8 @@ const App = () => (
               <Route path="/gaming" element={<Gaming />} />
               <Route path="/codes" element={<Codes />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/search" element={<Search />} />
               <Route path="/admin" element={
                 <AdminRoute>
                   <Admin />

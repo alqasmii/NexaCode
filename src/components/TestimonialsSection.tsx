@@ -1,10 +1,29 @@
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
+import { useState, useEffect } from 'react';
 
 const TestimonialsSection = () => {
   const { t } = useLanguage();
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  // Auto-rotate testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % 3); // Show 3 at a time
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % 3);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + 3) % 3);
+  };
   const testimonials = [
     {
       id: 1,
@@ -128,9 +147,48 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+        {/* Testimonials Carousel */}
+        <div className="relative">
+          {/* Navigation Controls */}
+          <div className="flex justify-center items-center gap-4 mb-8">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={prevTestimonial}
+              className="rounded-full"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            
+            <div className="flex gap-2">
+              {[0, 1, 2].map((index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  title={`View testimonial set ${index + 1}`}
+                  aria-label={`View testimonial set ${index + 1}`}
+                  className={`w-3 h-3 rounded-full transition-all hover:scale-110 ${
+                    index === currentTestimonial 
+                      ? 'bg-accent-gold' 
+                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                  }`}
+                />
+              ))}
+            </div>
+            
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={nextTestimonial}
+              className="rounded-full"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.slice(currentTestimonial * 3, currentTestimonial * 3 + 3).map((testimonial, index) => (
             <Card 
               key={testimonial.id}
               className="p-6 hover:shadow-xl transition-all duration-300 animate-slide-in-up"
@@ -186,6 +244,7 @@ const TestimonialsSection = () => {
               </div>
             </Card>
           ))}
+        </div>
         </div>
 
         {/* Trust Indicators */}

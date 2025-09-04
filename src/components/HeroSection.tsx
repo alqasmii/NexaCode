@@ -1,12 +1,16 @@
-import { ChevronLeft, ChevronRight, Star, Shield, Zap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Shield, Zap, Play, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { toast } from '@/hooks/use-toast';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isWatchDemoOpen, setIsWatchDemoOpen] = useState(false);
 
   const slides = [
     {
@@ -66,6 +70,7 @@ const HeroSection = () => {
   };
 
   return (
+    <>
     <section className="relative bg-gradient-hero overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 pattern-overlay opacity-10"></div>
@@ -101,10 +106,25 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-in-up" style={{ animationDelay: '0.3s' }}>
-              <Button size="lg" variant="accent" className="text-lg px-8">
-                {slides[currentSlide].cta}
-              </Button>
-              <Button size="lg" variant="outline" className="border-primary-navy-foreground text-primary-navy-foreground hover:bg-primary-navy-foreground hover:text-primary-navy">
+              <Link to="/apps">
+                <Button size="lg" variant="accent" className="text-lg px-8 hover:scale-105 transition-all duration-300">
+                  <ArrowRight className="h-5 w-5 mr-2" />
+                  {slides[currentSlide].cta}
+                </Button>
+              </Link>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-primary-navy-foreground text-primary-navy-foreground hover:bg-primary-navy-foreground hover:text-primary-navy hover:scale-105 transition-all duration-300"
+                onClick={() => {
+                  setIsWatchDemoOpen(true);
+                  toast({
+                    title: "Demo Video",
+                    description: "Opening platform demonstration video...",
+                  });
+                }}
+              >
+                <Play className="h-5 w-5 mr-2" />
                 {t('hero.watchDemo')}
               </Button>
             </div>
@@ -125,10 +145,12 @@ const HeroSection = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all ${
+                    title={`Go to slide ${index + 1}`}
+                    aria-label={`Go to slide ${index + 1}`}
+                    className={`w-3 h-3 rounded-full transition-all hover:scale-110 ${
                       index === currentSlide 
                         ? 'bg-accent-gold' 
-                        : 'bg-primary-navy-foreground/30'
+                        : 'bg-primary-navy-foreground/30 hover:bg-primary-navy-foreground/50'
                     }`}
                   />
                 ))}
@@ -189,6 +211,41 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+
+    {/* Watch Demo Modal */}
+    <Dialog open={isWatchDemoOpen} onOpenChange={setIsWatchDemoOpen}>
+      <DialogContent className="max-w-4xl w-full">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-cairo font-bold">
+            {t('hero.watchDemo')} - NexaCode Platform
+          </DialogTitle>
+        </DialogHeader>
+        <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
+          <div className="text-center">
+            <Play className="h-16 w-16 text-accent-gold mx-auto mb-4" />
+            <p className="text-lg font-semibold mb-2">Platform Demo Video</p>
+            <p className="text-muted-foreground">
+              See how easy it is to buy and manage your digital products
+            </p>
+            <Button 
+              variant="accent" 
+              className="mt-4"
+              onClick={() => {
+                toast({
+                  title: "Demo Video",
+                  description: "This feature will be available soon! Video player integration coming up.",
+                  duration: 3000,
+                });
+              }}
+            >
+              <Play className="h-4 w-4 mr-2" />
+              Play Demo
+            </Button>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+    </>
   );
 };
 

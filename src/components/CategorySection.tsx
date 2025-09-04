@@ -1,11 +1,15 @@
-import { ArrowRight, TrendingUp, Clock, Star } from 'lucide-react';
+import { ArrowRight, TrendingUp, Clock, Star, ShoppingCart, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { toast } from '@/hooks/use-toast';
 import { useLanguage } from '@/hooks/useLanguage';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const CategorySection = () => {
   const { t } = useLanguage();
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const categories = [
     {
       id: 'apps',
@@ -102,11 +106,13 @@ const CategorySection = () => {
         {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {categories.map((category, index) => (
-            <Card 
-              key={category.id}
-              className="group overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer animate-slide-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+            <Link key={category.id} to={`/${category.id}`}>
+              <Card 
+                className="group overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer animate-slide-in-up hover:scale-105"
+                style={{ animationDelay: `${index * 0.1}s` }}
+                onMouseEnter={() => setHoveredCategory(category.id)}
+                onMouseLeave={() => setHoveredCategory(null)}
+              >
               {/* Category Image */}
               <div className="relative h-48 overflow-hidden">
                 <img 
@@ -167,11 +173,21 @@ const CategorySection = () => {
                   className="w-full group-hover:bg-accent transition-colors"
                   variant="outline"
                 >
-                  {t('categories.viewAll')} {t(category.titleKey)}
-                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  {hoveredCategory === category.id ? (
+                    <>
+                      <Eye className="h-4 w-4 mr-2" />
+                      {t('categories.explore')} {t(category.titleKey)}
+                    </>
+                  ) : (
+                    <>
+                      {t('categories.viewAll')} {t(category.titleKey)}
+                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </Button>
               </div>
             </Card>
+            </Link>
           ))}
         </div>
 
@@ -184,31 +200,51 @@ const CategorySection = () => {
             </h3>
               <p className="text-muted-foreground">{t('categories.freshArrivals')}</p>
             </div>
-            <Button variant="outline">
-              {t('categories.viewAll')}
-              <ArrowRight className="h-4 w-4 ml-2" />
+            <Button variant="outline" asChild>
+              <Link to="/apps?filter=recent">
+                {t('categories.viewAll')}
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </Link>
             </Button>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { name: 'ChatGPT Plus 3 Months', category: 'AI Services', price: '45.00 OMR', time: '2h ago' },
-              { name: 'Discord Nitro Annual', category: 'Communication', price: '28.50 OMR', time: '5h ago' },
-              { name: 'Canva Pro Team License', category: 'Design Tools', price: '125.00 OMR', time: '1d ago' }
+              { name: 'ChatGPT Plus 3 Months', category: 'AI Services', price: '45.00 OMR', time: '2h ago', id: 'chatgpt-plus' },
+              { name: 'Discord Nitro Annual', category: 'Communication', price: '28.50 OMR', time: '5h ago', id: 'discord-nitro' },
+              { name: 'Canva Pro Team License', category: 'Design Tools', price: '125.00 OMR', time: '1d ago', id: 'canva-pro' }
             ].map((item, index) => (
-              <div key={index} className="flex items-center gap-4 p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors cursor-pointer">
-                <div className="bg-accent-gold/20 p-2 rounded">
-                  <Clock className="h-4 w-4 text-accent-gold" />
+              <Link key={index} to={`/product/${item.id}`}>
+                <div className="flex items-center gap-4 p-4 bg-muted rounded-lg hover:bg-muted/80 transition-all duration-300 cursor-pointer hover:scale-105 group">
+                  <div className="bg-accent-gold/20 p-2 rounded group-hover:bg-accent-gold/30 transition-colors">
+                    <Clock className="h-4 w-4 text-accent-gold" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-foreground text-sm group-hover:text-accent-gold transition-colors">{item.name}</h4>
+                    <p className="text-xs text-muted-foreground">{item.category}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-semibold text-foreground text-sm">{item.price}</p>
+                    <p className="text-xs text-muted-foreground">{item.time}</p>
+                  </div>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Button 
+                      size="sm" 
+                      variant="ghost"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        toast({
+                          title: "Added to Cart! 🛒",
+                          description: `${item.name} has been added to your cart.`,
+                          duration: 3000,
+                        });
+                      }}
+                    >
+                      <ShoppingCart className="h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-semibold text-foreground text-sm">{item.name}</h4>
-                  <p className="text-xs text-muted-foreground">{item.category}</p>
-                </div>
-                <div className="text-right">
-                  <p className="font-semibold text-foreground text-sm">{item.price}</p>
-                  <p className="text-xs text-muted-foreground">{item.time}</p>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

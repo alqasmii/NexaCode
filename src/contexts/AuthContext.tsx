@@ -1,6 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { User, Session, AuthChangeEvent } from '@supabase/supabase-js'
-import { supabase, onAuthStateChange } from '../lib/supabase'
 
 interface AuthContextType {
   user: User | null
@@ -8,9 +7,18 @@ interface AuthContextType {
   loading: boolean
   isAdmin: boolean
   signOut: () => Promise<void>
+  isSupabaseConfigured: boolean
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined)
+
+export const useAuth = () => {
+  const context = useContext(AuthContext)
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider')
+  }
+  return context
+}
 
 interface AuthProviderProps {
   children: React.ReactNode
@@ -20,6 +28,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null)
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(true)
+  const [supabaseAvailable, setSupabaseAvailable] = useState(true)
 
   // Admin email configuration
   const ADMIN_EMAIL = 'adnan.m.alqasmi@gmail.com'
@@ -28,42 +37,75 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const isAdmin = user?.email === ADMIN_EMAIL
 
   useEffect(() => {
-    // Get initial session
-    const getInitialSession = async () => {
-      const { data: { session }, error } = await supabase.auth.getSession()
-      if (error) {
-        console.error('Error getting session:', error)
-      } else {
-        setSession(session)
-        setUser(session?.user ?? null)
+    const initializeAuth = async () => {
+      try {
+        // Dynamic import to handle missing Supabase gracefully
+        const { supabase, isPlaceholder } = await import('../lib/supabase')
+        
+        if (isPlaceholder) {
+          console.warn('Supabase is not configured. Authentication features will be limited.')
+          setSupabaseAvailable(false)
+          setLoading(false)
+          return null
+        }
+        
+        // Get initial session
+        const { data: { session }, error } = await supabase.auth.getSession()
+        if (error) {
+          console.error('Error getting session:', error)
+        } else {
+          setSession(session)
+          setUser(session?.user ?? null)
+        }
+
+        // Listen for auth changes
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(
+          async (event: AuthChangeEvent, session: Session | null) => {
+            console.log('Auth event:', event, session)
+            setSession(session)
+            setUser(session?.user ?? null)
+          }
+        )
+
+        setLoading(false)
+        return subscription
+      } catch (error) {
+        console.error('Supabase not available:', error)
+        setSupabaseAvailable(false)
+        setLoading(false)
+        return null
       }
-      setLoading(false)
     }
 
-    getInitialSession()
-
-    // Listen for auth changes
-    const { data: { subscription } } = onAuthStateChange(
-      async (event: AuthChangeEvent, session: Session | null) => {
-        console.log('Auth event:', event, session)
-        setSession(session)
-        setUser(session?.user ?? null)
-        setLoading(false)
-      }
-    )
+    let subscription: any = null
+    initializeAuth().then((sub) => {
+      subscription = sub
+    })
 
     return () => {
-      subscription?.unsubscribe()
+      if (subscription) {
+        subscription.unsubscribe()
+      }
     }
   }, [])
 
-  const handleSignOut = async () => {
-    setLoading(true)
-    const { error } = await supabase.auth.signOut()
-    if (error) {
+  const signOut = async () => {
+    try {
+      if (supabaseAvailable) {
+        const { supabase } = await import('../lib/supabase')
+        const { error } = await supabase.auth.signOut()
+        if (error) {
+          console.error('Error signing out:', error)
+        }
+      }
+      setUser(null)
+      setSession(null)
+    } catch (error) {
       console.error('Error signing out:', error)
+      // Still clear local state even if Supabase signout fails
+      setUser(null)
+      setSession(null)
     }
-    setLoading(false)
   }
 
   const value: AuthContextType = {
@@ -71,7 +113,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     session,
     loading,
     isAdmin,
-    signOut: handleSignOut
+    signOut,
+    isSupabaseConfigured: supabaseAvailable
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
