@@ -1,8 +1,10 @@
 import { Star, Quote } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const TestimonialsSection = () => {
+  const { t } = useLanguage();
   const testimonials = [
     {
       id: 1,
@@ -96,13 +98,10 @@ const TestimonialsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-cairo font-bold text-foreground mb-4">
-            What Our Customers Say
+            {t('testimonials.title')}
           </h2>
-          <p className="text-xl font-cairo text-accent-gold mb-2">
-            ماذا يقول عملاؤنا
-          </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Join thousands of satisfied customers across the GCC who trust Nexo Codes for their digital needs
+            {t('testimonials.subtitle')}
           </p>
           
           {/* Rating Summary */}
@@ -114,17 +113,17 @@ const TestimonialsSection = () => {
                 ))}
               </div>
               <p className="text-2xl font-bold text-foreground">4.9/5</p>
-              <p className="text-sm text-muted-foreground">Average Rating</p>
+              <p className="text-sm text-muted-foreground">{t('testimonials.averageRating')}</p>
             </div>
             <div className="h-12 w-px bg-border"></div>
             <div className="text-center">
               <p className="text-2xl font-bold text-foreground">50,000+</p>
-              <p className="text-sm text-muted-foreground">Happy Customers</p>
+              <p className="text-sm text-muted-foreground">{t('testimonials.happyCustomers')}</p>
             </div>
             <div className="h-12 w-px bg-border"></div>
             <div className="text-center">
               <p className="text-2xl font-bold text-foreground">6</p>
-              <p className="text-sm text-muted-foreground">GCC Countries</p>
+              <p className="text-sm text-muted-foreground">{t('testimonials.gccCountries')}</p>
             </div>
           </div>
         </div>

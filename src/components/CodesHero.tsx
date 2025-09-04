@@ -4,34 +4,34 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useState } from 'react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const CodesHero = () => {
+  const { t, isRTL } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('all');
 
   const filters = [
-    { id: 'all', name: 'All Codes', nameAr: 'جميع الأكواد' },
-    { id: 'game-codes', name: 'Game Codes', nameAr: 'أكواد الألعاب' },
-    { id: 'discount', name: 'Discount Codes', nameAr: 'أكواد الخصم' },
-    { id: 'steam', name: 'Steam Codes', nameAr: 'أكواد ستيم' },
-    { id: 'gift-cards', name: 'Gift Cards', nameAr: 'بطاقات الهدايا' },
-    { id: 'software', name: 'Software', nameAr: 'البرمجيات' }
+    { id: 'all', key: 'codes.filters.allCodes' },
+    { id: 'game-codes', key: 'codes.filters.gameCodes' },
+    { id: 'discount', key: 'codes.filters.discountCodes' },
+    { id: 'steam', key: 'codes.filters.steamCodes' },
+    { id: 'gift-cards', key: 'codes.filters.giftCards' },
+    { id: 'software', key: 'codes.filters.software' }
   ];
 
   const stats = [
-    { icon: Code, number: '5000+', label: 'Premium Codes', labelAr: 'كود مميز' },
-    { icon: Zap, number: 'Instant', label: 'Code Delivery', labelAr: 'تسليم الكود' },
-    { icon: Shield, number: '100%', label: 'Verified Codes', labelAr: 'أكواد موثقة' },
-    { icon: Gift, number: '50%', label: 'Savings Up To', labelAr: 'توفير يصل إلى' }
+    { icon: Code, number: '5000+', key: 'codes.stats.premiumCodes' },
+    { icon: Zap, number: 'Instant', numberAr: 'فوري', key: 'codes.stats.codeDelivery' },
+    { icon: Shield, number: '100%', key: 'codes.stats.verifiedCodes' },
+    { icon: Gift, number: '50%', key: 'codes.stats.savingsUpTo' }
   ];
 
   return (
     <section className="relative min-h-[80vh] bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 overflow-hidden">
       {/* Code Pattern Background */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 30c0-4.418-3.582-8-8-8s-8 3.582-8 8 3.582 8 8 8 8-3.582 8-8zM18 30c0-4.418-3.582-8-8-8s-8 3.582-8 8 3.582 8 8 8 8-3.582 8-8zM54 30c0-4.418-3.582-8-8-8s-8 3.582-8 8 3.582 8 8 8 8-3.582 8-8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
+        <div className="absolute inset-0 bg-white/5"></div>
       </div>
 
       {/* Hero Codes Image */}
@@ -44,43 +44,44 @@ const CodesHero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/80 to-teal-900/60"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 pt-24 pb-16">
+      <div className={`relative z-10 container mx-auto px-4 pt-24 pb-16 ${isRTL ? 'text-right' : 'text-left'}`}>
         <div className="max-w-4xl mx-auto text-center">
           {/* Codes Badge */}
           <Badge className="mb-6 bg-accent-gold/20 text-accent-gold border-accent-gold/30 text-lg px-6 py-2">
-            🎫 Premium Digital Codes Hub
+            {t('codes.badge')}
           </Badge>
 
           {/* Main Title */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Premium
+            {t('codes.title')}
             <span className="text-accent-gold"> Digital</span>
             <br />
-            <span className="text-accent-teal">Codes</span>
+            <span className="text-accent-teal">{t('codes.titleHighlight')}</span>
           </h1>
 
-          {/* Arabic Subtitle */}
+          {/* Subtitle */}
           <p className="text-xl lg:text-2xl font-cairo text-accent-gold mb-4">
-            أكواد رقمية مميزة للألعاب والتطبيقات والخدمات
+            {t('codes.subtitle')}
           </p>
 
           {/* Description */}
           <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            Unlock premium games, software, and services with our verified digital codes. 
-            From game activation codes to discount vouchers - get instant access at unbeatable prices!
+            {t('codes.description')}
           </p>
 
           {/* Search and Filter Section */}
           <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 mb-8">
-            <div className="flex flex-col lg:flex-row gap-4 items-center">
+            <div className={`flex flex-col lg:flex-row gap-4 items-center ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
               {/* Search Input */}
               <div className="relative flex-1 w-full">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 h-5 w-5" />
+                <Search className={`absolute top-1/2 transform -translate-y-1/2 text-white/60 h-5 w-5 ${isRTL ? 'right-3' : 'left-3'}`} />
                 <Input
-                  placeholder="Search Steam, Xbox, PlayStation, Software codes..."
+                  placeholder={t('codes.searchPlaceholder')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/20 border-white/30 text-white placeholder:text-white/60 h-12 text-lg"
+                  className={`bg-white/20 border-white/30 text-white placeholder:text-white/60 h-12 text-lg ${
+                    isRTL ? 'pr-10 text-right' : 'pl-10 text-left'
+                  }`}
                 />
               </div>
 
@@ -97,7 +98,7 @@ const CodesHero = () => {
                         : 'bg-white/20 text-white border-white/30 hover:bg-white/30'
                     }`}
                   >
-                    {filter.name}
+                    {t(filter.key)}
                   </Button>
                 ))}
               </div>
@@ -109,9 +110,10 @@ const CodesHero = () => {
             {stats.map((stat, index) => (
               <Card key={index} className="bg-gradient-to-br from-emerald-600/20 to-teal-600/20 backdrop-blur-sm border-emerald-400/30 p-4 text-center hover:border-accent-gold/50 transition-all duration-300">
                 <stat.icon className="h-8 w-8 text-accent-gold mx-auto mb-2" />
-                <div className="text-2xl font-bold text-white mb-1">{stat.number}</div>
-                <div className="text-sm text-white/80">{stat.label}</div>
-                <div className="text-xs text-accent-gold font-cairo">{stat.labelAr}</div>
+                <div className="text-2xl font-bold text-white mb-1">
+                  {stat.numberAr && isRTL ? stat.numberAr : stat.number}
+                </div>
+                <div className="text-sm text-white/80">{t(stat.key)}</div>
               </Card>
             ))}
           </div>
@@ -119,16 +121,16 @@ const CodesHero = () => {
           {/* Popular Code Types Quick Access */}
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Badge className="bg-emerald-500/20 text-emerald-200 border-emerald-400/30 px-4 py-2 text-sm">
-              🎮 Game Activation Codes
+              {t('codes.quickAccess.gameActivationCodes')}
             </Badge>
             <Badge className="bg-teal-500/20 text-teal-200 border-teal-400/30 px-4 py-2 text-sm">
-              💳 Gift Card Codes
+              {t('codes.quickAccess.giftCardCodes')}
             </Badge>
             <Badge className="bg-cyan-500/20 text-cyan-200 border-cyan-400/30 px-4 py-2 text-sm">
-              🎯 Discount Vouchers
+              {t('codes.quickAccess.discountVouchers')}
             </Badge>
             <Badge className="bg-blue-500/20 text-blue-200 border-blue-400/30 px-4 py-2 text-sm">
-              💻 Software Licenses
+              {t('codes.quickAccess.softwareLicenses')}
             </Badge>
           </div>
 
@@ -136,15 +138,15 @@ const CodesHero = () => {
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-white/80">
             <div className="flex items-center gap-2">
               <Key className="h-4 w-4 text-accent-gold" />
-              <span>Instant Code Delivery</span>
+              <span>{t('codes.trust.instantCodeDelivery')}</span>
             </div>
             <div className="flex items-center gap-2">
               <Shield className="h-4 w-4 text-emerald-400" />
-              <span>Verified & Tested</span>
+              <span>{t('codes.trust.verifiedTested')}</span>
             </div>
             <div className="flex items-center gap-2">
               <Percent className="h-4 w-4 text-accent-teal" />
-              <span>Up to 70% Savings</span>
+              <span>{t('codes.trust.savingsPercent')}</span>
             </div>
           </div>
         </div>

@@ -3,8 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useState } from 'react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const FeaturedCodes = () => {
+  const { t, isRTL } = useLanguage();
   const [favorites, setFavorites] = useState<string[]>([]);
 
   const toggleFavorite = (id: string) => {
@@ -164,21 +166,20 @@ const FeaturedCodes = () => {
 
   return (
     <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div className={`container mx-auto px-4 ${isRTL ? 'text-right' : 'text-left'}`}>
         {/* Section Header */}
         <div className="text-center mb-16">
           <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 border-emerald-500/20">
-            🎫 Featured Digital Codes
+            {t('codes.featured.title')}
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Premium <span className="text-emerald-500">Digital Codes</span>
+            {t('codes.featured.title')} <span className="text-emerald-500">{t('codes.titleHighlight')}</span>
           </h2>
           <p className="text-xl font-cairo text-accent-teal mb-4">
-            أكواد رقمية مميزة وموثقة
+            {t('codes.featured.subtitle')}
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get instant access to premium digital codes for games, software, and services. 
-            All codes are verified, tested, and delivered instantly to your email.
+            {t('codes.description')}
           </p>
         </div>
 
@@ -229,7 +230,7 @@ const FeaturedCodes = () => {
                   <div className="absolute bottom-4 left-4">
                     <Badge className="bg-emerald-600 text-white">
                       <Clock className="h-3 w-3 mr-1" />
-                      Instant
+                      {t('codes.featured.instantDelivery')}
                     </Badge>
                   </div>
                 )}
@@ -247,19 +248,24 @@ const FeaturedCodes = () => {
                 {/* Title and Rating */}
                 <div className="flex justify-between items-start mb-3">
                   <div>
-                    <h3 className="text-xl font-bold text-foreground mb-1">{code.name}</h3>
-                    <p className="text-sm font-cairo text-emerald-500">{code.nameAr}</p>
+                    <h3 className="text-xl font-bold text-foreground mb-1">
+                      {isRTL ? code.nameAr : code.name}
+                    </h3>
+                    <p className="text-sm font-cairo text-emerald-500">
+                      {isRTL ? code.name : code.nameAr}
+                    </p>
                   </div>
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-500 fill-current" />
                     <span className="text-sm font-semibold">{code.rating}</span>
-                    <span className="text-xs text-muted-foreground">({code.reviews})</span>
+                    <span className="text-xs text-muted-foreground">({code.reviews} {t('codes.featured.reviews')})</span>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-muted-foreground mb-2">{code.description}</p>
-                <p className="text-xs font-cairo text-accent-teal mb-4">{code.descriptionAr}</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {isRTL ? code.descriptionAr : code.description}
+                </p>
 
                 {/* Features */}
                 <div className="flex flex-wrap gap-1 mb-4">
@@ -299,10 +305,10 @@ const FeaturedCodes = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-2">
+                <div className={`flex gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <Button className="flex-1 bg-emerald-600 text-white hover:bg-emerald-700 font-semibold">
-                    Buy Code
-                    <Key className="h-4 w-4 ml-1" />
+                    {t('codes.featured.buyNow')}
+                    <Key className={`h-4 w-4 ${isRTL ? 'mr-1' : 'ml-1'}`} />
                   </Button>
                   <Button variant="outline" size="sm" className="px-3 border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white">
                     <Copy className="h-4 w-4" />
@@ -313,11 +319,11 @@ const FeaturedCodes = () => {
                 <div className="mt-4 grid grid-cols-2 gap-2 text-xs text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Download className="h-3 w-3 text-emerald-500" />
-                    <span>Digital Delivery</span>
+                    <span>{t('codes.trust.instantCodeDelivery')}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Shield className="h-3 w-3 text-blue-500" />
-                    <span>Verified Code</span>
+                    <span>{t('codes.featured.verified')}</span>
                   </div>
                 </div>
               </div>
@@ -328,8 +334,8 @@ const FeaturedCodes = () => {
         {/* View All Button */}
         <div className="text-center mt-12">
           <Button size="lg" variant="outline" className="border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white">
-            View All Digital Codes
-            <ChevronRight className="h-5 w-5 ml-2" />
+            {t('codes.categories.viewAll')}
+            <ChevronRight className={`h-5 w-5 ${isRTL ? 'mr-2' : 'ml-2'}`} />
           </Button>
         </div>
       </div>

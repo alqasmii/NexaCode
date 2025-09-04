@@ -2,15 +2,15 @@ import { ArrowRight, TrendingUp, Clock, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const CategorySection = () => {
+  const { t } = useLanguage();
   const categories = [
     {
       id: 'apps',
-      title: 'Mobile Apps',
-      titleAr: 'التطبيقات المحمولة',
-      description: 'Premium iOS & Android applications',
-      descriptionAr: 'تطبيقات متميزة للآيفون والأندرويد',
+      titleKey: 'categories.apps.title',
+      descriptionKey: 'categories.apps.description',
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
       itemCount: '2,500+',
       trending: true,
@@ -23,10 +23,8 @@ const CategorySection = () => {
     },
     {
       id: 'subscriptions',
-      title: 'Subscriptions',
-      titleAr: 'الاشتراكات',
-      description: 'Netflix, Spotify, Adobe & more',
-      descriptionAr: 'نتفليكس، سبوتيفاي، أدوبي والمزيد',
+      titleKey: 'categories.subscriptions.title',
+      descriptionKey: 'categories.subscriptions.description',
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80",
       itemCount: '150+',
       trending: false,
@@ -39,10 +37,8 @@ const CategorySection = () => {
     },
     {
       id: 'gaming',
-      title: 'Gaming',
-      titleAr: 'الألعاب',
-      description: 'Game accounts, skins & currencies',
-      descriptionAr: 'حسابات الألعاب والعملات الرقمية',
+      titleKey: 'categories.gaming.title',
+      descriptionKey: 'categories.gaming.description',
       image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
       itemCount: '5,000+',
       trending: true,
@@ -96,10 +92,10 @@ const CategorySection = () => {
             Explore Categories
           </h2>
           <p className="text-xl font-cairo text-accent-gold mb-2">
-            استكشف الفئات
+            {t('categories.title')}
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover premium digital products across all categories, carefully curated for the GCC market
+            {t('categories.subtitle')}
           </p>
         </div>
 
@@ -127,27 +123,24 @@ const CategorySection = () => {
                       {category.trending && (
                         <Badge className="bg-accent-gold text-accent-gold-foreground mb-2">
                           <TrendingUp className="h-3 w-3 mr-1" />
-                          Trending
+                          {t('categories.trending')}
                         </Badge>
                       )}
                       <h3 className="text-xl font-cairo font-bold mb-1">
-                        {category.title}
+                        {t(category.titleKey)}
                       </h3>
                       <p className="text-sm font-cairo opacity-90">
-                        {category.titleAr}
+                        {t(category.descriptionKey)}
                       </p>
                     </div>
                     <span className="bg-primary-navy-foreground/20 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium">
-                      {category.itemCount} items
+                      {category.itemCount} {t('categories.items')}
                     </span>
                   </div>
                   
                   <div>
                     <p className="text-sm opacity-90 mb-2">
-                      {category.description}
-                    </p>
-                    <p className="text-xs font-cairo opacity-75">
-                      {category.descriptionAr}
+                      {t(category.descriptionKey)}
                     </p>
                   </div>
                 </div>
@@ -174,7 +167,7 @@ const CategorySection = () => {
                   className="w-full group-hover:bg-accent transition-colors"
                   variant="outline"
                 >
-                  View All {category.title}
+                  {t('categories.viewAll')} {t(category.titleKey)}
                   <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
@@ -187,12 +180,12 @@ const CategorySection = () => {
           <div className="flex items-center justify-between mb-6">
             <div>
             <h3 className="text-2xl font-cairo font-bold text-foreground mb-2">
-              Recently Added
+              {t('categories.recentlyAdded')}
             </h3>
-              <p className="text-muted-foreground">Fresh arrivals this week</p>
+              <p className="text-muted-foreground">{t('categories.freshArrivals')}</p>
             </div>
             <Button variant="outline">
-              View All
+              {t('categories.viewAll')}
               <ArrowRight className="h-4 w-4 ml-2" />
             </Button>
           </div>

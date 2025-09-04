@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, ShoppingCart, User, Globe, Menu, X, LogOut, UserCheck } from 'lucide-react';
+import { Search, ShoppingCart, User, Globe, Menu, X, LogOut, UserCheck, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Link } from 'react-router-dom';
@@ -13,20 +13,23 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import ThemeToggle from '@/components/ThemeToggle';
+import { LanguageToggle } from '@/components/LanguageToggle';
 import { AuthModal } from '@/components/auth/AuthModal';
 import { useAuth } from '@/hooks/useAuth';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const { user, loading, signOut } = useAuth();
+  const { user, loading, signOut, isAdmin } = useAuth();
+  const { t, language } = useLanguage();
 
   const categories = [
-    { name: 'Apps', href: '/apps' },
-    { name: 'Subscriptions', href: '/subscriptions' },
-    { name: 'Gaming', href: '/gaming' },
-    { name: 'Codes', href: '/codes' },
-    { name: 'Services', href: '/services' },
+    { name: t('category.apps'), href: '/apps' },
+    { name: t('category.subscriptions'), href: '/subscriptions' },
+    { name: t('category.gaming'), href: '/gaming' },
+    { name: t('category.codes'), href: '/codes' },
+    { name: t('category.services'), href: '/services' },
   ];
 
   return (
@@ -35,13 +38,13 @@ const Navigation = () => {
       <div className="bg-primary-navy text-primary-navy-foreground py-2">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-sm">
-            <p>🎉 Welcome to Nexo Codes - Premium Digital Marketplace for the GCC</p>
+            <p>{t('nav.welcome')}</p>
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1">
                 <Globe className="h-4 w-4" />
-                العربية | English
+                {t('nav.language')}
               </span>
-              <span>📞 Support: +968 9999 0000</span>
+              <span>{t('nav.support')}</span>
             </div>
           </div>
         </div>
@@ -53,9 +56,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-cairo font-bold text-primary-navy dark:text-accent-gold hover:opacity-80 transition-opacity">
-              نيكسو كودز
-              <span className="text-accent-gold mx-2">•</span>
-              Nexo Codes
+              {language === 'ar' ? 'نيكسو كودز' : 'Nexo Codes'}
             </Link>
           </div>
 
@@ -77,7 +78,7 @@ const Navigation = () => {
             <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <Input
-                placeholder="Search for apps, games, codes..."
+                placeholder={t('nav.search')}
                 className="pl-10 bg-muted border-0 focus:ring-2 focus:ring-accent-gold"
               />
             </div>
@@ -85,6 +86,7 @@ const Navigation = () => {
 
           {/* Right Actions */}
           <div className="flex items-center space-x-4">
+            <LanguageToggle />
             <ThemeToggle />
             
             {/* User Authentication */}
@@ -117,18 +119,29 @@ const Navigation = () => {
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
+                  {isAdmin && (
+                    <>
+                      <DropdownMenuItem asChild>
+                        <Link to="/admin" className="flex items-center">
+                          <Shield className="mr-2 h-4 w-4 text-blue-600" />
+                          <span className="font-medium text-blue-600">Admin Dashboard</span>
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                    </>
+                  )}
                   <DropdownMenuItem>
                     <UserCheck className="mr-2 h-4 w-4" />
-                    <span>Profile / الملف الشخصي</span>
+                    <span>{t('nav.profile')}</span>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <ShoppingCart className="mr-2 h-4 w-4" />
-                    <span>Orders / الطلبات</span>
+                    <span>{t('nav.orders')}</span>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={signOut}>
                     <LogOut className="mr-2 h-4 w-4" />
-                    <span>Sign out / تسجيل الخروج</span>
+                    <span>{t('nav.signOut')}</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -141,7 +154,7 @@ const Navigation = () => {
                   onClick={() => setIsAuthModalOpen(true)}
                 >
                   <User className="h-4 w-4 mr-2" />
-                  Sign In
+                  {t('nav.signIn')}
                 </Button>
                 <Button 
                   size="sm" 
@@ -149,7 +162,7 @@ const Navigation = () => {
                   className="hidden md:flex"
                   onClick={() => setIsAuthModalOpen(true)}
                 >
-                  Register
+                  {t('nav.register')}
                 </Button>
               </>
             )}
@@ -178,7 +191,7 @@ const Navigation = () => {
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
-              placeholder="Search for apps, games, codes..."
+              placeholder={t('nav.search')}
               className="pl-10 bg-muted border-0"
             />
           </div>
@@ -223,11 +236,11 @@ const Navigation = () => {
                     </div>
                     <Button variant="ghost" className="justify-start">
                       <UserCheck className="h-4 w-4 mr-2" />
-                      Profile / الملف الشخصي
+                      {t('nav.profile')}
                     </Button>
                     <Button variant="ghost" className="justify-start" onClick={signOut}>
                       <LogOut className="h-4 w-4 mr-2" />
-                      Sign out / تسجيل الخروج
+                      {t('nav.signOut')}
                     </Button>
                   </>
                 ) : (
@@ -241,7 +254,7 @@ const Navigation = () => {
                       }}
                     >
                       <User className="h-4 w-4 mr-2" />
-                      Sign In
+                      {t('nav.signIn')}
                     </Button>
                     <Button 
                       variant="hero"
@@ -250,7 +263,7 @@ const Navigation = () => {
                         setIsMenuOpen(false)
                       }}
                     >
-                      Register
+                      {t('nav.register')}
                     </Button>
                   </>
                 )}

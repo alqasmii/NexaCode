@@ -2,49 +2,51 @@ import { ChevronLeft, ChevronRight, Star, Shield, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const HeroSection = () => {
+  const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
-      title: "Premium Digital Products",
-      subtitle: "للشرق الأوسط ودول الخليج",
-      description: "Discover the largest collection of digital products, apps, and services tailored for the GCC market.",
-      cta: "Explore Now",
-      badge: "🎉 New Arrivals"
+      title: t('hero.slide1.title'),
+      subtitle: t('hero.slide1.subtitle'),
+      description: t('hero.slide1.description'),
+      cta: t('hero.slide1.cta'),
+      badge: t('hero.slide1.badge')
     },
     {
-      title: "Gaming Paradise",
-      subtitle: "عالم الألعاب الرقمية",
-      description: "Access premium gaming accounts, in-game currencies, and exclusive gaming content.",
-      cta: "Shop Gaming",
-      badge: "🎮 Gaming Hub"
+      title: t('hero.slide2.title'),
+      subtitle: t('hero.slide2.subtitle'),
+      description: t('hero.slide2.description'),
+      cta: t('hero.slide2.cta'),
+      badge: t('hero.slide2.badge')
     },
     {
-      title: "Business Solutions",
-      subtitle: "حلول الأعمال الرقمية",
-      description: "Professional software subscriptions and business tools for enterprises across the GCC.",
-      cta: "View Business",
-      badge: "💼 For Business"
+      title: t('hero.slide3.title'),
+      subtitle: t('hero.slide3.subtitle'),
+      description: t('hero.slide3.description'),
+      cta: t('hero.slide3.cta'),
+      badge: t('hero.slide3.badge')
     }
   ];
 
   const features = [
     {
       icon: Shield,
-      title: "Secure Transactions",
-      description: "Bank-level security for all purchases"
+      title: t('hero.feature1.title'),
+      description: t('hero.feature1.description')
     },
     {
       icon: Zap,
-      title: "Instant Delivery",
-      description: "Digital products delivered immediately"
+      title: t('hero.feature2.title'),
+      description: t('hero.feature2.description')
     },
     {
       icon: Star,
-      title: "Premium Quality",
-      description: "Only verified, high-quality products"
+      title: t('hero.feature3.title'),
+      description: t('hero.feature3.description')
     }
   ];
 
@@ -103,7 +105,7 @@ const HeroSection = () => {
                 {slides[currentSlide].cta}
               </Button>
               <Button size="lg" variant="outline" className="border-primary-navy-foreground text-primary-navy-foreground hover:bg-primary-navy-foreground hover:text-primary-navy">
-                Watch Demo
+                {t('hero.watchDemo')}
               </Button>
             </div>
 
@@ -176,13 +178,13 @@ const HeroSection = () => {
           <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <Shield className="h-4 w-4 text-success" />
-              SSL Secured
+              {t('hero.sslSecured')}
             </span>
             <span className="flex items-center gap-2">
               <Star className="h-4 w-4 text-accent-gold" />
-              4.9/5 Rating
+              {t('hero.rating')}
             </span>
-            <span>🏆 Trusted by 50,000+ customers across GCC</span>
+            <span>{t('hero.trustedBy')}</span>
           </div>
         </div>
       </div>

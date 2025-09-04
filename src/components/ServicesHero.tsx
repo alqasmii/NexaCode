@@ -4,39 +4,38 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useState } from 'react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const ServicesHero = () => {
+  const { t, isRTL } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('all');
 
   const serviceTypes = [
-    { id: 'all', name: 'All Services', nameAr: 'جميع الخدمات' },
-    { id: 'pc-optimization', name: 'PC Optimization', nameAr: 'تحسين الكمبيوتر' },
-    { id: 'troubleshooting', name: 'Troubleshooting', nameAr: 'إصلاح المشاكل' },
-    { id: 'development', name: 'Development', nameAr: 'التطوير' },
-    { id: 'consulting', name: 'Consulting', nameAr: 'استشارات' }
+    { id: 'all', key: 'services.filters.allServices' },
+    { id: 'pc-optimization', key: 'services.filters.pcOptimization' },
+    { id: 'troubleshooting', key: 'services.filters.troubleshooting' },
+    { id: 'development', key: 'services.filters.development' },
+    { id: 'consulting', key: 'services.filters.consulting' }
   ];
 
   const quickStats = [
     {
       icon: Users,
       value: '5000+',
-      label: 'Clients Served',
-      labelAr: 'عميل تم خدمته',
+      key: 'services.stats.clientsServed',
       color: 'text-violet-500'
     },
     {
       icon: Video,
       value: '24/7',
-      label: 'Live Support',
-      labelAr: 'دعم مباشر',
+      key: 'services.stats.liveSupport',
       color: 'text-blue-500'
     },
     {
       icon: Settings,
       value: '99%',
-      label: 'Success Rate',
-      labelAr: 'معدل النجاح',
+      key: 'services.stats.successRate',
       color: 'text-green-500'
     }
   ];
@@ -63,47 +62,39 @@ const ServicesHero = () => {
         </div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-20">
+      <div className={`relative z-10 container mx-auto px-4 py-20 ${isRTL ? 'text-right' : 'text-left'}`}>
         <div className="text-center mb-16">
           {/* Service Badge */}
           <Badge className="mb-6 bg-violet-500/20 text-violet-200 border-violet-500/30 px-6 py-2 text-lg">
-            🛠️ Professional Tech Services
+            {t('services.badge')}
           </Badge>
 
           {/* Main Heading */}
           <h1 className="text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Expert <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-400">Tech Services</span>
+            {t('services.titleHighlight')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-400">{t('services.title')}</span>
             <br />
-            <span className="text-4xl lg:text-5xl text-violet-200">at Your Fingertips</span>
+            <span className="text-4xl lg:text-5xl text-violet-200">{t('services.subtitle')}</span>
           </h1>
 
-          {/* Arabic Heading */}
-          <h2 className="text-3xl lg:text-4xl font-cairo text-violet-200 mb-8">
-            خدمات تقنية احترافية في متناول يديك
-          </h2>
-
           {/* Description */}
-          <p className="text-xl text-violet-100 max-w-4xl mx-auto mb-12 leading-relaxed">
-            Get professional help with PC optimization, troubleshooting, website development, and more. 
-            Our experts provide live support via video calls or detailed video tutorials tailored to your needs.
-          </p>
-          <p className="text-lg font-cairo text-violet-200 max-w-3xl mx-auto mb-16">
-            احصل على مساعدة احترافية في تحسين الكمبيوتر، وإصلاح المشاكل، وتطوير المواقع، والمزيد. 
-            خبراؤنا يقدمون الدعم المباشر عبر مكالمات الفيديو أو فيديوهات تعليمية مفصلة.
+          <p className="text-xl text-violet-100 max-w-4xl mx-auto mb-16 leading-relaxed">
+            {t('services.description')}
           </p>
 
           {/* Search and Filter Section */}
           <div className="max-w-4xl mx-auto mb-12">
             <Card className="p-6 bg-white/10 backdrop-blur-md border-violet-500/30">
-              <div className="flex flex-col lg:flex-row gap-4">
+              <div className={`flex flex-col lg:flex-row gap-4 ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
                 {/* Search Input */}
                 <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-violet-300 h-5 w-5" />
+                  <Search className={`absolute top-1/2 transform -translate-y-1/2 text-violet-300 h-5 w-5 ${isRTL ? 'right-3' : 'left-3'}`} />
                   <Input
-                    placeholder="Search for services (PC optimization, website building, etc.)"
+                    placeholder={t('services.searchPlaceholder')}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-12 bg-white/20 border-violet-400/50 text-white placeholder:text-violet-200 h-12"
+                    className={`bg-white/20 border-violet-400/50 text-white placeholder:text-violet-200 h-12 ${
+                      isRTL ? 'pr-12 text-right' : 'pl-12 text-left'
+                    }`}
                   />
                 </div>
 
@@ -113,10 +104,11 @@ const ServicesHero = () => {
                     value={selectedFilter}
                     onChange={(e) => setSelectedFilter(e.target.value)}
                     className="appearance-none bg-white/20 border border-violet-400/50 rounded-md px-4 py-3 pr-10 text-white h-12 min-w-[200px]"
+                    title="Service Type Filter"
                   >
                     {serviceTypes.map((type) => (
                       <option key={type.id} value={type.id} className="bg-purple-900 text-white">
-                        {type.name}
+                        {t(type.key)}
                       </option>
                     ))}
                   </select>
@@ -142,7 +134,7 @@ const ServicesHero = () => {
                       selectedFilter === type.id ? 'bg-violet-500/30' : ''
                     }`}
                   >
-                    {type.name}
+                    {t(type.key)}
                   </Button>
                 ))}
               </div>
@@ -162,8 +154,7 @@ const ServicesHero = () => {
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                    <p className="text-violet-200 text-sm">{stat.label}</p>
-                    <p className="text-violet-300 text-xs font-cairo">{stat.labelAr}</p>
+                    <p className="text-violet-200 text-sm">{t(stat.key)}</p>
                   </div>
                 </Card>
               );
@@ -171,14 +162,14 @@ const ServicesHero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
             <Button size="lg" className="bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600 text-white px-8 py-4 text-lg">
-              <Video className="h-6 w-6 mr-2" />
-              Book Live Session
+              <Video className={`h-6 w-6 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+              {t('services.actions.bookConsultation')}
             </Button>
             <Button size="lg" variant="outline" className="border-violet-400 text-violet-200 hover:bg-violet-500/20 px-8 py-4 text-lg">
-              <Settings className="h-6 w-6 mr-2" />
-              Browse All Services
+              <Settings className={`h-6 w-6 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+              {t('services.actions.viewServices')}
             </Button>
           </div>
 
@@ -186,15 +177,15 @@ const ServicesHero = () => {
           <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-violet-300">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm">Live Support Available</span>
+              <span className="text-sm">{t('services.stats.liveSupport')}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-              <span className="text-sm">Certified Experts</span>
+              <span className="text-sm">{t('services.benefits.expertsAvailable')}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-violet-500 rounded-full animate-pulse" />
-              <span className="text-sm">Money-Back Guarantee</span>
+              <span className="text-sm">{t('services.benefits.qualityGuarantee')}</span>
             </div>
           </div>
         </div>

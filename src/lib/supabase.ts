@@ -15,35 +15,6 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   }
 })
 
-// Phone number authentication configuration
-export const sendPhoneOTP = async (phone: string) => {
-  const { data, error } = await supabase.auth.signInWithOtp({
-    phone: phone,
-  })
-  
-  if (error) {
-    console.error('Error sending OTP:', error)
-    throw error
-  }
-  
-  return data
-}
-
-export const verifyPhoneOTP = async (phone: string, token: string) => {
-  const { data, error } = await supabase.auth.verifyOtp({
-    phone: phone,
-    token: token,
-    type: 'sms'
-  })
-  
-  if (error) {
-    console.error('Error verifying OTP:', error)
-    throw error
-  }
-  
-  return data
-}
-
 // Email authentication functions
 export const signUpWithEmail = async (email: string, password: string, userData?: Record<string, unknown>) => {
   const { data, error } = await supabase.auth.signUp({
@@ -91,4 +62,17 @@ export const getCurrentUser = () => {
 
 export const onAuthStateChange = (callback: (event: AuthChangeEvent, session: Session | null) => void) => {
   return supabase.auth.onAuthStateChange(callback)
+}
+
+export const resetPassword = async (email: string) => {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `${window.location.origin}/reset-password`,
+  })
+  
+  if (error) {
+    console.error('Error sending reset email:', error)
+    throw error
+  }
+  
+  return data
 }

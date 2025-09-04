@@ -217,4 +217,30 @@
   * {
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
   }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-float.delay-1000 {
+    animation-delay: 1s;
+  }
+
+  .animate-float.delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animate-float.delay-3000 {
+    animation-delay: 3s;
+  }
 }

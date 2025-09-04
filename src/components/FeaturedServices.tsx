@@ -3,8 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useState } from 'react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const FeaturedServices = () => {
+  const { t, isRTL } = useLanguage();
   const [favorites, setFavorites] = useState<string[]>([]);
 
   const toggleFavorite = (id: string) => {
@@ -188,21 +190,17 @@ const FeaturedServices = () => {
 
   return (
     <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div className={`container mx-auto px-4 ${isRTL ? 'text-right' : 'text-left'}`}>
         {/* Section Header */}
         <div className="text-center mb-16">
           <Badge className="mb-4 bg-violet-500/10 text-violet-500 border-violet-500/20">
-            ⭐ Featured Services
+            {t('services.featured.title')}
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Popular <span className="text-violet-500">Tech Services</span>
+            {t('services.featured.title')} <span className="text-violet-500">{t('services.title')}</span>
           </h2>
-          <p className="text-xl font-cairo text-accent-teal mb-4">
-            الخدمات التقنية الشائعة
-          </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Our most requested services by satisfied customers. 
-            Choose between live sessions with our experts or detailed video tutorials.
+            {t('services.featured.subtitle')}
           </p>
         </div>
 
@@ -251,7 +249,7 @@ const FeaturedServices = () => {
                           ? 'bg-green-200 animate-pulse'
                           : 'bg-orange-200'
                       }`} />
-                      {service.availability}
+                      {isRTL ? service.availabilityAr : service.availability}
                     </Badge>
                   </div>
                 </div>
@@ -261,25 +259,32 @@ const FeaturedServices = () => {
                   {/* Title and Rating */}
                   <div className="flex justify-between items-start mb-3">
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-foreground mb-1">{service.name}</h3>
-                      <p className="text-sm font-cairo text-violet-500">{service.nameAr}</p>
+                      <h3 className="text-xl font-bold text-foreground mb-1">
+                        {isRTL ? service.nameAr : service.name}
+                      </h3>
+                      <p className="text-sm font-cairo text-violet-500">
+                        {isRTL ? service.name : service.nameAr}
+                      </p>
                     </div>
                     <div className="flex items-center gap-1 ml-4">
                       <Star className="h-4 w-4 text-yellow-500 fill-current" />
                       <span className="text-sm font-semibold">{service.rating}</span>
-                      <span className="text-xs text-muted-foreground">({service.reviews})</span>
+                      <span className="text-xs text-muted-foreground">({service.reviews} {t('services.common.reviews')})</span>
                     </div>
                   </div>
 
                   {/* Expert */}
                   <div className="flex items-center gap-2 mb-3">
                     <Users className="h-4 w-4 text-violet-500" />
-                    <span className="text-sm text-muted-foreground">Expert: {service.expert}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {t('services.benefits.expertsAvailable')}: {isRTL ? service.expertAr : service.expert}
+                    </span>
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-muted-foreground mb-2 line-clamp-2">{service.description}</p>
-                  <p className="text-xs font-cairo text-accent-teal mb-4 line-clamp-2">{service.descriptionAr}</p>
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                    {isRTL ? service.descriptionAr : service.description}
+                  </p>
 
                   {/* Features */}
                   <div className="flex flex-wrap gap-1 mb-4">
@@ -308,11 +313,11 @@ const FeaturedServices = () => {
                       </div>
                       <div className="flex items-center gap-1 text-xs text-muted-foreground">
                         <Clock className="h-3 w-3" />
-                        <span>{service.duration}</span>
+                        <span>{isRTL ? service.durationAr : service.duration}</span>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-muted-foreground">Savings</p>
+                      <p className="text-xs text-muted-foreground">{t('codes.featured.originalPrice')}</p>
                       <p className="text-sm font-semibold text-green-600">
                         {Math.round(((parseFloat(service.originalPrice) - parseFloat(service.price)) / parseFloat(service.originalPrice)) * 100)}% OFF
                       </p>
@@ -320,10 +325,10 @@ const FeaturedServices = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-2">
+                  <div className={`flex gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <Button className="flex-1 bg-violet-600 text-white hover:bg-violet-700 font-semibold">
-                      <Video className="h-4 w-4 mr-1" />
-                      Book Service
+                      <Video className={`h-4 w-4 ${isRTL ? 'ml-1' : 'mr-1'}`} />
+                      {t('services.actions.bookConsultation')}
                     </Button>
                     <Button variant="outline" size="sm" className="px-3 border-violet-500 text-violet-500 hover:bg-violet-500 hover:text-white">
                       <MessageCircle className="h-4 w-4" />
@@ -334,11 +339,11 @@ const FeaturedServices = () => {
                   <div className="mt-4 grid grid-cols-2 gap-2 text-xs text-muted-foreground">
                     <div className="flex items-center gap-1">
                       <Zap className="h-3 w-3 text-violet-500" />
-                      <span>Fast Delivery</span>
+                      <span>{t('services.featured.instantSupport')}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Shield className="h-3 w-3 text-green-500" />
-                      <span>Guaranteed</span>
+                      <span>{t('services.featured.satisfactionGuarantee')}</span>
                     </div>
                   </div>
                 </div>
@@ -350,7 +355,7 @@ const FeaturedServices = () => {
         {/* View All Button */}
         <div className="text-center mt-12">
           <Button size="lg" variant="outline" className="border-violet-500 text-violet-500 hover:bg-violet-500 hover:text-white">
-            View All Services
+            {t('services.actions.viewServices')}
           </Button>
         </div>
       </div>

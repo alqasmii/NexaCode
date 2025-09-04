@@ -1,62 +1,49 @@
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const Footer = () => {
-  const footerSections = [
-    {
-      title: 'Products',
-      titleAr: 'المنتجات',
-      links: [
-        { name: 'Mobile Apps', nameAr: 'التطبيقات المحمولة', href: '/apps' },
-        { name: 'Subscriptions', nameAr: 'الاشتراكات', href: '/subscriptions' },
-        { name: 'Gaming', nameAr: 'الألعاب', href: '/gaming' },
-        { name: 'Activation Codes', nameAr: 'أكواد التفعيل', href: '/codes' },
-        { name: 'Digital Services', nameAr: 'الخدمات الرقمية', href: '/services' }
-      ]
-    },
-    {
-      title: 'Support',
-      titleAr: 'الدعم',
-      links: [
-        { name: 'Help Center', nameAr: 'مركز المساعدة', href: '/help' },
-        { name: 'Contact Us', nameAr: 'اتصل بنا', href: '/contact' },
-        { name: 'Order Tracking', nameAr: 'تتبع الطلب', href: '/tracking' },
-        { name: 'Refund Policy', nameAr: 'سياسة الاسترداد', href: '/refunds' },
-        { name: 'FAQs', nameAr: 'الأسئلة الشائعة', href: '/faq' }
-      ]
-    },
-    {
-      title: 'Company',
-      titleAr: 'الشركة',
-      links: [
-        { name: 'About Us', nameAr: 'من نحن', href: '/about' },
-        { name: 'Careers', nameAr: 'الوظائف', href: '/careers' },
-        { name: 'Press', nameAr: 'الصحافة', href: '/press' },
-        { name: 'Partnership', nameAr: 'الشراكة', href: '/partnership' },
-        { name: 'Become Vendor', nameAr: 'كن بائعاً', href: '/vendor' }
-      ]
-    },
-    {
-      title: 'Legal',
-      titleAr: 'القانونية',
-      links: [
-        { name: 'Terms of Service', nameAr: 'شروط الخدمة', href: '/terms' },
-        { name: 'Privacy Policy', nameAr: 'سياسة الخصوصية', href: '/privacy' },
-        { name: 'Cookie Policy', nameAr: 'سياسة ملفات تعريف الارتباط', href: '/cookies' },
-        { name: 'GDPR', nameAr: 'اللائحة العامة لحماية البيانات', href: '/gdpr' },
-        { name: 'Licenses', nameAr: 'التراخيص', href: '/licenses' }
-      ]
-    }
-  ];
+  const { t, isRTL } = useLanguage();
+
+  const footerLinks = {
+    products: [
+      { key: 'footer.links.mobileApps', href: '/apps' },
+      { key: 'footer.links.subscriptions', href: '/subscriptions' },
+      { key: 'footer.links.gaming', href: '/gaming' },
+      { key: 'footer.links.activationCodes', href: '/codes' },
+      { key: 'footer.links.digitalServices', href: '/services' }
+    ],
+    support: [
+      { key: 'footer.links.helpCenter', href: '/help' },
+      { key: 'footer.links.contactUs', href: '/contact' },
+      { key: 'footer.links.orderTracking', href: '/tracking' },
+      { key: 'footer.links.refundPolicy', href: '/refunds' },
+      { key: 'footer.links.faqs', href: '/faq' }
+    ],
+    company: [
+      { key: 'footer.links.aboutUs', href: '/about' },
+      { key: 'footer.links.careers', href: '/careers' },
+      { key: 'footer.links.press', href: '/press' },
+      { key: 'footer.links.partnership', href: '/partnership' },
+      { key: 'footer.links.becomeVendor', href: '/vendor' }
+    ],
+    legal: [
+      { key: 'footer.links.termsOfService', href: '/terms' },
+      { key: 'footer.links.privacyPolicy', href: '/privacy' },
+      { key: 'footer.links.cookiePolicy', href: '/cookies' },
+      { key: 'footer.links.gdpr', href: '/gdpr' },
+      { key: 'footer.links.licenses', href: '/licenses' }
+    ]
+  };
 
   const gccCountries = [
-    { name: 'Oman', flag: '🇴🇲', currency: 'OMR' },
-    { name: 'UAE', flag: '🇦🇪', currency: 'AED' },
-    { name: 'Saudi Arabia', flag: '🇸🇦', currency: 'SAR' },
-    { name: 'Kuwait', flag: '🇰🇼', currency: 'KWD' },
-    { name: 'Qatar', flag: '🇶🇦', currency: 'QAR' },
-    { name: 'Bahrain', flag: '🇧🇭', currency: 'BHD' }
+    { nameAr: 'عُمان', nameEn: 'Oman', flag: '🇴🇲', currency: 'OMR' },
+    { nameAr: 'الإمارات', nameEn: 'UAE', flag: '🇦🇪', currency: 'AED' },
+    { nameAr: 'السعودية', nameEn: 'Saudi Arabia', flag: '🇸🇦', currency: 'SAR' },
+    { nameAr: 'الكويت', nameEn: 'Kuwait', flag: '🇰🇼', currency: 'KWD' },
+    { nameAr: 'قطر', nameEn: 'Qatar', flag: '🇶🇦', currency: 'QAR' },
+    { nameAr: 'البحرين', nameEn: 'Bahrain', flag: '🇧🇭', currency: 'BHD' }
   ];
 
   return (
@@ -66,25 +53,22 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl font-cairo font-bold mb-4">
-              Stay Updated with Latest Offers
+              {t('footer.stayUpdated')}
             </h3>
-            <p className="text-lg font-cairo text-accent-gold mb-4">
-              ابق على اطلاع بأحدث العروض
-            </p>
             <p className="text-primary-navy-foreground/80 mb-6">
-              Subscribe to our newsletter and be the first to know about new products, exclusive discounts, and special promotions.
+              {t('footer.subscribeDesc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <div className={`flex flex-col sm:flex-row gap-4 max-w-md mx-auto ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Input 
-                placeholder="Enter your email address"
+                placeholder={t('footer.emailPlaceholder')}
                 className="bg-primary-navy-foreground/10 border-primary-navy-foreground/20 text-primary-navy-foreground placeholder:text-primary-navy-foreground/60"
               />
               <Button variant="accent" className="w-full group-hover:shadow-lg transition-all">
-                Subscribe
+                {t('footer.subscribe')}
               </Button>
             </div>
             <p className="text-xs text-primary-navy-foreground/60 mt-4">
-              By subscribing, you agree to our Privacy Policy and Terms of Service.
+              {t('footer.bySubscribing')}
             </p>
           </div>
         </div>
@@ -92,7 +76,7 @@ const Footer = () => {
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 ${isRTL ? 'text-right' : ''}`}>
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <h2 className="text-2xl font-cairo font-bold mb-4">
@@ -101,20 +85,20 @@ const Footer = () => {
               Nexo Codes
             </h2>
             <p className="text-primary-navy-foreground/80 mb-6">
-              The leading digital marketplace for premium apps, subscriptions, and digital services in the GCC region. Trusted by thousands of customers across the Middle East.
+              {t('footer.brandDesc')}
             </p>
             
             {/* Contact Info */}
             <div className="space-y-3 mb-6">
-              <div className="flex items-center gap-3">
+              <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <MapPin className="h-4 w-4 text-accent-gold shrink-0" />
-                <span className="text-sm">Muscat, Sultanate of Oman</span>
+                <span className="text-sm">{t('footer.location')}</span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <Phone className="h-4 w-4 text-accent-gold shrink-0" />
                 <span className="text-sm">+968 9999 0000</span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <Mail className="h-4 w-4 text-accent-gold shrink-0" />
                 <span className="text-sm">hello@nexocodes.com</span>
               </div>
@@ -140,44 +124,99 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Footer Links */}
-          {footerSections.map((section) => (
-            <div key={section.title}>
-              <h4 className="font-semibold text-lg mb-4">{section.title}</h4>
-              <p className="text-sm font-cairo text-accent-gold mb-4">{section.titleAr}</p>
-              <ul className="space-y-3">
-                {section.links.map((link) => (
-                  <li key={link.name}>
-                    <a 
-                      href={link.href}
-                      className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm"
-                    >
-                      {link.name}
-                    </a>
-                    <p className="text-xs font-cairo text-primary-navy-foreground/60 mt-1">
-                      {link.nameAr}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Footer Links Sections */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4">{t('footer.products')}</h4>
+            <ul className="space-y-3">
+              {footerLinks.products.map((link) => (
+                <li key={link.key}>
+                  <a 
+                    href={link.href}
+                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm"
+                  >
+                    {t(link.key)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-lg mb-4">{t('footer.support')}</h4>
+            <ul className="space-y-3">
+              {footerLinks.support.map((link) => (
+                <li key={link.key}>
+                  <a 
+                    href={link.href}
+                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm"
+                  >
+                    {t(link.key)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-lg mb-4">{t('footer.company')}</h4>
+            <ul className="space-y-3">
+              {footerLinks.company.map((link) => (
+                <li key={link.key}>
+                  <a 
+                    href={link.href}
+                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm"
+                  >
+                    {t(link.key)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-lg mb-4">{t('footer.legal')}</h4>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
+                <li key={link.key}>
+                  <a 
+                    href={link.href}
+                    className="text-primary-navy-foreground/80 hover:text-accent-gold transition-colors text-sm"
+                  >
+                    {t(link.key)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* GCC Countries Section */}
         <div className="border-t border-primary-navy-foreground/20 mt-12 pt-8">
           <h4 className="text-lg font-semibold mb-4 text-center">
-            Serving the GCC Region
+            {t('footer.servedCountries')}
           </h4>
-          <p className="text-center font-cairo text-accent-gold mb-6">
-            نخدم دول مجلس التعاون الخليجي
-          </p>
           <div className="flex flex-wrap justify-center gap-6">
             {gccCountries.map((country) => (
-              <div key={country.name} className="text-center">
+              <div key={country.nameEn} className="text-center">
                 <span className="text-2xl mb-2 block">{country.flag}</span>
-                <p className="text-sm font-medium">{country.name}</p>
+                <p className="text-sm font-medium">
+                  {isRTL ? country.nameAr : country.nameEn}
+                </p>
                 <p className="text-xs text-primary-navy-foreground/60">{country.currency}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Payment Methods Section */}
+        <div className="border-t border-primary-navy-foreground/20 mt-8 pt-8">
+          <h4 className="text-lg font-semibold mb-6 text-center">
+            {t('footer.paymentMethods')}
+          </h4>
+          <div className="flex flex-wrap justify-center gap-4">
+            {['VISA', 'MasterCard', 'MADA', 'Apple Pay', 'STC Pay', 'PayPal'].map((method) => (
+              <div key={method} className="bg-primary-navy-foreground/10 px-4 py-2 rounded-lg">
+                <span className="text-sm font-medium">{method}</span>
               </div>
             ))}
           </div>
@@ -187,12 +226,11 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-primary-navy-foreground/20">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-primary-navy-foreground/80">
-              <span>© 2024 Nexo Codes. All rights reserved.</span>
-              <span>Made with</span>
+          <div className={`flex flex-col md:flex-row justify-between items-center gap-4 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
+            <div className={`flex items-center gap-2 text-sm text-primary-navy-foreground/80 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <span>© 2024 {t('footer.copyright')}</span>
               <Heart className="h-4 w-4 text-accent-gold fill-accent-gold" />
-              <span>in Oman</span>
+              <span>{t('footer.copyright2')}</span>
             </div>
             
             <div className="flex items-center gap-4 text-sm text-primary-navy-foreground/80">
