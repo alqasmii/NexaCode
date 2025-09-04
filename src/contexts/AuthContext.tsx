@@ -31,10 +31,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [supabaseAvailable, setSupabaseAvailable] = useState(true)
 
   // Admin email configuration
-  const ADMIN_EMAIL = 'adnan.m.alqasmi@gmail.com'
+  const ADMIN_EMAILS = [
+    'adnan.m.alqasmi@gmail.com',
+    'ahmedalkasbi52@gmail.com'
+  ]
   
   // Check if current user is admin
-  const isAdmin = user?.email === ADMIN_EMAIL
+  const isAdmin = user?.email ? ADMIN_EMAILS.includes(user.email) : false
 
   useEffect(() => {
     const initializeAuth = async () => {
