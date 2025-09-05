@@ -35,11 +35,9 @@ const Navigation = () => {
   };
 
   const categories = [
-    { name: t('category.apps'), href: '/apps' },
-    { name: t('category.subscriptions'), href: '/subscriptions' },
-    { name: t('category.gaming'), href: '/gaming' },
-    { name: t('category.codes'), href: '/codes' },
+    { name: t('category.products'), href: '/products' },
     { name: t('category.services'), href: '/services' },
+    { name: t('category.plus'), href: '/apps' },
   ];
 
   return (
@@ -71,12 +69,12 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className={`hidden md:flex items-center space-x-8 ${language === 'ar' ? 'mr-16 space-x-reverse' : 'ml-16'}`}>
             {categories.map((category) => (
               <Link
                 key={category.name}
                 to={category.href}
-                className="text-foreground hover:text-accent-gold transition-colors font-medium"
+                className="text-foreground hover:text-accent-gold transition-colors font-medium whitespace-nowrap"
               >
                 {category.name}
               </Link>
@@ -139,44 +137,44 @@ const Navigation = () => {
                     </Avatar>
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56" align="end" forceMount>
-                  <DropdownMenuLabel className="font-normal">
-                    <div className="flex flex-col space-y-1">
-                      <p className="text-sm font-medium leading-none">
+                <DropdownMenuContent className="w-64 p-2 bg-background/95 backdrop-blur-md border shadow-lg" align="end" forceMount>
+                  <DropdownMenuLabel className="font-normal p-3 bg-muted/50 rounded-md mb-2">
+                    <div className="flex flex-col space-y-2">
+                      <p className="text-sm font-semibold leading-none text-foreground">
                         {user.user_metadata?.full_name || 'User'}
                       </p>
-                      <p className="text-xs leading-none text-muted-foreground">
+                      <p className="text-xs leading-none text-muted-foreground break-all">
                         {user.email || user.phone}
                       </p>
                     </div>
                   </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
+                  <DropdownMenuSeparator className="my-2" />
                   {isAdmin && (
                     <>
-                      <DropdownMenuItem asChild>
-                        <Link to="/admin" className="flex items-center">
-                          <Shield className="mr-2 h-4 w-4 text-blue-600" />
-                          <span className="font-medium text-blue-600">Admin Dashboard</span>
+                      <DropdownMenuItem asChild className="p-3 bg-blue-50/50 dark:bg-blue-950/50 rounded-md">
+                        <Link to="/admin" className="flex items-center w-full">
+                          <Shield className={`h-4 w-4 text-blue-600 ${language === 'ar' ? 'ml-3' : 'mr-3'}`} />
+                          <span className="font-medium text-blue-600">{t('admin.dashboard.title')}</span>
                         </Link>
                       </DropdownMenuItem>
-                      <DropdownMenuSeparator />
+                      <DropdownMenuSeparator className="my-1" />
                     </>
                   )}
-                  <DropdownMenuItem asChild>
-                    <Link to="/profile" className="flex items-center">
-                      <UserCheck className="mr-2 h-4 w-4" />
-                      <span>{t('nav.profile')}</span>
+                  <DropdownMenuItem asChild className="p-3 hover:bg-accent/50 rounded-md">
+                    <Link to="/profile" className="flex items-center w-full">
+                      <UserCheck className={`h-4 w-4 text-foreground ${language === 'ar' ? 'ml-3' : 'mr-3'}`} />
+                      <span className="text-foreground">{t('nav.profile')}</span>
                     </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/orders" className="flex items-center">
-                      <ShoppingCart className="mr-2 h-4 w-4" />
-                      <span>{t('nav.orders')}</span>
+                  <DropdownMenuItem asChild className="p-3 hover:bg-accent/50 rounded-md">
+                    <Link to="/orders" className="flex items-center w-full">
+                      <ShoppingCart className={`h-4 w-4 text-foreground ${language === 'ar' ? 'ml-3' : 'mr-3'}`} />
+                      <span className="text-foreground">{t('nav.orders')}</span>
                     </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={signOut}>
-                    <LogOut className="mr-2 h-4 w-4" />
+                  <DropdownMenuSeparator className="my-2" />
+                  <DropdownMenuItem onClick={signOut} className="p-3 hover:bg-red-50/50 dark:hover:bg-red-950/50 rounded-md text-red-600 dark:text-red-400">
+                    <LogOut className={`h-4 w-4 ${language === 'ar' ? 'ml-3' : 'mr-3'}`} />
                     <span>{t('nav.signOut')}</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -202,13 +200,6 @@ const Navigation = () => {
                 </Button>
               </>
             )}
-            
-            <Button variant="ghost" size="sm" className="relative">
-              <ShoppingCart className="h-5 w-5" />
-              <span className="absolute -top-2 -right-2 bg-accent-gold text-accent-gold-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                0
-              </span>
-            </Button>
 
             {/* Mobile Menu Toggle */}
             <Button
@@ -236,14 +227,14 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-background border-t border-border">
+        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border shadow-lg">
           <div className="container mx-auto px-4 py-4">
             <div className="flex flex-col space-y-4">
               {categories.map((category) => (
                 <Link
                   key={category.name}
                   to={category.href}
-                  className="text-foreground hover:text-accent-gold transition-colors font-medium py-2"
+                  className="text-foreground hover:text-accent-gold transition-colors font-medium py-2 px-3 rounded-md hover:bg-accent/20"
                 >
                   {category.name}
                 </Link>
@@ -251,8 +242,8 @@ const Navigation = () => {
               <div className="flex flex-col space-y-2 pt-4 border-t border-border">
                 {user ? (
                   <>
-                    <div className="flex items-center space-x-3 px-3 py-2">
-                      <Avatar className="h-8 w-8">
+                    <div className={`flex items-center px-3 py-3 bg-muted/30 rounded-lg ${language === 'ar' ? 'space-x-reverse space-x-3' : 'space-x-3'}`}>
+                      <Avatar className="h-10 w-10">
                         <AvatarImage src={user.user_metadata?.avatar_url} alt={user.user_metadata?.full_name || user.email} />
                         <AvatarFallback>
                           {user.user_metadata?.full_name 
@@ -261,21 +252,21 @@ const Navigation = () => {
                           }
                         </AvatarFallback>
                       </Avatar>
-                      <div>
-                        <p className="text-sm font-medium">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold truncate text-foreground">
                           {user.user_metadata?.full_name || 'User'}
                         </p>
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-xs text-muted-foreground truncate">
                           {user.email || user.phone}
                         </p>
                       </div>
                     </div>
-                    <Button variant="ghost" className="justify-start">
-                      <UserCheck className="h-4 w-4 mr-2" />
+                    <Button variant="ghost" className={`justify-start p-3 hover:bg-accent/30 text-foreground ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+                      <UserCheck className={`h-4 w-4 ${language === 'ar' ? 'ml-2' : 'mr-2'}`} />
                       {t('nav.profile')}
                     </Button>
-                    <Button variant="ghost" className="justify-start" onClick={signOut}>
-                      <LogOut className="h-4 w-4 mr-2" />
+                    <Button variant="ghost" className={`justify-start p-3 hover:bg-red-50/50 dark:hover:bg-red-950/50 text-red-600 dark:text-red-400 ${language === 'ar' ? 'flex-row-reverse' : ''}`} onClick={signOut}>
+                      <LogOut className={`h-4 w-4 ${language === 'ar' ? 'ml-2' : 'mr-2'}`} />
                       {t('nav.signOut')}
                     </Button>
                   </>
@@ -283,17 +274,18 @@ const Navigation = () => {
                   <>
                     <Button 
                       variant="ghost" 
-                      className="justify-start"
+                      className={`justify-start p-3 hover:bg-accent/30 text-foreground ${language === 'ar' ? 'flex-row-reverse' : ''}`}
                       onClick={() => {
                         setIsAuthModalOpen(true)
                         setIsMenuOpen(false)
                       }}
                     >
-                      <User className="h-4 w-4 mr-2" />
+                      <User className={`h-4 w-4 ${language === 'ar' ? 'ml-2' : 'mr-2'}`} />
                       {t('nav.signIn')}
                     </Button>
                     <Button 
                       variant="hero"
+                      className="p-3 bg-accent-gold hover:bg-accent-gold/90 text-accent-gold-foreground"
                       onClick={() => {
                         setIsAuthModalOpen(true)
                         setIsMenuOpen(false)

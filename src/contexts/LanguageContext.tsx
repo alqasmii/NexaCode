@@ -54,6 +54,18 @@ const translations = {
   },
 
   // Categories
+  'category.products': {
+    ar: 'المنتجات',
+    en: 'Products'
+  },
+  'category.services': {
+    ar: 'الخدمات',
+    en: 'Services'
+  },
+  'category.plus': {
+    ar: 'بلس',
+    en: 'Plus'
+  },
   'category.apps': {
     ar: 'التطبيقات',
     en: 'Apps'
@@ -70,10 +82,6 @@ const translations = {
     ar: 'الرموز',
     en: 'Codes'
   },
-  'category.services': {
-    ar: 'الخدمات',
-    en: 'Services'
-  },
 
   // Authentication
   'auth.title': {
@@ -82,7 +90,7 @@ const translations = {
   },
   'auth.subtitle': {
     ar: 'السوق الرقمي المتميز لدول الخليج',
-    en: 'Premium Digital Marketplace for the GCC'
+    en: 'Your Gateway to Digital Excellence in the GCC'
   },
   'auth.signin': {
     ar: 'تسجيل الدخول',
@@ -271,7 +279,7 @@ const translations = {
 
   // Hero Section
   'hero.slide1.title': {
-    ar: 'المنتجات الرقمية المتميزة',
+    ar: 'المنتجات الرقمية',
     en: 'Premium Digital Products'
   },
   'hero.slide1.subtitle': {
@@ -291,7 +299,7 @@ const translations = {
     en: '🎉 New Arrivals'
   },
   'hero.slide2.title': {
-    ar: 'جنة الألعاب',
+    ar: 'عالم الألعاب',
     en: 'Gaming Paradise'
   },
   'hero.slide2.subtitle': {
@@ -331,8 +339,28 @@ const translations = {
     en: '💼 For Business'
   },
   'hero.watchDemo': {
-    ar: 'شاهد العرض التوضيحي',
+    ar: 'شاهد الديمو',
     en: 'Watch Demo'
+  },
+  'hero.demoTitle': {
+    ar: 'عرض توضيحي - منصة نيكسا كودز',
+    en: 'Platform Demo - NexaCode Platform'
+  },
+  'hero.demoSubtitle': {
+    ar: 'عرض توضيحي للمنصة',
+    en: 'Platform Demo Video'
+  },
+  'hero.demoDescription': {
+    ar: 'شاهد كيف يمكنك شراء وإدارة منتجاتك الرقمية بسهولة',
+    en: 'See how easy it is to buy and manage your digital products'
+  },
+  'hero.playDemo': {
+    ar: 'تشغيل العرض التوضيحي',
+    en: 'Play Demo'
+  },
+  'hero.demoToastMessage': {
+    ar: 'هذه الميزة ستكون متاحة قريباً! تكامل مشغل الفيديو قادم.',
+    en: 'This feature will be available soon! Video player integration coming up.'
   },
   'hero.feature1.title': {
     ar: 'معاملات آمنة',
@@ -377,8 +405,8 @@ const translations = {
     en: 'Explore Categories'
   },
   'categories.subtitle': {
-    ar: 'اكتشف المنتجات الرقمية المتميزة في جميع الفئات، مختارة بعناية لسوق دول الخليج',
-    en: 'Discover premium digital products across all categories, carefully curated for the GCC market'
+    ar: 'اكتشف المنتجات الرقمية في جميع الفئات، مختارة بعناية لسوق دول الخليج',
+    en: 'Browse our extensive catalog of digital solutions, handpicked for the Middle East region'
   },
   'categories.trending': {
     ar: 'رائج',
@@ -432,7 +460,7 @@ const translations = {
   },
   'testimonials.subtitle': {
     ar: 'اكتشف لماذا يثق آلاف العملاء في منطقة الخليج بـ نيكسو كودز لاحتياجاتهم الرقمية',
-    en: 'Discover why thousands of customers across the GCC trust Nexo Codes for their digital needs'
+    en: 'See what our satisfied customers are saying about their experience with NexaCode'
   },
   'testimonials.averageRating': {
     ar: 'متوسط التقييم',

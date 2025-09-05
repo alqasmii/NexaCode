@@ -6,7 +6,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { useState, useEffect } from 'react';
 
 const TestimonialsSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   // Auto-rotate testimonials
@@ -149,41 +149,21 @@ const TestimonialsSection = () => {
 
         {/* Testimonials Carousel */}
         <div className="relative">
-          {/* Navigation Controls */}
-          <div className="flex justify-center items-center gap-4 mb-8">
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={prevTestimonial}
-              className="rounded-full"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            
-            <div className="flex gap-2">
-              {[0, 1, 2].map((index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  title={`View testimonial set ${index + 1}`}
-                  aria-label={`View testimonial set ${index + 1}`}
-                  className={`w-3 h-3 rounded-full transition-all hover:scale-110 ${
-                    index === currentTestimonial 
-                      ? 'bg-accent-gold' 
-                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                  }`}
-                />
-              ))}
-            </div>
-            
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={nextTestimonial}
-              className="rounded-full"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
+          {/* Navigation Controls - Dots Only */}
+          <div className="flex justify-center items-center gap-2 mb-8">
+            {[0, 1, 2].map((index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentTestimonial(index)}
+                title={`View testimonial set ${index + 1}`}
+                aria-label={`View testimonial set ${index + 1}`}
+                className={`w-4 h-4 rounded-full transition-all hover:scale-110 ${
+                  index === currentTestimonial 
+                    ? 'bg-accent-gold shadow-lg' 
+                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+              />
+            ))}
           </div>
 
           {/* Testimonials Grid */}

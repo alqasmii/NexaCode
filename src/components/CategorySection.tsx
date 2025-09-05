@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 const CategorySection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const categories = [
     {
@@ -93,11 +93,8 @@ const CategorySection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-cairo font-bold text-foreground mb-4">
-            Explore Categories
-          </h2>
-          <p className="text-xl font-cairo text-accent-gold mb-2">
             {t('categories.title')}
-          </p>
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {t('categories.subtitle')}
           </p>
@@ -106,7 +103,7 @@ const CategorySection = () => {
         {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {categories.map((category, index) => (
-            <Link key={category.id} to={`/${category.id}`}>
+            <Link key={category.id} to={`/products#${category.id}`}>
               <Card 
                 className="group overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer animate-slide-in-up hover:scale-105"
                 style={{ animationDelay: `${index * 0.1}s` }}
@@ -180,8 +177,17 @@ const CategorySection = () => {
                     </>
                   ) : (
                     <>
-                      {t('categories.viewAll')} {t(category.titleKey)}
-                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      {language === 'ar' ? (
+                        <>
+                          <ArrowRight className="h-4 w-4 mr-2 rotate-180 group-hover:-translate-x-1 transition-transform" />
+                          {t('categories.viewAll')} {t(category.titleKey)}
+                        </>
+                      ) : (
+                        <>
+                          {t('categories.viewAll')} {t(category.titleKey)}
+                          <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </>
+                      )}
                     </>
                   )}
                 </Button>
@@ -202,8 +208,17 @@ const CategorySection = () => {
             </div>
             <Button variant="outline" asChild>
               <Link to="/apps?filter=recent">
-                {t('categories.viewAll')}
-                <ArrowRight className="h-4 w-4 ml-2" />
+                {language === 'ar' ? (
+                  <>
+                    <ArrowRight className="h-4 w-4 mr-2 rotate-180" />
+                    {t('categories.viewAll')}
+                  </>
+                ) : (
+                  <>
+                    {t('categories.viewAll')}
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </>
+                )}
               </Link>
             </Button>
           </div>

@@ -2,9 +2,11 @@ import { Star, Shield, Clock, Users, ChevronRight, Heart, Trophy, Zap } from 'lu
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useLanguage } from '@/hooks/useLanguage';
 import { useState } from 'react';
 
 const FeaturedGamingAccounts = () => {
+  const { language } = useLanguage();
   const [favorites, setFavorites] = useState<string[]>([]);
 
   const toggleFavorite = (id: string) => {
@@ -301,8 +303,17 @@ const FeaturedGamingAccounts = () => {
                   {/* Action Buttons */}
                   <div className="flex gap-2">
                     <Button className="flex-1 bg-purple-600 text-white hover:bg-purple-700 font-semibold">
-                      Buy Now
-                      <ChevronRight className="h-4 w-4 ml-1" />
+                      {language === 'ar' ? (
+                        <>
+                          <ChevronRight className="h-4 w-4 mr-1 rotate-180" />
+                          Buy Now
+                        </>
+                      ) : (
+                        <>
+                          Buy Now
+                          <ChevronRight className="h-4 w-4 ml-1" />
+                        </>
+                      )}
                     </Button>
                     <Button variant="outline" size="sm" className="px-3 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white">
                       <Zap className="h-4 w-4" />
@@ -317,8 +328,17 @@ const FeaturedGamingAccounts = () => {
         {/* View All Button */}
         <div className="text-center mt-12">
           <Button size="lg" variant="outline" className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white">
-            View All Gaming Accounts
-            <ChevronRight className="h-5 w-5 ml-2" />
+            {language === 'ar' ? (
+              <>
+                <ChevronRight className="h-5 w-5 mr-2 rotate-180" />
+                View All Gaming Accounts
+              </>
+            ) : (
+              <>
+                View All Gaming Accounts
+                <ChevronRight className="h-5 w-5 ml-2" />
+              </>
+            )}
           </Button>
         </div>
       </div>

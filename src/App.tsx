@@ -8,9 +8,7 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import { AdminRoute } from "./components/AdminRoute";
 import Index from "./pages/Index";
 import Apps from "./pages/Apps";
-import Subscriptions from "./pages/Subscriptions";
-import Gaming from "./pages/Gaming";
-import Codes from "./pages/Codes";
+import Products from "./pages/Products";
 import Services from "./pages/Services";
 import Cart from "./pages/Cart";
 import Search from "./pages/Search";
@@ -30,9 +28,11 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/apps" element={<Apps />} />
-              <Route path="/subscriptions" element={<Subscriptions />} />
-              <Route path="/gaming" element={<Gaming />} />
-              <Route path="/codes" element={<Codes />} />
+              <Route path="/products" element={<Products />} />
+              {/* Redirect old routes to new products page */}
+              <Route path="/subscriptions" element={<Products />} />
+              <Route path="/gaming" element={<Products />} />
+              <Route path="/codes" element={<Products />} />
               <Route path="/services" element={<Services />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/search" element={<Search />} />
