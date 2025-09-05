@@ -5,11 +5,23 @@ import { Badge } from '@/components/ui/badge';
 import { toast } from '@/hooks/use-toast';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const CategorySection = () => {
   const { t, language } = useLanguage();
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile detection for performance optimization
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
   const categories = [
     {
       id: 'apps',
@@ -104,95 +116,135 @@ const CategorySection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {categories.map((category, index) => (
             <Link key={category.id} to={`/products#${category.id}`}>
-              <Card 
-                className="group overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer animate-slide-in-up hover:scale-105"
-                style={{ animationDelay: `${index * 0.1}s` }}
-                onMouseEnter={() => setHoveredCategory(category.id)}
-                onMouseLeave={() => setHoveredCategory(null)}
-              >
-              {/* Category Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={category.image} 
-                  alt={category.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-80`}></div>
-                
-                {/* Overlay Content */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-between text-primary-navy-foreground">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      {category.trending && (
-                        <Badge className="bg-accent-gold text-accent-gold-foreground mb-2">
-                          <TrendingUp className="h-3 w-3 mr-1" />
-                          {t('categories.trending')}
-                        </Badge>
-                      )}
-                      <h3 className="text-xl font-cairo font-bold mb-1">
-                        {t(category.titleKey)}
-                      </h3>
-                      <p className="text-sm font-cairo opacity-90">
-                        {t(category.descriptionKey)}
-                      </p>
-                    </div>
-                    <span className="bg-primary-navy-foreground/20 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium">
-                      {category.itemCount} {t('categories.items')}
-                    </span>
-                  </div>
-                  
-                  <div>
-                    <p className="text-sm opacity-90 mb-2">
-                      {t(category.descriptionKey)}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Category Details */}
-              <div className="p-6">
-                <div className="space-y-3 mb-4">
-                  {category.products.slice(0, 2).map((product, idx) => (
-                    <div key={idx} className="flex justify-between items-center text-sm">
-                      <span className="text-foreground truncate mr-2">{product.name}</span>
-                      <div className="flex items-center gap-2 shrink-0">
-                        <div className="flex items-center">
-                          <Star className="h-3 w-3 fill-accent-gold text-accent-gold mr-1" />
-                          <span className="text-xs text-muted-foreground">{product.rating}</span>
+              {isMobile ? (
+                // Mobile: Simple, lightweight version
+                <div className="bg-card rounded-xl overflow-hidden shadow-md border">
+                  <div className="relative h-32 overflow-hidden">
+                    <img 
+                      src={category.image} 
+                      alt={category.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-60`}></div>
+                    <div className="absolute inset-0 p-4 flex flex-col justify-between text-white">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          {category.trending && (
+                            <Badge className="bg-accent-gold text-accent-gold-foreground mb-1 text-xs">
+                              {t('categories.trending')}
+                            </Badge>
+                          )}
+                          <h3 className="text-lg font-cairo font-bold">
+                            {t(category.titleKey)}
+                          </h3>
                         </div>
-                        <span className="font-semibold text-foreground">{product.price}</span>
+                        <span className="bg-black/30 px-2 py-1 rounded text-xs">
+                          {category.itemCount}
+                        </span>
                       </div>
                     </div>
-                  ))}
+                  </div>
+                  <div className="p-4">
+                    <p className="text-sm text-muted-foreground mb-3">
+                      {t(category.descriptionKey)}
+                    </p>
+                    <Button className="w-full" variant="outline" size="sm">
+                      {t('categories.viewAll')}
+                    </Button>
+                  </div>
                 </div>
-                
-                <Button 
-                  className="w-full group-hover:bg-accent transition-colors"
-                  variant="outline"
+              ) : (
+                // Desktop: Full-featured version
+                <Card 
+                  className="group overflow-hidden hover:shadow-xl animate-slide-in-up hover:scale-105 transition-all duration-300 cursor-pointer"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                  onMouseEnter={() => setHoveredCategory(category.id)}
+                  onMouseLeave={() => setHoveredCategory(null)}
                 >
-                  {hoveredCategory === category.id ? (
-                    <>
-                      <Eye className="h-4 w-4 mr-2" />
-                      {t('categories.explore')} {t(category.titleKey)}
-                    </>
-                  ) : (
-                    <>
-                      {language === 'ar' ? (
+                  {/* Category Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={category.image} 
+                      alt={category.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-80`}></div>
+                    
+                    {/* Overlay Content */}
+                    <div className="absolute inset-0 p-6 flex flex-col justify-between text-primary-navy-foreground">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          {category.trending && (
+                            <Badge className="bg-accent-gold text-accent-gold-foreground mb-2">
+                              <TrendingUp className="h-3 w-3 mr-1" />
+                              {t('categories.trending')}
+                            </Badge>
+                          )}
+                          <h3 className="text-xl font-cairo font-bold mb-1">
+                            {t(category.titleKey)}
+                          </h3>
+                          <p className="text-sm font-cairo opacity-90">
+                            {t(category.descriptionKey)}
+                          </p>
+                        </div>
+                        <span className="bg-primary-navy-foreground/20 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium">
+                          {category.itemCount} {t('categories.items')}
+                        </span>
+                      </div>
+                      
+                      <div>
+                        <p className="text-sm opacity-90 mb-2">
+                          {t(category.descriptionKey)}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Category Details */}
+                  <div className="p-6">
+                    <div className="space-y-3 mb-4">
+                      {category.products.slice(0, 2).map((product, idx) => (
+                        <div key={idx} className="flex justify-between items-center text-sm">
+                          <span className="text-foreground truncate mr-2">{product.name}</span>
+                          <div className="flex items-center gap-2 shrink-0">
+                            <div className="flex items-center">
+                              <Star className="h-3 w-3 fill-accent-gold text-accent-gold mr-1" />
+                              <span className="text-xs text-muted-foreground">{product.rating}</span>
+                            </div>
+                            <span className="font-semibold text-foreground">{product.price}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <Button 
+                      className="w-full group-hover:bg-accent transition-colors"
+                      variant="outline"
+                    >
+                      {hoveredCategory === category.id ? (
                         <>
-                          <ArrowRight className="h-4 w-4 mr-2 rotate-180 group-hover:-translate-x-1 transition-transform" />
-                          {t('categories.viewAll')} {t(category.titleKey)}
+                          <Eye className="h-4 w-4 mr-2" />
+                          {t('categories.explore')} {t(category.titleKey)}
                         </>
                       ) : (
                         <>
-                          {t('categories.viewAll')} {t(category.titleKey)}
-                          <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                          {language === 'ar' ? (
+                            <>
+                              <ArrowRight className="h-4 w-4 mr-2 rotate-180 group-hover:-translate-x-1 transition-transform" />
+                              {t('categories.viewAll')} {t(category.titleKey)}
+                            </>
+                          ) : (
+                            <>
+                              {t('categories.viewAll')} {t(category.titleKey)}
+                              <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                            </>
+                          )}
                         </>
                       )}
-                    </>
-                  )}
-                </Button>
-              </div>
-            </Card>
+                    </Button>
+                  </div>
+                </Card>
+              )}
             </Link>
           ))}
         </div>
