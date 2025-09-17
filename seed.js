@@ -1,8 +1,12 @@
+import dotenv from 'dotenv';
 import connectToDatabase from './api/lib/mongodb.js';
 import { Product } from './api/models/index.js';
 
+// Load environment variables from .env.local
+dotenv.config({ path: '.env.local' });
+
 const sampleProducts = [
-  // Gaming Products
+  // Gaming Products - Popular in GCC/Oman
   {
     nameAr: "حساب فورتنايت نادر مع ١٠٠ سكين",
     nameEn: "Rare Fortnite Account with 100 Skins",
@@ -20,8 +24,47 @@ const sampleProducts = [
     tags: ["فورتنايت", "حسابات", "ألعاب", "نادر"],
     gameDetails: {
       platform: "PC/Console/Mobile",
-      region: "عالمي",
+      region: "الشرق الأوسط",
       accountType: "Epic Games"
+    }
+  },
+  {
+    nameAr: "حساب كول اوف ديوتي موبايل مستوى ماكس",
+    nameEn: "COD Mobile Max Level Account",
+    descriptionAr: "حساب كول اوف ديوتي موبايل مستوى ١٥٠ مع جميع الأسلحة الذهبية والماسية وشخصيات نادرة",
+    descriptionEn: "COD Mobile level 150 account with all golden and diamond weapons plus rare characters",
+    category: "gaming",
+    subcategory: "accounts",
+    price: 35.99,
+    originalPrice: 59.99,
+    currency: "OMR",
+    featured: true,
+    rating: 4.7,
+    reviewCount: 203,
+    tags: ["كول اوف ديوتي", "موبايل", "ألعاب", "مستوى عالي"],
+    gameDetails: {
+      platform: "Mobile",
+      region: "الشرق الأوسط",
+      accountType: "Activision"
+    }
+  },
+  {
+    nameAr: "حساب فيفا ٢٥ مع عملات",
+    nameEn: "FIFA 25 Account with Coins",
+    descriptionAr: "حساب فيفا ٢٥ مع ٥٠٠ ألف عملة وفريق قوي مع نجوم عالميين ولاعبين عرب",
+    descriptionEn: "FIFA 25 account with 500K coins, strong team with global stars and Arab players",
+    category: "gaming",
+    subcategory: "accounts",
+    price: 55.99,
+    originalPrice: 89.99,
+    currency: "OMR",
+    rating: 4.9,
+    reviewCount: 167,
+    tags: ["فيفا", "كرة القدم", "عملات", "فريق قوي"],
+    gameDetails: {
+      platform: "PC/PlayStation/Xbox",
+      region: "عالمي",
+      accountType: "EA Sports"
     }
   },
   {
@@ -45,7 +88,7 @@ const sampleProducts = [
     }
   },
 
-  // Subscriptions
+  // Subscriptions - Popular in Middle East
   {
     nameAr: "نتفليكس بريميوم - ١٢ شهر",
     nameEn: "Netflix Premium - 12 Months",
@@ -67,28 +110,48 @@ const sampleProducts = [
     }
   },
   {
-    nameAr: "سبوتيفاي بريميوم - ٦ أشهر",
-    nameEn: "Spotify Premium - 6 Months",
-    descriptionAr: "اشتراك سبوتيفاي بريميوم لمدة ٦ أشهر مع موسيقى بدون إعلانات وتحميل غير محدود",
-    descriptionEn: "Spotify Premium subscription for 6 months with ad-free music and unlimited downloads",
+    nameAr: "شاهد VIP - ٦ أشهر",
+    nameEn: "Shahid VIP - 6 Months",
+    descriptionAr: "اشتراك شاهد VIP لمدة ٦ أشهر مع أحدث المسلسلات العربية والأفلام والمحتوى الحصري",
+    descriptionEn: "Shahid VIP subscription for 6 months with latest Arabic series, movies and exclusive content",
     category: "subscriptions",
-    subcategory: "music",
+    subcategory: "streaming",
     price: 24.99,
     originalPrice: 39.99,
     currency: "OMR",
-    rating: 4.7,
-    reviewCount: 178,
-    tags: ["سبوتيفاي", "موسيقى", "اشتراكات", "بدون إعلانات"],
+    featured: true,
+    rating: 4.8,
+    reviewCount: 189,
+    tags: ["شاهد", "مسلسلات عربية", "أفلام", "محتوى حصري"],
     subscriptionDetails: {
       duration: "6 months",
-      features: ["بدون إعلانات", "تحميل غير محدود", "جودة عالية", "تشغيل دون اتصال"],
+      features: ["مسلسلات حصرية", "أفلام عربية", "بث مباشر", "بدون إعلانات"],
+      platform: "جميع الأجهزة"
+    }
+  },
+  {
+    nameAr: "يوتيوب بريميوم - سنة كاملة",
+    nameEn: "YouTube Premium - Full Year",
+    descriptionAr: "اشتراك يوتيوب بريميوم لمدة سنة كاملة مع مشاهدة بدون إعلانات وتحميل الفيديوهات",
+    descriptionEn: "YouTube Premium subscription for full year with ad-free viewing and video downloads",
+    category: "subscriptions",
+    subcategory: "streaming",
+    price: 49.99,
+    originalPrice: 69.99,
+    currency: "OMR",
+    rating: 4.7,
+    reviewCount: 145,
+    tags: ["يوتيوب", "بدون إعلانات", "تحميل", "موسيقى"],
+    subscriptionDetails: {
+      duration: "12 months",
+      features: ["بدون إعلانات", "تحميل الفيديوهات", "YouTube Music", "تشغيل في الخلفية"],
       platform: "جميع الأجهزة"
     }
   },
 
-  // Gift Cards
+  // Gift Cards - Popular in GCC
   {
-    nameAr: "بطاقة هدايا أمازون - ٥٠ ريال عماني",
+    nameAr: "بطاقة أمازون - ٥٠ ريال عماني",
     nameEn: "Amazon Gift Card - 50 OMR",
     descriptionAr: "بطاقة هدايا أمازون بقيمة ٥٠ ريال عماني صالحة للاستخدام في جميع منتجات أمازون",
     descriptionEn: "Amazon gift card worth 50 OMR valid for all Amazon products",
@@ -115,6 +178,35 @@ const sampleProducts = [
     rating: 4.8,
     reviewCount: 312,
     tags: ["جوجل بلاي", "ألعاب", "تطبيقات", "بطاقات هدايا"]
+  },
+  {
+    nameAr: "بطاقة آبل ستور - ٥٠ دولار",
+    nameEn: "Apple Store Gift Card - $50",
+    descriptionAr: "بطاقة آبل ستور بقيمة ٥٠ دولار للتطبيقات والألعاب والاشتراكات على iOS",
+    descriptionEn: "Apple Store gift card worth $50 for apps, games, and subscriptions on iOS",
+    category: "codes",
+    subcategory: "gift_cards",
+    price: 19.99,
+    originalPrice: 24.99,
+    currency: "OMR",
+    featured: true,
+    rating: 4.9,
+    reviewCount: 278,
+    tags: ["آبل", "آيفون", "آيباد", "تطبيقات"]
+  },
+  {
+    nameAr: "بطاقة ستيم - ٢٠ دولار",
+    nameEn: "Steam Gift Card - $20",
+    descriptionAr: "بطاقة ستيم بقيمة ٢٠ دولار للألعاب على منصة ستيم",
+    descriptionEn: "Steam gift card worth $20 for games on Steam platform",
+    category: "codes",
+    subcategory: "gift_cards", 
+    price: 7.99,
+    originalPrice: 9.99,
+    currency: "OMR",
+    rating: 4.7,
+    reviewCount: 198,
+    tags: ["ستيم", "ألعاب", "كمبيوتر", "PC"]
   },
 
   // Apps
