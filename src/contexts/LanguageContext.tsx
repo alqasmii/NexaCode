@@ -17,8 +17,8 @@ export { LanguageContext }
 const translations = {
   // Navigation
   'nav.welcome': {
-    ar: '🎉 مرحباً بكم في نيكسو كودز - السوق الرقمي المتميز لدول الخليج',
-    en: '🎉 Welcome to Nexo Codes - Premium Digital Marketplace for the GCC'
+    ar: '🎉 مرحباً بكم في نيكسو - السوق الرقمي المتميز لدول الخليج',
+    en: '🎉 Welcome to Nexo - Premium Digital Marketplace for the GCC'
   },
   'nav.support': {
     ar: '📞 الدعم: +968 9999 0000',
@@ -85,8 +85,8 @@ const translations = {
 
   // Authentication
   'auth.title': {
-    ar: 'نيكسو كودز',
-    en: 'Nexo Codes'
+    ar: 'نيكسو',
+    en: 'Nexo'
   },
   'auth.subtitle': {
     ar: 'السوق الرقمي المتميز لدول الخليج',
@@ -459,8 +459,8 @@ const translations = {
     en: 'What Our Customers Say'
   },
   'testimonials.subtitle': {
-    ar: 'اكتشف لماذا يثق آلاف العملاء في منطقة الخليج بـ نيكسو كودز لاحتياجاتهم الرقمية',
-    en: 'See what our satisfied customers are saying about their experience with NexaCode'
+    ar: 'اكتشف لماذا يثق آلاف العملاء في منطقة الخليج بـ نيكسو لاحتياجاتهم الرقمية',
+    en: 'See what our satisfied customers are saying about their experience with Nexo'
   },
   'testimonials.averageRating': {
     ar: 'متوسط التقييم',
@@ -537,8 +537,8 @@ const translations = {
     en: 'Subscribe'
   },
   'footer.copyright': {
-    ar: 'جميع الحقوق محفوظة لـ نيكسو كودز. صُنع بـ',
-    en: 'All rights reserved to Nexo Codes. Made with'
+    ar: 'جميع الحقوق محفوظة لـ نيكسو. صُنع بـ',
+    en: 'All rights reserved to Nexo. Made with'
   },
   'footer.emailPlaceholder': {
     ar: 'أدخل بريدك الإلكتروني',

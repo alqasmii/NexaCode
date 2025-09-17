@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
-import HeroSection from '@/components/HeroSection';
-import CategorySection from '@/components/CategorySection';
+import HeroSection from '@/components/HeroSectionArabic';
+import CategorySection from '@/components/CategorySectionArabic';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import Footer from '@/components/Footer';
 import FloatingNavIndicator from '@/components/FloatingNavIndicator';

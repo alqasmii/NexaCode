@@ -1,166 +1,122 @@
-import { Clock, Smartphone, Download, Star, Users, Bell, Calendar, Zap } from 'lucide-react';
+﻿import { Clock, Smartphone, Download, Star, Users, Bell, Calendar, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { useState } from 'react';
-import { useLanguage } from '@/hooks/useLanguage';
 
-const AppsHero = () => {
-  const { t, isRTL } = useLanguage();
-  const [email, setEmail] = useState('');
-
-  const stats = [
-    { icon: Smartphone, number: '50+', key: 'apps.featured.title', color: 'text-blue-500' },
-    { icon: Users, number: '10K+', key: 'apps.waitlist.title', color: 'text-green-500' },
-    { icon: Star, number: '5.0', key: 'apps.store.security', color: 'text-yellow-500' },
-    { icon: Clock, number: t('apps.launchDate'), key: 'apps.launchingSoon', color: 'text-purple-500' }
-  ];
-
+export default function AppsHero() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-900 overflow-hidden">
-      {/* Animated Background Elements */}
+    <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 text-white" dir="rtl">
+      <div className="absolute inset-0 bg-black/20"></div>
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-32 right-16 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-pink-500/20 rounded-full blur-3xl animate-pulse delay-2000" />
+        <div className="absolute top-20 right-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Floating App Icons */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 animate-float">
-          <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
-            📱
-          </div>
-        </div>
-        <div className="absolute top-1/3 right-1/4 animate-float delay-1000">
-          <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg">
-            ⚡
-          </div>
-        </div>
-        <div className="absolute bottom-1/3 left-1/6 animate-float delay-2000">
-          <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center text-white text-xl shadow-lg">
-            🔥
-          </div>
-        </div>
-        <div className="absolute top-1/2 right-1/6 animate-float delay-3000">
-          <div className="w-18 h-18 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
-            ✨
-          </div>
-        </div>
-      </div>
-
-      <div className={`relative z-10 container mx-auto px-4 py-20 ${isRTL ? 'text-right' : 'text-left'}`}>
+      <div className="relative container mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          {/* Apps Badge */}
-          <Badge className="mb-6 bg-pink-500/20 text-pink-200 border-pink-500/30 px-6 py-2 text-lg">
-            {t('apps.badge')}
+          <Badge className="mb-6 bg-purple-100 text-purple-700 hover:bg-purple-200">
+            <Smartphone className="w-4 h-4 ml-2" />
+            تطبيقات نيكسو المتميزة
           </Badge>
-
-          {/* Main Heading */}
-          <h1 className="text-6xl lg:text-8xl font-bold text-white mb-6 leading-tight">
-            {t('apps.title')}
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400">
-              {t('apps.titleHighlight')}
-            </span>
+          
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+            اكتشف أفضل التطبيقات
+            <span className="block mt-2">لجهازك المحمول</span>
           </h1>
-
-          {/* Subtitle */}
-          <p className="text-2xl lg:text-3xl font-cairo text-pink-200 mb-8">
-            {t('apps.subtitle')}
+          
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            مجموعة منتقاة من أفضل التطبيقات المحمولة والألعاب والأدوات الإنتاجية. 
+            اكتشف حمل واستمتع بتجربة رقمية استثنائية مع نيكسو.
           </p>
-
-          {/* Description */}
-          <p className="text-xl text-purple-100 max-w-4xl mx-auto mb-12 leading-relaxed">
-            {t('apps.description')}
-          </p>
-
-          {/* Coming Soon Countdown */}
-          <Card className="max-w-md mx-auto mb-12 p-6 bg-white/10 backdrop-blur-md border-purple-500/30">
-            <div className="text-center">
-              <Calendar className="h-12 w-12 text-pink-400 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-white mb-2">{t('apps.comingSoon')}</h3>
-              <p className="text-purple-200 mb-4">{t('apps.launchDate')}</p>
-              <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">
-                {t('apps.launchDate')}
-              </div>
-            </div>
-          </Card>
-
-          {/* Quick Email Signup */}
-          <div className="max-w-md mx-auto mb-12">
-            <Card className="p-4 bg-white/10 backdrop-blur-md border-purple-500/30">
-              <div className={`flex gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <Input
-                  placeholder={t('apps.waitlist.emailPlaceholder')}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className={`flex-1 bg-white/20 border-purple-400/50 text-white placeholder:text-purple-200 ${
-                    isRTL ? 'text-right' : 'text-left'
-                  }`}
-                />
-                <Button className="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white">
-                  <Bell className={`h-4 w-4 ${isRTL ? 'ml-1' : 'mr-1'}`} />
-                  {t('apps.notifyMe')}
-                </Button>
-              </div>
-            </Card>
-          </div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
-            {stats.map((stat, index) => (
-              <Card key={index} className="p-6 bg-white/10 backdrop-blur-md border-purple-500/30 hover:bg-white/15 transition-all duration-300">
-                <div className="text-center">
-                  <div className="flex justify-center mb-3">
-                    <div className="p-3 bg-purple-500/20 rounded-full">
-                      <stat.icon className={`h-6 w-6 ${stat.color}`} />
-                    </div>
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-1">{stat.number}</div>
-                  <div className="text-sm text-purple-200">{t(stat.key)}</div>
-                </div>
-              </Card>
-            ))}
-          </div>
-
-          {/* CTA Buttons */}
-          <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
-            <Button size="lg" className="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white px-8 py-4 text-lg">
-              <Bell className={`h-6 w-6 ${isRTL ? 'ml-2' : 'mr-2'}`} />
-              {t('apps.joinWaitlist')}
-            </Button>
-            <Button size="lg" variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-500/20 px-8 py-4 text-lg">
-              <Download className={`h-6 w-6 ${isRTL ? 'ml-2' : 'mr-2'}`} />
-              {t('apps.featured.title')}
-            </Button>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-purple-300">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm">{t('apps.store.security')}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-              <span className="text-sm">{t('apps.store.updates')}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" />
-              <span className="text-sm">{t('apps.store.support')}</span>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+              <Input 
+                placeholder="ابحث عن التطبيقات..." 
+                className="bg-white/10 border-white/20 text-white placeholder:text-gray-300"
+              />
+              <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8">
+                <Download className="w-4 h-4 ml-2" />
+                بحث
+              </Button>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <Zap className="h-8 w-8 text-purple-300" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          <Card className="bg-white/10 border-white/20 p-6 text-center">
+            <div className="flex justify-center mb-4">
+              <Download className="w-8 h-8 text-purple-400" />
+            </div>
+            <div className="text-2xl font-bold mb-2">+500</div>
+            <div className="text-gray-300 text-sm">تطبيق متاح</div>
+          </Card>
+          
+          <Card className="bg-white/10 border-white/20 p-6 text-center">
+            <div className="flex justify-center mb-4">
+              <Users className="w-8 h-8 text-blue-400" />
+            </div>
+            <div className="text-2xl font-bold mb-2">+50ألف</div>
+            <div className="text-gray-300 text-sm">مستخدم نشط</div>
+          </Card>
+          
+          <Card className="bg-white/10 border-white/20 p-6 text-center">
+            <div className="flex justify-center mb-4">
+              <Star className="w-8 h-8 text-yellow-400" />
+            </div>
+            <div className="text-2xl font-bold mb-2">4.9</div>
+            <div className="text-gray-300 text-sm">تقييم المستخدمين</div>
+          </Card>
+          
+          <Card className="bg-white/10 border-white/20 p-6 text-center">
+            <div className="flex justify-center mb-4">
+              <Clock className="w-8 h-8 text-green-400" />
+            </div>
+            <div className="text-2xl font-bold mb-2">24/7</div>
+            <div className="text-gray-300 text-sm">دعم فني</div>
+          </Card>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="text-center p-6">
+            <div className="bg-purple-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Bell className="w-8 h-8 text-purple-400" />
+            </div>
+            <h3 className="text-xl font-bold mb-3">تحديثات فورية</h3>
+            <p className="text-gray-300">
+              احصل على أحدث الإصدارات والتحديثات لتطبيقاتك المفضلة بشكل فوري ومجاني.
+            </p>
+          </div>
+          
+          <div className="text-center p-6">
+            <div className="bg-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Calendar className="w-8 h-8 text-blue-400" />
+            </div>
+            <h3 className="text-xl font-bold mb-3">تطبيقات منتقاة</h3>
+            <p className="text-gray-300">
+              مجموعة مختارة بعناية من أفضل التطبيقات والألعاب الحديثة والموثوقة.
+            </p>
+          </div>
+          
+          <div className="text-center p-6">
+            <div className="bg-green-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Zap className="w-8 h-8 text-green-400" />
+            </div>
+            <h3 className="text-xl font-bold mb-3">أداء متفوق</h3>
+            <p className="text-gray-300">
+              تطبيقات محسنة للأداء العالي والسرعة القصوى على جميع الأجهزة المحمولة.
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center mt-16">
+          <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 text-lg">
+            <Download className="w-5 h-5 ml-2" />
+            ابدأ التصفح الآن
+          </Button>
+        </div>
       </div>
-    </section>
+    </div>
   );
-};
-
-export default AppsHero;
+}

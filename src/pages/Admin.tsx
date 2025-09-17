@@ -67,33 +67,33 @@ export default function Admin() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Enhanced Header */}
-        <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 shadow-sm">
-          <div className="flex items-center justify-between">
+        <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 shadow-sm" dir="rtl">
+          <div className="flex items-center justify-between flex-row-reverse">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
                 <Shield className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                 <div>
                   <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-                    Admin Dashboard
+                    لوحة الإدارة
                   </h1>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Comprehensive management of all website sections
+                    إدارة شاملة لجميع أقسام الموقع
                   </p>
                 </div>
               </div>
               <Badge variant="secondary" className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                <Crown className="h-3 w-3 mr-1" />
-                Admin Panel
+                <Crown className="h-3 w-3 ml-1" />
+                لوحة الإدارة
               </Badge>
             </div>
             
             <div className="flex items-center gap-4">
               {/* Search */}
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input
-                  placeholder="Search dashboard..."
-                  className="pl-10 w-64 bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600"
+                  placeholder="البحث في لوحة الإدارة..."
+                  className="pr-10 w-64 bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600 text-right"
                 />
               </div>
               

@@ -20,7 +20,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md p-0 overflow-hidden">
+      <DialogContent className="sm:max-w-md p-0 overflow-hidden" dir="rtl">
         <div className="relative">
           {/* Background gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary-navy/5 via-accent-gold/5 to-primary-navy/5" />
@@ -29,10 +29,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
           <div className="relative p-6">
             <DialogHeader>
               <DialogTitle className="text-center text-2xl font-bold bg-gradient-to-r from-primary-navy via-accent-gold to-primary-navy bg-clip-text text-transparent mb-2">
-                Nexo Codes نيكسو كودز
+                نيكسو
               </DialogTitle>
               <p className="text-center text-sm text-muted-foreground">
-                Premium Digital Marketplace for the GCC
+                السوق الرقمي المتميز لدول الخليج
               </p>
             </DialogHeader>
             

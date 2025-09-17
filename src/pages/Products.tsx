@@ -34,125 +34,125 @@ const Products = () => {
 
   const handleAddToCart = (item: string, price: string) => {
     toast({
-      title: "Added to Cart! 🛒",
-      description: `${item} (${price}) has been added to your cart.`,
+      title: "تمت الإضافة للسلة! 🛒",
+      description: `${item} (${price}) تم إضافته إلى سلة التسوق.`,
     })
   }
 
   // Product data
   const subscriptions = [
     {
-      name: "Netflix Premium",
-      description: "4K streaming, 4 screens simultaneously",
-      price: "$15.99/month",
-      originalPrice: "$19.99/month",
-      badge: "Most Popular",
-      features: ["4K Ultra HD", "HDR Content", "4 Screens", "Download Offline"],
+      name: "نتفليكس بريميوم",
+      description: "بث عالي الدقة 4K، 4 شاشات متزامنة",
+      price: "$15.99/شهرياً",
+      originalPrice: "$19.99/شهرياً",
+      badge: "الأكثر شعبية",
+      features: ["فائق الوضوح 4K", "محتوى HDR", "4 شاشات", "تحميل للمشاهدة دون اتصال"],
       icon: <Play className="h-6 w-6" />
     },
     {
-      name: "Spotify Premium",
-      description: "Ad-free music streaming with offline downloads",
-      price: "$9.99/month",
-      originalPrice: "$12.99/month",
-      badge: "Best Value",
-      features: ["Ad-free Music", "Offline Downloads", "High Quality Audio", "Skip Songs"],
+      name: "سبوتيفاي بريميوم",
+      description: "بث موسيقى بدون إعلانات مع تحميل للاستماع دون اتصال",
+      price: "$9.99/شهرياً",
+      originalPrice: "$12.99/شهرياً",
+      badge: "أفضل قيمة",
+      features: ["موسيقى بدون إعلانات", "تحميل دون اتصال", "جودة صوت عالية", "تخطي الأغاني"],
       icon: <Sparkles className="h-6 w-6" />
     },
     {
-      name: "Disney+ Bundle",
-      description: "Disney+, Hulu, and ESPN+ combined",
-      price: "$12.99/month",
-      originalPrice: "$19.99/month",
-      badge: "Bundle Deal",
-      features: ["Disney+ Access", "Hulu (Ad-supported)", "ESPN+ Sports", "Family Friendly"],
+      name: "باقة ديزني+",
+      description: "ديزني+ وهولو وESPN+ مجتمعة",
+      price: "$12.99/شهرياً",
+      originalPrice: "$19.99/شهرياً",
+      badge: "عرض مجمع",
+      features: ["الوصول لديزني+", "هولو (مع إعلانات محدودة)", "رياضة ESPN+", "مناسب للعائلة"],
       icon: <Crown className="h-6 w-6" />
     },
     {
-      name: "YouTube Premium",
-      description: "Ad-free YouTube with background play",
-      price: "$11.99/month",
-      originalPrice: "$15.99/month",
-      badge: "Creator Support",
-      features: ["No Ads", "Background Play", "YouTube Music", "Offline Videos"],
+      name: "يوتيوب بريميوم",
+      description: "يوتيوب بدون إعلانات مع تشغيل في الخلفية",
+      price: "$11.99/شهرياً",
+      originalPrice: "$15.99/شهرياً",
+      badge: "دعم المبدعين",
+      features: ["بدون إعلانات", "تشغيل في الخلفية", "يوتيوب ميوزك", "فيديوهات دون اتصال"],
       icon: <Play className="h-6 w-6" />
     }
   ]
 
   const gaming = [
     {
-      name: "Steam Wallet $50",
-      description: "Add funds to your Steam account",
+      name: "محفظة ستيم $50",
+      description: "أضف أموال إلى حساب ستيم الخاص بك",
       price: "$45.99",
       originalPrice: "$50.00",
-      badge: "Hot Deal",
-      features: ["Instant Delivery", "Global Activation", "No Expiry", "Secure Payment"],
+      badge: "عرض مميز",
+      features: ["تسليم فوري", "تفعيل عالمي", "بدون انتهاء صلاحية", "دفع آمن"],
       icon: <GamepadIcon className="h-6 w-6" />
     },
     {
-      name: "PlayStation Plus 12 Months",
-      description: "Essential online gaming subscription",
-      price: "$59.99/year",
-      originalPrice: "$79.99/year",
-      badge: "Best Seller",
-      features: ["Online Multiplayer", "Monthly Games", "Cloud Storage", "Exclusive Discounts"],
+      name: "بلايستيشن بلاس 12 شهر",
+      description: "اشتراك الألعاب الأساسي عبر الإنترنت",
+      price: "$59.99/سنوياً",
+      originalPrice: "$79.99/سنوياً",
+      badge: "الأكثر مبيعاً",
+      features: ["ألعاب جماعية أونلاين", "ألعاب شهرية", "تخزين سحابي", "خصومات حصرية"],
       icon: <GamepadIcon className="h-6 w-6" />
     },
     {
-      name: "Xbox Game Pass Ultimate",
-      description: "Access to 100+ games across all devices",
-      price: "$14.99/month",
-      originalPrice: "$16.99/month",
-      badge: "Ultimate Value",
-      features: ["100+ Games", "Cloud Gaming", "PC & Console", "EA Play Included"],
+      name: "إكس بوكس جيم باس ألتيميت",
+      description: "الوصول لأكثر من 100 لعبة على جميع الأجهزة",
+      price: "$14.99/شهرياً",
+      originalPrice: "$16.99/شهرياً",
+      badge: "القيمة المطلقة",
+      features: ["أكثر من 100 لعبة", "ألعاب سحابية", "PC وكونسول", "EA Play مُضمّن"],
       icon: <Zap className="h-6 w-6" />
     },
     {
-      name: "Epic Games Store Credit",
-      description: "$25 credit for Epic Games Store",
+      name: "رصيد متجر إيبك جيمز",
+      description: "رصيد $25 لمتجر إيبك جيمز",
       price: "$23.99",
       originalPrice: "$25.00",
-      badge: "Limited Time",
-      features: ["Instant Delivery", "No Fees", "Secure Transaction", "Easy Redemption"],
+      badge: "لفترة محدودة",
+      features: ["تسليم فوري", "بدون رسوم", "معاملة آمنة", "استرداد سهل"],
       icon: <Gift className="h-6 w-6" />
     }
   ]
 
   const codes = [
     {
-      name: "Amazon Gift Card $100",
-      description: "Perfect for any Amazon purchase",
+      name: "بطاقة هدايا أمازون $100",
+      description: "مثالية لأي مشتريات من أمازون",
       price: "$95.99",
       originalPrice: "$100.00",
-      badge: "Top Choice",
-      features: ["No Expiry Date", "Instant Delivery", "Works Worldwide", "Easy to Use"],
+      badge: "الخيار الأول",
+      features: ["بدون تاريخ انتهاء", "تسليم فوري", "تعمل عالمياً", "سهلة الاستخدام"],
       icon: <CreditCard className="h-6 w-6" />
     },
     {
-      name: "Google Play $25",
-      description: "For apps, games, movies, and more",
+      name: "جوجل بلاي $25",
+      description: "للتطبيقات والألعاب والأفلام والمزيد",
       price: "$23.99",
       originalPrice: "$25.00",
-      badge: "Fast Delivery",
-      features: ["Android Apps", "Games & Movies", "In-app Purchases", "Music & Books"],
+      badge: "تسليم سريع",
+      features: ["تطبيقات أندرويد", "ألعاب وأفلام", "مشتريات داخل التطبيق", "موسيقى وكتب"],
       icon: <CreditCard className="h-6 w-6" />
     },
     {
-      name: "iTunes Gift Card $50",
-      description: "For App Store, iTunes, and Apple services",
+      name: "بطاقة آيتونز $50",
+      description: "لمتجر التطبيقات وآيتونز وخدمات آبل",
       price: "$47.99",
       originalPrice: "$50.00",
-      badge: "Apple Ecosystem",
-      features: ["App Store", "iTunes Store", "Apple Music", "iCloud Storage"],
+      badge: "نظام آبل",
+      features: ["متجر التطبيقات", "متجر آيتونز", "آبل ميوزك", "تخزين آي كلاود"],
       icon: <CreditCard className="h-6 w-6" />
     },
     {
-      name: "Visa Prepaid $200",
-      description: "Universal prepaid card for online shopping",
+      name: "فيزا مدفوعة مقدماً $200",
+      description: "بطاقة مدفوعة مقدماً عالمية للتسوق الإلكتروني",
       price: "$195.99",
       originalPrice: "$200.00",
-      badge: "Most Flexible",
-      features: ["Use Anywhere", "Online Shopping", "Secure Payments", "No Credit Check"],
+      badge: "الأكثر مرونة",
+      features: ["استخدام في أي مكان", "تسوق إلكتروني", "مدفوعات آمنة", "بدون فحص ائتماني"],
       icon: <CreditCard className="h-6 w-6" />
     }
   ]
@@ -168,24 +168,24 @@ const Products = () => {
 
   const getCategoryTitle = () => {
     switch (activeCategory) {
-      case 'subscriptions': return 'Premium Subscriptions'
-      case 'gaming': return 'Gaming Credits & Passes'
-      case 'codes': return 'Digital Gift Cards'
-      default: return 'Premium Subscriptions'
+      case 'subscriptions': return 'الاشتراكات المميزة'
+      case 'gaming': return 'أرصدة وتمريرات الألعاب'
+      case 'codes': return 'بطاقات الهدايا الرقمية'
+      default: return 'الاشتراكات المميزة'
     }
   }
 
   const getCategoryDescription = () => {
     switch (activeCategory) {
-      case 'subscriptions': return 'Netflix, Spotify, Disney+ and more at unbeatable prices'
-      case 'gaming': return 'Steam, PlayStation, Xbox credits and gaming subscriptions'
-      case 'codes': return 'Amazon, Google Play, iTunes and universal gift cards'
-      default: return 'Premium subscriptions at discounted prices'
+      case 'subscriptions': return 'نتفليكس وسبوتيفاي وديزني+ والمزيد بأسعار لا تُقاوم'
+      case 'gaming': return 'أرصدة ستيم وبلايستيشن وإكس بوكس واشتراكات الألعاب'
+      case 'codes': return 'بطاقات هدايا أمازون وجوجل بلاي وآيتونز والبطاقات العالمية'
+      default: return 'اشتراكات مميزة بأسعار مخفضة'
     }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-purple-900 dark:to-blue-900">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-purple-900 dark:to-blue-900" dir="rtl">
       <Navigation />
       
       {/* Hero Section */}
@@ -199,33 +199,33 @@ const Products = () => {
           >
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
               <TrendingUp className="h-4 w-4" />
-              All Products in One Place
+              جميع المنتجات في مكان واحد
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent mb-6 leading-tight">
-              Digital Products
+              المنتجات الرقمية
               <br />
-              <span className="text-3xl md:text-4xl">Made Simple</span>
+              <span className="text-3xl md:text-4xl">بكل بساطة</span>
             </h1>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Discover premium subscriptions, gaming credits, and digital gift cards
+              اكتشف الاشتراكات المميزة وأرصدة الألعاب وبطاقات الهدايا الرقمية
               <br />
-              all at incredible prices with instant delivery
+              كلها بأسعار مذهلة مع التسليم الفوري
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">
               <div className="flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Star className="h-4 w-4 text-yellow-500" />
-                <span className="text-sm font-medium">4.9/5 Rating</span>
+                <span className="text-sm font-medium">تقييم 4.9/5</span>
               </div>
               <div className="flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Zap className="h-4 w-4 text-green-500" />
-                <span className="text-sm font-medium">Instant Delivery</span>
+                <span className="text-sm font-medium">تسليم فوري</span>
               </div>
               <div className="flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Crown className="h-4 w-4 text-purple-500" />
-                <span className="text-sm font-medium">Best Prices</span>
+                <span className="text-sm font-medium">أفضل الأسعار</span>
               </div>
             </div>
           </motion.div>
@@ -246,15 +246,15 @@ const Products = () => {
               <TabsList className="grid w-full max-w-md grid-cols-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 p-1">
                 <TabsTrigger value="subscriptions" className="flex items-center gap-2">
                   <Play className="h-4 w-4" />
-                  Subscriptions
+                  الاشتراكات
                 </TabsTrigger>
                 <TabsTrigger value="gaming" className="flex items-center gap-2">
                   <GamepadIcon className="h-4 w-4" />
-                  Gaming
+                  الألعاب
                 </TabsTrigger>
                 <TabsTrigger value="codes" className="flex items-center gap-2">
                   <CreditCard className="h-4 w-4" />
-                  Gift Cards
+                  بطاقات الهدايا
                 </TabsTrigger>
               </TabsList>
             </motion.div>
@@ -324,7 +324,7 @@ const Products = () => {
                               </span>
                             </div>
                             <div className="text-xs text-green-600 dark:text-green-400 font-medium">
-                              Save {((parseFloat(product.originalPrice.replace(/[$]/g, '')) - parseFloat(product.price.replace(/[$]/g, ''))) / parseFloat(product.originalPrice.replace(/[$]/g, '')) * 100).toFixed(0)}%
+                              وفر {((parseFloat(product.originalPrice.replace(/[$]/g, '')) - parseFloat(product.price.replace(/[$]/g, ''))) / parseFloat(product.originalPrice.replace(/[$]/g, '')) * 100).toFixed(0)}%
                             </div>
                           </div>
 
@@ -341,8 +341,8 @@ const Products = () => {
                             onClick={() => handleAddToCart(product.name, product.price)}
                             className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0 group"
                           >
-                            <ShoppingCart className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
-                            Add to Cart
+                            <ShoppingCart className="h-4 w-4 ml-2 group-hover:scale-110 transition-transform" />
+                            إضافة للسلة
                           </Button>
                         </CardContent>
                       </Card>
@@ -369,24 +369,24 @@ const Products = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Instant Delivery</h3>
-              <p className="text-gray-600 dark:text-gray-300">Get your digital products delivered to your email within minutes</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">تسليم فوري</h3>
+              <p className="text-gray-600 dark:text-gray-300">احصل على منتجاتك الرقمية في بريدك الإلكتروني خلال دقائق</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Crown className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Best Prices</h3>
-              <p className="text-gray-600 dark:text-gray-300">We guarantee the lowest prices on all digital products</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">أفضل الأسعار</h3>
+              <p className="text-gray-600 dark:text-gray-300">نضمن لك أقل الأسعار على جميع المنتجات الرقمية</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">5-Star Support</h3>
-              <p className="text-gray-600 dark:text-gray-300">24/7 customer support to help with any questions</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">دعم 5 نجوم</h3>
+              <p className="text-gray-600 dark:text-gray-300">دعم عملاء على مدار الساعة للمساعدة في أي استفسارات</p>
             </div>
           </motion.div>
         </div>

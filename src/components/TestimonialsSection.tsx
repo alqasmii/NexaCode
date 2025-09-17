@@ -2,11 +2,9 @@ import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/hooks/useLanguage';
 import { useState, useEffect } from 'react';
 
 const TestimonialsSection = () => {
-  const { t, language } = useLanguage();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   // Auto-rotate testimonials
@@ -117,10 +115,10 @@ const TestimonialsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-cairo font-bold text-foreground mb-4">
-            {t('testimonials.title')}
+            آراء عملائنا
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('testimonials.subtitle')}
+            اكتشف تجارب عملائنا المميزة مع منتجاتنا الرقمية وخدماتنا عالية الجودة
           </p>
           
           {/* Rating Summary */}
@@ -132,17 +130,17 @@ const TestimonialsSection = () => {
                 ))}
               </div>
               <p className="text-2xl font-bold text-foreground">4.9/5</p>
-              <p className="text-sm text-muted-foreground">{t('testimonials.averageRating')}</p>
+              <p className="text-sm text-muted-foreground">متوسط التقييم</p>
             </div>
             <div className="h-12 w-px bg-border"></div>
             <div className="text-center">
               <p className="text-2xl font-bold text-foreground">50,000+</p>
-              <p className="text-sm text-muted-foreground">{t('testimonials.happyCustomers')}</p>
+              <p className="text-sm text-muted-foreground">عميل سعيد</p>
             </div>
             <div className="h-12 w-px bg-border"></div>
             <div className="text-center">
               <p className="text-2xl font-bold text-foreground">6</p>
-              <p className="text-sm text-muted-foreground">{t('testimonials.gccCountries')}</p>
+              <p className="text-sm text-muted-foreground">دول الخليج</p>
             </div>
           </div>
         </div>
@@ -185,10 +183,7 @@ const TestimonialsSection = () => {
               </div>
 
               {/* Testimonial Text */}
-              <p className="text-foreground mb-4 leading-relaxed">
-                "{testimonial.text}"
-              </p>
-              <p className="text-sm font-cairo text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-foreground mb-6 leading-relaxed font-cairo" dir="rtl">
                 "{testimonial.textAr}"
               </p>
 
@@ -201,15 +196,9 @@ const TestimonialsSection = () => {
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-foreground">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-sm font-cairo text-accent-gold">
+                  <h4 className="font-semibold text-foreground font-cairo">
                     {testimonial.nameAr}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {testimonial.role} • {testimonial.location}
-                  </p>
+                  </h4>
                   <p className="text-xs font-cairo text-muted-foreground">
                     {testimonial.roleAr} • {testimonial.locationAr}
                   </p>
@@ -218,8 +207,8 @@ const TestimonialsSection = () => {
 
               {/* Product Tag */}
               <div className="mt-4 pt-4 border-t border-border">
-                <p className="text-xs text-muted-foreground">
-                  Purchased: <span className="text-accent-gold font-medium">{testimonial.product}</span>
+                <p className="text-xs text-muted-foreground font-cairo">
+                  تم الشراء: <span className="text-accent-gold font-medium">{testimonial.product}</span>
                 </p>
               </div>
             </Card>
@@ -230,15 +219,14 @@ const TestimonialsSection = () => {
         {/* Trust Indicators */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-border">
           {[
-            { number: '50,000+', label: 'Customers Served', labelAr: 'عميل خدمناهم' },
-            { number: '99.9%', label: 'Uptime Guarantee', labelAr: 'ضمان وقت التشغيل' },
-            { number: '24/7', label: 'Customer Support', labelAr: 'دعم العملاء' },
-            { number: '100%', label: 'Secure Payments', labelAr: 'مدفوعات آمنة' }
+            { number: '50,000+', labelAr: 'عميل خدمناهم' },
+            { number: '99.9%', labelAr: 'ضمان وقت التشغيل' },
+            { number: '24/7', labelAr: 'دعم العملاء' },
+            { number: '100%', labelAr: 'مدفوعات آمنة' }
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <p className="text-3xl font-bold text-accent-gold mb-2">{stat.number}</p>
-              <p className="text-sm font-medium text-foreground">{stat.label}</p>
-              <p className="text-xs font-cairo text-muted-foreground">{stat.labelAr}</p>
+              <p className="text-sm font-cairo text-foreground">{stat.labelAr}</p>
             </div>
           ))}
         </div>

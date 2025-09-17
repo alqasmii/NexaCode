@@ -14,17 +14,14 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import ThemeToggle from '@/components/ThemeToggle';
-import { LanguageToggle } from '@/components/LanguageToggle';
 import { AuthModal } from '@/components/auth/AuthModal';
 import { useAuth } from '@/hooks/useAuth';
-import { useLanguage } from '@/hooks/useLanguage';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { user, loading, signOut, isAdmin } = useAuth();
-  const { t, language } = useLanguage();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,24 +32,21 @@ const Navigation = () => {
   };
 
   const categories = [
-    { name: t('category.products'), href: '/products' },
-    { name: t('category.services'), href: '/services' },
-    { name: t('category.plus'), href: '/apps' },
+    { name: 'المنتجات', href: '/products' },
+    { name: 'الخدمات', href: '/services' },
+    { name: 'التطبيقات', href: '/apps' },
   ];
 
   return (
-    <nav className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
+    <nav className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50" dir="rtl">
       {/* Top Bar */}
       <div className="bg-primary-navy text-primary-navy-foreground py-2">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-sm">
-            <p>{t('nav.welcome')}</p>
+            <p>مرحباً بك في نيكسو - أفضل منصة للمنتجات الرقمية</p>
             <div className="flex items-center gap-4">
-              <span className="flex items-center gap-1">
-                <Globe className="h-4 w-4" />
-                {t('nav.language')}
-              </span>
-              <span>{t('nav.support')}</span>
+              <span>📧 support@nexacode.com</span>
+              <span>📞 +966 12 345 6789</span>
             </div>
           </div>
         </div>
@@ -64,12 +58,12 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-cairo font-bold text-primary-navy dark:text-accent-gold hover:opacity-80 transition-opacity">
-              {language === 'ar' ? 'نيكسو كودز' : 'Nexo Codes'}
+              نيكسو
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className={`hidden md:flex items-center space-x-8 ${language === 'ar' ? 'mr-16 space-x-reverse' : 'ml-16'}`}>
+          <div className="hidden md:flex items-center space-x-8 mr-16 space-x-reverse">
             {categories.map((category) => (
               <Link
                 key={category.name}
@@ -86,7 +80,7 @@ const Navigation = () => {
             <form onSubmit={handleSearch} className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <Input
-                placeholder={t('nav.search')}
+                placeholder="ابحث عن المنتجات..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 bg-muted border-0 focus:ring-2 focus:ring-accent-gold"
@@ -116,7 +110,6 @@ const Navigation = () => {
               </Link>
             </Button>
             
-            <LanguageToggle />
             <ThemeToggle />
             
             {/* User Authentication */}
@@ -153,8 +146,8 @@ const Navigation = () => {
                     <>
                       <DropdownMenuItem asChild className="p-3 bg-blue-50/50 dark:bg-blue-950/50 rounded-md">
                         <Link to="/admin" className="flex items-center w-full">
-                          <Shield className={`h-4 w-4 text-blue-600 ${language === 'ar' ? 'ml-3' : 'mr-3'}`} />
-                          <span className="font-medium text-blue-600">{t('admin.dashboard.title')}</span>
+                          <Shield className="h-4 w-4 text-blue-600 ml-3" />
+                          <span className="font-medium text-blue-600">لوحة الإدارة</span>
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuSeparator className="my-1" />
@@ -162,20 +155,20 @@ const Navigation = () => {
                   )}
                   <DropdownMenuItem asChild className="p-3 hover:bg-accent/50 rounded-md">
                     <Link to="/profile" className="flex items-center w-full">
-                      <UserCheck className={`h-4 w-4 text-foreground ${language === 'ar' ? 'ml-3' : 'mr-3'}`} />
-                      <span className="text-foreground">{t('nav.profile')}</span>
+                      <UserCheck className="h-4 w-4 text-foreground ml-3" />
+                      <span className="text-foreground">الملف الشخصي</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="p-3 hover:bg-accent/50 rounded-md">
                     <Link to="/orders" className="flex items-center w-full">
-                      <ShoppingCart className={`h-4 w-4 text-foreground ${language === 'ar' ? 'ml-3' : 'mr-3'}`} />
-                      <span className="text-foreground">{t('nav.orders')}</span>
+                      <ShoppingCart className="h-4 w-4 text-foreground ml-3" />
+                      <span className="text-foreground">طلباتي</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator className="my-2" />
                   <DropdownMenuItem onClick={signOut} className="p-3 hover:bg-red-50/50 dark:hover:bg-red-950/50 rounded-md text-red-600 dark:text-red-400">
-                    <LogOut className={`h-4 w-4 ${language === 'ar' ? 'ml-3' : 'mr-3'}`} />
-                    <span>{t('nav.signOut')}</span>
+                    <LogOut className="h-4 w-4 ml-3" />
+                    <span>تسجيل الخروج</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -188,7 +181,7 @@ const Navigation = () => {
                   onClick={() => setIsAuthModalOpen(true)}
                 >
                   <User className="h-4 w-4 mr-2" />
-                  {t('nav.signIn')}
+                  تسجيل الدخول
                 </Button>
                 <Button 
                   size="sm" 
@@ -196,7 +189,7 @@ const Navigation = () => {
                   className="hidden md:flex"
                   onClick={() => setIsAuthModalOpen(true)}
                 >
-                  {t('nav.register')}
+                  إنشاء حساب
                 </Button>
               </>
             )}
@@ -218,7 +211,7 @@ const Navigation = () => {
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
-              placeholder={t('nav.search')}
+              placeholder="ابحث عن المنتجات..."
               className="pl-10 bg-muted border-0"
             />
           </div>
@@ -242,7 +235,7 @@ const Navigation = () => {
               <div className="flex flex-col space-y-2 pt-4 border-t border-border">
                 {user ? (
                   <>
-                    <div className={`flex items-center px-3 py-3 bg-muted/30 rounded-lg ${language === 'ar' ? 'space-x-reverse space-x-3' : 'space-x-3'}`}>
+                    <div className="flex items-center px-3 py-3 bg-muted/30 rounded-lg space-x-reverse space-x-3">
                       <Avatar className="h-10 w-10">
                         <AvatarImage src={user.user_metadata?.avatar_url} alt={user.user_metadata?.full_name || user.email} />
                         <AvatarFallback>
@@ -261,27 +254,27 @@ const Navigation = () => {
                         </p>
                       </div>
                     </div>
-                    <Button variant="ghost" className={`justify-start p-3 hover:bg-accent/30 text-foreground ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-                      <UserCheck className={`h-4 w-4 ${language === 'ar' ? 'ml-2' : 'mr-2'}`} />
-                      {t('nav.profile')}
+                    <Button variant="ghost" className="justify-start p-3 hover:bg-accent/30 text-foreground flex-row-reverse">
+                      <UserCheck className="h-4 w-4 ml-2" />
+                      الملف الشخصي
                     </Button>
-                    <Button variant="ghost" className={`justify-start p-3 hover:bg-red-50/50 dark:hover:bg-red-950/50 text-red-600 dark:text-red-400 ${language === 'ar' ? 'flex-row-reverse' : ''}`} onClick={signOut}>
-                      <LogOut className={`h-4 w-4 ${language === 'ar' ? 'ml-2' : 'mr-2'}`} />
-                      {t('nav.signOut')}
+                    <Button variant="ghost" className="justify-start p-3 hover:bg-red-50/50 dark:hover:bg-red-950/50 text-red-600 dark:text-red-400 flex-row-reverse" onClick={signOut}>
+                      <LogOut className="h-4 w-4 ml-2" />
+                      تسجيل الخروج
                     </Button>
                   </>
                 ) : (
                   <>
                     <Button 
                       variant="ghost" 
-                      className={`justify-start p-3 hover:bg-accent/30 text-foreground ${language === 'ar' ? 'flex-row-reverse' : ''}`}
+                      className="justify-start p-3 hover:bg-accent/30 text-foreground flex-row-reverse"
                       onClick={() => {
                         setIsAuthModalOpen(true)
                         setIsMenuOpen(false)
                       }}
                     >
-                      <User className={`h-4 w-4 ${language === 'ar' ? 'ml-2' : 'mr-2'}`} />
-                      {t('nav.signIn')}
+                      <User className="h-4 w-4 ml-2" />
+                      تسجيل الدخول
                     </Button>
                     <Button 
                       variant="hero"
@@ -291,7 +284,7 @@ const Navigation = () => {
                         setIsMenuOpen(false)
                       }}
                     >
-                      {t('nav.register')}
+                      إنشاء حساب
                     </Button>
                   </>
                 )}

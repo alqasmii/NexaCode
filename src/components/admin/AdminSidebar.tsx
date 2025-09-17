@@ -26,55 +26,55 @@ const AdminSidebar = ({ activeTab, onTabChange, collapsed, onToggleCollapse }: A
   const sidebarItems = [
     {
       id: 'overview',
-      label: 'Overview',
+      label: 'نظرة عامة',
       icon: LayoutDashboard,
       color: 'text-blue-600'
     },
     {
       id: 'apps',
-      label: 'Apps Management',
+      label: 'إدارة التطبيقات',
       icon: Smartphone,
       color: 'text-purple-600'
     },
     {
       id: 'subscriptions',
-      label: 'Subscriptions Management',
+      label: 'إدارة الاشتراكات',
       icon: ShoppingBag,
       color: 'text-green-600'
     },
     {
       id: 'gaming',
-      label: 'Gaming Management',
+      label: 'إدارة الألعاب',
       icon: Gamepad2,
       color: 'text-red-600'
     },
     {
       id: 'codes',
-      label: 'Codes Management',
+      label: 'إدارة الأكواد',
       icon: Tag,
       color: 'text-yellow-600'
     },
     {
       id: 'services',
-      label: 'Services Management',
+      label: 'إدارة الخدمات',
       icon: ShoppingBag,
       color: 'text-indigo-600'
     },
     {
       id: 'users',
-      label: 'Users Management',
+      label: 'إدارة المستخدمين',
       icon: Users,
       color: 'text-pink-600'
     },
     {
       id: 'analytics',
-      label: 'Analytics',
+      label: 'التحليلات',
       icon: BarChart3,
       color: 'text-orange-600'
     },
     {
       id: 'settings',
-      label: 'Settings',
+      label: 'الإعدادات',
       icon: Settings,
       color: 'text-gray-600'
     }
@@ -82,20 +82,20 @@ const AdminSidebar = ({ activeTab, onTabChange, collapsed, onToggleCollapse }: A
 
   return (
     <div className={cn(
-      "bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col transition-all duration-300 shadow-sm",
+      "bg-white dark:bg-gray-800 border-l border-gray-200 dark:border-gray-700 flex flex-col transition-all duration-300 shadow-sm",
       collapsed ? "w-16" : "w-64"
-    )}>
+    )} dir="rtl">
       {/* Header */}
       <div className={cn(
         "flex items-center h-16 px-4 border-b border-gray-200 dark:border-gray-700",
         collapsed ? 'justify-center' : 'justify-between'
       )}>
         {!collapsed && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-row-reverse">
+            <span className="font-semibold text-gray-900 dark:text-white">لوحة الإدارة</span>
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <LayoutDashboard className="w-4 h-4 text-white" />
             </div>
-            <span className="font-semibold text-gray-900 dark:text-white">Dashboard</span>
           </div>
         )}
         <Button
@@ -105,9 +105,9 @@ const AdminSidebar = ({ activeTab, onTabChange, collapsed, onToggleCollapse }: A
           className="h-8 w-8 hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           {collapsed ? (
-            <ChevronRight className="h-4 w-4" />
-          ) : (
             <ChevronLeft className="h-4 w-4" />
+          ) : (
+            <ChevronRight className="h-4 w-4" />
           )}
         </Button>
       </div>

@@ -8,7 +8,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Separator } from '@/components/ui/separator'
 import { signInWithEmail, signUpWithEmail } from '@/lib/supabase'
 import { ForgotPassword } from './ForgotPassword'
-import { useLanguage } from '@/hooks/useLanguage'
 import { Eye, EyeOff, Mail, Lock, User, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 
 interface EmailAuthProps {
@@ -17,7 +16,6 @@ interface EmailAuthProps {
 }
 
 export const EmailAuth: React.FC<EmailAuthProps> = ({ onSuccess, onError }) => {
-  const { t } = useLanguage()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -48,7 +46,7 @@ export const EmailAuth: React.FC<EmailAuthProps> = ({ onSuccess, onError }) => {
     e.preventDefault()
     
     if (!email || !password) {
-      setError(t('error.fillFields'))
+      setError('يرجى ملء جميع الحقول المطلوبة')
       return
     }
 
@@ -58,7 +56,7 @@ export const EmailAuth: React.FC<EmailAuthProps> = ({ onSuccess, onError }) => {
       setSuccess('')
       
       await signInWithEmail(email, password)
-      setSuccess(t('success.signedIn'))
+      setSuccess('تم تسجيل الدخول بنجاح!')
       setTimeout(() => {
         onSuccess?.()
       }, 1000)
@@ -75,17 +73,17 @@ export const EmailAuth: React.FC<EmailAuthProps> = ({ onSuccess, onError }) => {
     e.preventDefault()
     
     if (!email || !password || !confirmPassword || !fullName) {
-      setError(t('error.fillFields'))
+      setError('يرجى ملء جميع الحقول المطلوبة')
       return
     }
 
     if (password !== confirmPassword) {
-      setError(t('error.passwordMismatch'))
+      setError('كلمات المرور غير متطابقة')
       return
     }
 
     if (!isPasswordValid) {
-      setError(t('error.passwordRequirements'))
+      setError('كلمة المرور لا تلبي المتطلبات المطلوبة')
       return
     }
 
