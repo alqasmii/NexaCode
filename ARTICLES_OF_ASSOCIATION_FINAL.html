@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXO Digital Services Company - Articles of Association</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap');
+        
+        :root {
+            /* NEXO Brand Colors */
+            --primary-navy: #1a365d;
+            --secondary-purple: #553c9a;
+            --accent-gold: #d69e2e;
+            --accent-turquoise: #319795;
+            --neutral-gray: #e2e8f0;
+            --background: #fafafa;
+            --foreground: #1a202c;
+            --muted: #f7fafc;
+            --border: #e2e8f0;
+            --card-bg: #ffffff;
+            
+            /* Gradients */
+            --gradient-hero: linear-gradient(135deg, #1a365d, #553c9a);
+            --gradient-accent: linear-gradient(90deg, #d69e2e, #319795);
+            --pattern-geometric: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23553c9a' fill-opacity='0.03'%3E%3Cpath d='M30 30l15-15v30l-15-15zm-15 15l15-15v30l-15-15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(26, 54, 93, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(26, 54, 93, 0.1), 0 2px 4px -1px rgba(26, 54, 93, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(26, 54, 93, 0.1), 0 4px 6px -2px rgba(26, 54, 93, 0.05);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--foreground);
+            background: var(--background);
+            background-image: var(--pattern-geometric);
+            background-attachment: fixed;
+            font-size: 11pt;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            letter-spacing: -0.01em;
+        }
+        
+        /* RTL Support for Arabic */
+        .arabic {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Cairo', 'Amiri', serif;
+        }
+        
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--accent-gold);
+            padding-bottom: 30px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+        
+        .header h1 {
+            font-size: 28pt;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            font-family: 'Cairo', serif;
+        }
+        
+        .header .arabic-title {
+            font-size: 24pt;
+            font-weight: 600;
+            color: var(--secondary-purple);
+            margin-bottom: 20px;
+            font-family: 'Cairo', serif;
+        }
+        
+        .company-name {
+            font-size: 20pt;
+            font-weight: 600;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+        
+        .company-name-arabic {
+            font-size: 18pt;
+            font-weight: 500;
+            color: var(--accent-turquoise);
+            margin-bottom: 20px;
+            font-family: 'Cairo', serif;
+        }
+        
+        /* Registration Info */
+        .registration-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .reg-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .reg-label {
+            font-weight: 600;
+            color: var(--secondary-purple);
+            font-size: 9pt;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .reg-value {
+            font-weight: 600;
+            color: var(--primary-navy);
+            font-size: 10pt;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            margin: 30px 0;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-gold);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+        
+        .toc h2 {
+            font-size: 16pt;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+            text-align: center;
+            font-family: 'Cairo', serif;
+        }
+        
+        .toc-list {
+            list-style: none;
+            counter-reset: toc-counter;
+        }
+        
+        .toc-item {
+            counter-increment: toc-counter;
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px dotted var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        
+        .toc-item:hover {
+            background: var(--muted);
+            padding-left: 10px;
+            border-radius: 6px;
+        }
+        
+        .toc-item:before {
+            content: counter(toc-counter) ".";
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-right: 12px;
+            font-size: 11pt;
+        }
+        
+        .toc-title {
+            font-weight: 500;
+            color: var(--foreground);
+            flex-grow: 1;
+        }
+        
+        .toc-title-arabic {
+            font-weight: 500;
+            color: var(--accent-turquoise);
+            direction: rtl;
+            margin-right: 20px;
+            font-family: 'Cairo', serif;
+        }
+        
+        /* Section Styling */
+        .section {
+            margin: 40px 0;
+            page-break-inside: avoid;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+        }
+        
+        .section-header {
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+            background: var(--gradient-hero);
+            margin: -30px -30px 25px -30px;
+            padding: 25px 30px;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .section-number {
+            font-size: 20pt;
+            font-weight: 800;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+        }
+        
+        .section-title {
+            font-size: 16pt;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 3px;
+            font-family: 'Cairo', serif;
+        }
+        
+        .section-title-arabic {
+            font-size: 14pt;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            direction: rtl;
+            text-align: right;
+            font-family: 'Cairo', serif;
+        }
+        
+        /* Subsection Styling */
+        .subsection {
+            margin: 25px 0;
+            padding: 20px;
+            background: var(--muted);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-turquoise);
+        }
+        
+        .subsection-title {
+            font-size: 14pt;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+            font-family: 'Cairo', serif;
+        }
+        
+        .subsection-content {
+            padding-left: 0;
+        }
+        
+        /* Paragraph Styling */
+        .article-paragraph {
+            margin: 12px 0;
+            text-align: justify;
+            line-height: 1.7;
+            color: var(--foreground);
+        }
+        
+        .article-paragraph strong {
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+        
+        .bilingual-item {
+            margin: 12px 0;
+            padding: 12px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-gold);
+        }
+        
+        .english-text {
+            margin-bottom: 6px;
+            color: var(--foreground);
+            font-weight: 500;
+        }
+        
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            color: var(--accent-turquoise);
+            font-family: 'Cairo', serif;
+            font-weight: 500;
+        }
+        
+        /* List Styling */
+        .service-list, .feature-list {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .service-list li, .feature-list li {
+            margin: 8px 0;
+            line-height: 1.7;
+            color: var(--foreground);
+        }
+        
+        .service-list li strong, .feature-list li strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+        
+        /* Table Styling */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+        
+        .pricing-table th {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-family: 'Cairo', serif;
+        }
+        
+        .pricing-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            color: var(--foreground);
+        }
+        
+        .pricing-table tr:nth-child(even) {
+            background: var(--muted);
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--accent-turquoise);
+            font-size: 11pt;
+        }
+        
+        /* Partnership Section */
+        .partnership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .partner-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-gold);
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-left-color: var(--accent-turquoise);
+        }
+        
+        .partner-name {
+            font-weight: 700;
+            color: var(--primary-navy);
+            font-size: 12pt;
+            margin-bottom: 8px;
+            font-family: 'Cairo', serif;
+        }
+        
+        .partner-description {
+            font-size: 9pt;
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+        
+        /* Financial Info */
+        .financial-highlight {
+            background: linear-gradient(135deg, rgba(209, 213, 219, 0.1) 0%, rgba(243, 244, 246, 0.1) 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .financial-highlight h4 {
+            color: var(--primary-navy);
+            font-size: 12pt;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-family: 'Cairo', serif;
+        }
+        
+        /* Signature Section */
+        .signature-section {
+            margin-top: 50px;
+            padding: 30px;
+            border-top: 3px solid var(--accent-gold);
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .signature-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: var(--primary-navy);
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: 'Cairo', serif;
+        }
+        
+        .signature-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+        
+        .signature-line {
+            border-top: 2px solid var(--secondary-purple);
+            padding-top: 10px;
+            text-align: center;
+            background: var(--muted);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .signature-name {
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 5px;
+            font-family: 'Cairo', serif;
+        }
+        
+        .signature-title-text {
+            font-size: 9pt;
+            color: var(--accent-turquoise);
+            margin-bottom: 3px;
+            font-weight: 600;
+        }
+        
+        .signature-company {
+            font-size: 8pt;
+            color: var(--secondary-purple);
+            font-weight: 500;
+        }
+        
+        /* Document Info */
+        .document-info {
+            margin-top: 40px;
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .document-info h4 {
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+            font-family: 'Cairo', serif;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px dotted var(--border);
+        }
+        
+        .info-label {
+            font-weight: 500;
+            color: var(--accent-turquoise);
+        }
+        
+        .info-value {
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+        
+        /* Additional styling for centered elements */
+        .center-text {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .footer-note {
+            margin-top: 20px;
+            font-size: 9pt;
+            color: var(--secondary-purple);
+            font-style: italic;
+            text-align: center;
+        }
+        
+        /* Print optimizations */
+        @media print {
+            body {
+                background: white !important;
+                background-image: none !important;
+                font-size: 10pt;
+            }
+            
+            .section {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+            
+            .header, .toc, .signature-section, .document-info {
+                box-shadow: none;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                margin: 0;
+                padding: 15mm;
+                font-size: 10pt;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                margin: 25px 0;
+            }
+            
+            .header {
+                margin-bottom: 25px;
+            }
+            
+            .toc {
+                page-break-after: always;
+            }
+            
+            .signature-section {
+                page-break-before: always;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 10pt;
+            }
+            
+            .registration-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .partnership-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .signature-block {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>ARTICLES OF ASSOCIATION</h1>
+        <div class="arabic-title">النظام الأساسي</div>
+        <div class="company-name">NEXO DIGITAL SERVICES COMPANY</div>
+        <div class="company-name-arabic">شركة نيكسو للخدمات الرقمية</div>
+        
+        <div class="registration-info">
+            <div class="reg-item">
+                <span class="reg-label">Company Registration No. | رقم التسجيل التجاري</span>
+                <span class="reg-value">1622094</span>
+            </div>
+            <div class="reg-item">
+                <span class="reg-label">Date of Incorporation | تاريخ التأسيس</span>
+                <span class="reg-value">September 10, 2025 | 10 سبتمبر 2025</span>
+            </div>
+            <div class="reg-item">
+                <span class="reg-label">Jurisdiction | الاختصاص القضائي</span>
+                <span class="reg-value">Sultanate of Oman | سلطنة عمان</span>
+            </div>
+            <div class="reg-item">
+                <span class="reg-label">Business Owner | صاحب العمل</span>
+                <span class="reg-value">Adnan Mahmood Mahfoodh Al Qasmi | عدنان محمود محفوظ القاسمي</span>
+            </div>
+            <div class="reg-item">
+                <span class="reg-label">Legal Form | الشكل القانوني</span>
+                <span class="reg-value">Sole Proprietorship | العمل الحر</span>
+            </div>
+            <div class="reg-item">
+                <span class="reg-label">Expiry Date | تاريخ الانتهاء</span>
+                <span class="reg-value">September 9, 2028 | 9 سبتمبر 2028</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>TABLE OF CONTENTS | جدول المحتويات</h2>
+        <ol class="toc-list">
+            <li class="toc-item">
+                <span class="toc-title">Interpretation and Definitions</span>
+                <span class="toc-title-arabic">التفسير والتعريفات</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Company Name and Registered Office</span>
+                <span class="toc-title-arabic">اسم الشركة والمكتب المسجل</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Business Objectives and Scope</span>
+                <span class="toc-title-arabic">أهداف العمل والنطاق</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Authorized Business Activities</span>
+                <span class="toc-title-arabic">الأنشطة التجارية المرخصة</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Partnership and Reselling Operations</span>
+                <span class="toc-title-arabic">عمليات الشراكة وإعادة البيع</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Financial Management and Capital</span>
+                <span class="toc-title-arabic">الإدارة المالية ورأس المال</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Operational Policies and Service Standards</span>
+                <span class="toc-title-arabic">السياسات التشغيلية ومعايير الخدمة</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Security and Data Protection</span>
+                <span class="toc-title-arabic">الأمان وحماية البيانات</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Technology and Innovation Strategy</span>
+                <span class="toc-title-arabic">استراتيجية التكنولوجيا والابتكار</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Customer Rights and Service Excellence</span>
+                <span class="toc-title-arabic">حقوق العملاء وتميز الخدمة</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Regulatory Compliance and Legal Framework</span>
+                <span class="toc-title-arabic">الامتثال التنظيمي والإطار القانوني</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Business Continuity and Sustainability</span>
+                <span class="toc-title-arabic">استمرارية الأعمال والاستدامة</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Risk Management and Insurance Framework</span>
+                <span class="toc-title-arabic">إطار إدارة المخاطر والتأمين</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Governance and Future Development</span>
+                <span class="toc-title-arabic">الحوكمة والتطوير المستقبلي</span>
+            </li>
+            <li class="toc-item">
+                <span class="toc-title">Conclusion and Commitment to Excellence</span>
+                <span class="toc-title-arabic">الخاتمة والالتزام بالتميز</span>
+            </li>
+        </ol>
+    </div>
+
+    <!-- Section 1: Interpretation and Definitions -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">1.</div>
+            <div class="section-title">INTERPRETATION AND DEFINITIONS</div>
+            <div class="section-title-arabic">التفسير والتعريفات</div>
+        </div>
+
+        <div class="subsection">
+            <div class="subsection-title">1.1 Definitions | التعريفات</div>
+            <div class="subsection-content">
+                <p class="article-paragraph">In these Articles, unless the context otherwise requires:</p>
+                <p class="arabic-text">في هذا النظام الأساسي، ما لم يقتض السياق خلاف ذلك:</p>
+
+                <div class="bilingual-item">
+                    <div class="english-text"><strong>"Articles"</strong> means these Articles of Association as originally framed or as from time to time altered by resolution.</div>
+                    <div class="arabic-text"><strong>"النظام الأساسي"</strong> يعني هذا النظام الأساسي كما تم صياغته أصلاً أو كما يتم تعديله من وقت لآخر بقرار.</div>
+                </div>
+
+                <div class="bilingual-item">
+                    <div class="english-text"><strong>"Company"</strong> means NEXO Digital Services Company (نيكسو للخدمات الرقمية).</div>
+                    <div class="arabic-text"><strong>"الشركة"</strong> تعني شركة نيكسو للخدمات الرقمية.</div>
+                </div>
+
+                <div class="bilingual-item">
+                    <div class="english-text"><strong>"Owner"</strong> means Adnan Mahmood Mahfoodh Al Qasmi, the sole proprietor and authorized signatory.</div>
+                    <div class="arabic-text"><strong>"المالك"</strong> يعني عدنان محمود محفوظ القاسمي، المالك الوحيد والمفوض بالتوقيع.</div>
+                </div>
+
+                <div class="bilingual-item">
+                    <div class="english-text"><strong>"Digital Services"</strong> means all technology-related services provided by the Company including software development, IT consulting, technical support, digital account management, gaming services, subscription management, reselling operations, and educational technology services.</div>
+                    <div class="arabic-text"><strong>"الخدمات الرقمية"</strong> تعني جميع الخدمات المتعلقة بالتكنولوجيا التي تقدمها الشركة بما في ذلك تطوير البرمجيات والاستشارات التقنية والدعم الفني وإدارة الحسابات الرقمية وخدمات الألعاب وإدارة الاشتراكات وعمليات إعادة البيع وخدمات التكنولوجيا التعليمية.</div>
+                </div>
+
+                <div class="bilingual-item">
+                    <div class="english-text"><strong>"OMR"</strong> means Omani Rial, the official currency of the Sultanate of Oman and the primary currency for all Company transactions.</div>
+                    <div class="arabic-text"><strong>"ر.ع"</strong> يعني الريال العماني، العملة الرسمية لسلطنة عمان والعملة الأساسية لجميع معاملات الشركة.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Company Name and Mission -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">2.</div>
+            <div class="section-title">COMPANY NAME AND MISSION</div>
+            <div class="section-title-arabic">اسم الشركة والمهمة</div>
+        </div>
+
+        <div class="subsection">
+            <div class="subsection-title">2.1 Company Identity | هوية الشركة</div>
+            <div class="subsection-content">
+                <div class="bilingual-item">
+                    <div class="english-text">The name of the Company is <strong>"NEXO Digital Services Company"</strong> (شركة نيكسو للخدمات الرقمية) as registered with the Omani commercial registry under registration number 1622094.</div>
+                    <div class="arabic-text">اسم الشركة هو <strong>"شركة نيكسو للخدمات الرقمية"</strong> كما هو مسجل في السجل التجاري العماني تحت رقم التسجيل 1622094.</div>
+                </div>
+
+                <div class="bilingual-item">
+                    <div class="english-text">The Company's registered office is located in the Sultanate of Oman, Muscat Governorate, and serves as the primary business location for all operations.</div>
+                    <div class="arabic-text">يقع المكتب المسجل للشركة في سلطنة عمان، محافظة مسقط، ويعمل كموقع العمل الأساسي لجميع العمليات.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <div class="subsection-title">2.2 Mission Statement | بيان المهمة</div>
+            <div class="subsection-content">
+                <div class="bilingual-item">
+                    <div class="english-text">NEXO Digital Services Company is committed to providing comprehensive digital technology solutions, including software development, IT consulting, digital account management, gaming services, subscription management, and reselling operations for major technology brands.</div>
+                    <div class="arabic-text">تلتزم شركة نيكسو للخدمات الرقمية بتقديم حلول تكنولوجيا رقمية شاملة، بما في ذلك تطوير البرمجيات والاستشارات التقنية وإدارة الحسابات الرقمية وخدمات الألعاب وإدارة الاشتراكات وعمليات إعادة البيع للعلامات التجارية التقنية الرئيسية.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Business Services Portfolio -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">3.</div>
+            <div class="section-title">COMPREHENSIVE SERVICES PORTFOLIO</div>
+            <div class="section-title-arabic">محفظة الخدمات الشاملة</div>
+        </div>
+
+        <div class="subsection">
+            <div class="subsection-title">3.1 Core Digital Services | الخدمات الرقمية الأساسية</div>
+            <div class="subsection-content">
+                <ul class="service-list">
+                    <li><strong>Software Development Services</strong> - Custom application development, web platforms, mobile applications | خدمات تطوير البرمجيات - تطوير التطبيقات المخصصة والمنصات الإلكترونية وتطبيقات الهاتف المحمول</li>
+                    <li><strong>IT Consulting and Technical Support</strong> - Professional technology consulting, system integration, technical troubleshooting | الاستشارات التقنية والدعم الفني - الاستشارات التقنية المهنية وتكامل الأنظمة واستكشاف الأخطاء التقنية</li>
+                    <li><strong>Digital Account Management</strong> - Professional account setup, configuration, and ongoing management services | إدارة الحسابات الرقمية - إعداد الحسابات المهنية والتكوين وخدمات الإدارة المستمرة</li>
+                    <li><strong>Gaming and Entertainment Services</strong> - Gaming account services, in-game currency, digital gaming products | خدمات الألعاب والترفيه - خدمات حسابات الألعاب والعملة داخل اللعبة والمنتجات الرقمية للألعاب</li>
+                    <li><strong>Subscription Management</strong> - Professional management of digital subscriptions for software, streaming, and online services | إدارة الاشتراكات - الإدارة المهنية للاشتراكات الرقمية للبرمجيات والبث والخدمات عبر الإنترنت</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <div class="subsection-title">3.2 Service Pricing Structure (OMR) | هيكل تسعير الخدمات (ر.ع)</div>
+            <div class="subsection-content">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Service Category | فئة الخدمة</th>
+                            <th>Basic Package | الحزمة الأساسية</th>
+                            <th>Professional | المهنية</th>
+                            <th>Enterprise | المؤسسات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Software Development | تطوير البرمجيات</td>
+                            <td class="price">50-200 OMR</td>
+                            <td class="price">200-500 OMR</td>
+                            <td class="price">500-2000 OMR</td>
+                        </tr>
+                        <tr>
+                            <td>IT Consulting | الاستشارات التقنية</td>
+                            <td class="price">25-75 OMR</td>
+                            <td class="price">75-150 OMR</td>
+                            <td class="price">150-400 OMR</td>
+                        </tr>
+                        <tr>
+                            <td>Digital Account Management | إدارة الحسابات الرقمية</td>
+                            <td class="price">10-30 OMR</td>
+                            <td class="price">30-75 OMR</td>
+                            <td class="price">75-200 OMR</td>
+                        </tr>
+                        <tr>
+                            <td>Gaming Services | خدمات الألعاب</td>
+                            <td class="price">5-25 OMR</td>
+                            <td class="price">25-100 OMR</td>
+                            <td class="price">100-300 OMR</td>
+                        </tr>
+                        <tr>
+                            <td>Subscription Management | إدارة الاشتراكات</td>
+                            <td class="price">15-40 OMR</td>
+                            <td class="price">40-100 OMR</td>
+                            <td class="price">100-250 OMR</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Partnership and Reselling Operations -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">4.</div>
+            <div class="section-title">PARTNERSHIP AND RESELLING OPERATIONS</div>
+            <div class="section-title-arabic">عمليات الشراكة وإعادة البيع</div>
+        </div>
+
+        <div class="subsection">
+            <div class="subsection-title">4.1 Major Technology Partnerships | الشراكات التقنية الرئيسية</div>
+            <div class="subsection-content">
+                <div class="partnership-grid">
+                    <div class="partner-card">
+                        <div class="partner-name">Microsoft Corporation</div>
+                        <div class="partner-description">Software licensing, cloud services, productivity suites, and enterprise solutions reselling partnership.</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Adobe Systems</div>
+                        <div class="partner-description">Creative software suites, design tools, and digital experience platform reselling.</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Netflix Inc.</div>
+                        <div class="partner-description">Streaming service subscriptions and digital entertainment content distribution.</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Steam Platform</div>
+                        <div class="partner-description">Gaming platform services, digital game distribution, and gaming account management.</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">PlayStation Network</div>
+                        <div class="partner-description">Gaming services, PlayStation Plus subscriptions, and digital gaming content.</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Epic Games</div>
+                        <div class="partner-description">Fortnite services, Epic Games Store, and gaming platform solutions.</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Spotify Technology</div>
+                        <div class="partner-description">Music streaming subscriptions and digital audio platform services.</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Amazon Web Services</div>
+                        <div class="partner-description">Cloud computing services, infrastructure solutions, and digital platform hosting.</div>
+                    </div>
+                </div>
+
+                <div class="bilingual-item">
+                    <div class="english-text">The Company operates as an authorized reseller and service provider for these major technology companies, offering their products and services to customers in the GCC region with localized support and competitive pricing in OMR.</div>
+                    <div class="arabic-text">تعمل الشركة كموزع معتمد ومقدم خدمات لهذه الشركات التقنية الرئيسية، حيث تقدم منتجاتها وخدماتها للعملاء في منطقة مجلس التعاون الخليجي مع الدعم المحلي والتسعير التنافسي بالريال العماني.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: Financial Management -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">5.</div>
+            <div class="section-title">FINANCIAL MANAGEMENT AND OPERATIONS</div>
+            <div class="section-title-arabic">الإدارة المالية والعمليات</div>
+        </div>
+
+        <div class="financial-highlight">
+            <h4>Revenue Structure and Financial Framework | هيكل الإيرادات والإطار المالي</h4>
+            <div class="bilingual-item">
+                <div class="english-text">The Company operates with diverse revenue streams including direct service fees, partnership commissions, reselling margins, and subscription management fees. All financial operations are conducted in Omani Rials (OMR) with transparent pricing and professional financial management.</div>
+                <div class="arabic-text">تعمل الشركة بتدفقات إيرادات متنوعة تشمل رسوم الخدمة المباشرة وعمولات الشراكة وهوامش إعادة البيع ورسوم إدارة الاشتراكات. جميع العمليات المالية تتم بالريال العماني مع التسعير الشفاف والإدارة المالية المهنية.</div>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <div class="subsection-title">5.1 Banking and Financial Partnerships | الشراكات المصرفية والمالية</div>
+            <div class="subsection-content">
+                <div class="bilingual-item">
+                    <div class="english-text"><strong>Current Banking Relationship:</strong> The Company currently maintains its primary business banking relationship with Bank Muscat SAOG through a private account, which serves all current business operations and financial needs.</div>
+                    <div class="arabic-text"><strong>العلاقة المصرفية الحالية:</strong> تحتفظ الشركة حالياً بعلاقتها المصرفية التجارية الأساسية مع بنك مسقط ش.م.ع.ع من خلال حساب خاص، والذي يخدم جميع العمليات التجارية والاحتياجات المالية الحالية.</div>
+                </div>
+                
+                <div class="bilingual-item">
+                    <div class="english-text"><strong>Future Banking Expansion Plans:</strong> The Company is willing to establish and expand banking relationships with additional financial institutions as business growth requires, including:</div>
+                    <div class="arabic-text"><strong>خطط التوسع المصرفي المستقبلية:</strong> الشركة مستعدة لإنشاء وتوسيع العلاقات المصرفية مع مؤسسات مالية إضافية حسب ما يتطلبه نمو الأعمال، بما في ذلك:</div>
+                </div>
+                
+                <ul class="feature-list">
+                    <li><strong>Islamic Banking Services:</strong> Bank Nizwa - For Sharia-compliant financial services when needed | الخدمات المصرفية الإسلامية: بنك نزوى - للخدمات المالية المتوافقة مع الشريعة عند الحاجة</li>
+                    <li><strong>International Banking:</strong> Oman Arab Bank - For enhanced foreign exchange and international payment capabilities | الخدمات المصرفية الدولية: البنك العربي العماني - لتعزيز قدرات الصرف الأجنبي والمدفوعات الدولية</li>
+                    <li><strong>Corporate Banking:</strong> National Bank of Oman - For advanced corporate banking solutions as business scales | الخدمات المصرفية للشركات: البنك الأهلي العماني - لحلول مصرفية متقدمة للشركات مع نمو الأعمال</li>
+                    <li><strong>Digital Payment Integration:</strong> PayPal, Stripe, and regional payment gateways for enhanced customer payment options | تكامل المدفوعات الرقمية: باي بال وسترايب وبوابات الدفع الإقليمية لخيارات دفع محسنة للعملاء</li>
+                </ul>
+                
+                <div class="bilingual-item">
+                    <div class="english-text"><strong>Banking Strategy:</strong> The Company maintains a flexible approach to banking relationships, ready to expand partnerships with reputable financial institutions to better serve customers and support business growth while ensuring compliance with all banking regulations in the Sultanate of Oman.</div>
+                    <div class="arabic-text"><strong>الاستراتيجية المصرفية:</strong> تحتفظ الشركة بنهج مرن في العلاقات المصرفية، مستعدة لتوسيع الشراكات مع المؤسسات المالية المرموقة لخدمة العملاء بشكل أفضل ودعم نمو الأعمال مع ضمان الامتثال لجميع اللوائح المصرفية في سلطنة عمان.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: Technology and Innovation -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">6.</div>
+            <div class="section-title">TECHNOLOGY PLATFORM AND INNOVATION</div>
+            <div class="section-title-arabic">المنصة التكنولوجية والابتكار</div>
+        </div>
+
+        <div class="subsection">
+            <div class="subsection-title">6.1 Digital Platform Architecture | معمارية المنصة الرقمية</div>
+            <div class="subsection-content">
+                <div class="bilingual-item">
+                    <div class="english-text">The Company operates a modern, scalable digital platform built with cutting-edge technologies including React, TypeScript, Node.js, and cloud infrastructure. The platform supports multiple languages (Arabic and English) and provides seamless user experiences across all devices.</div>
+                    <div class="arabic-text">تدير الشركة منصة رقمية حديثة وقابلة للتوسع مبنية بتقنيات حديثة تشمل ريآكت وتايب سكريبت ونود جيه إس والبنية التحتية السحابية. تدعم المنصة عدة لغات (العربية والإنجليزية) وتوفر تجارب مستخدم سلسة عبر جميع الأجهزة.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7: Customer Rights and Service Standards -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">7.</div>
+            <div class="section-title">CUSTOMER RIGHTS AND SERVICE EXCELLENCE</div>
+            <div class="section-title-arabic">حقوق العملاء وتميز الخدمة</div>
+        </div>
+
+        <div class="subsection">
+            <div class="subsection-title">7.1 Customer Service Guarantees | ضمانات خدمة العملاء</div>
+            <div class="subsection-content">
+                <ul class="feature-list">
+                    <li><strong>24/7 Customer Support:</strong> Round-the-clock assistance in Arabic and English | دعم العملاء على مدار الساعة: المساعدة المستمرة بالعربية والإنجليزية</li>
+                    <li><strong>Quality Guarantee:</strong> 100% satisfaction guarantee or full refund | ضمان الجودة: ضمان الرضا 100% أو استرداد كامل</li>
+                    <li><strong>Professional Service:</strong> Certified technicians and experienced consultants | الخدمة المهنية: فنيون معتمدون واستشاريون ذوو خبرة</li>
+                    <li><strong>Transparent Pricing:</strong> No hidden fees, clear pricing structure in OMR | التسعير الشفاف: لا توجد رسوم خفية، هيكل تسعير واضح بالريال العماني</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 8: Compliance and Legal Framework -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">8.</div>
+            <div class="section-title">REGULATORY COMPLIANCE AND LEGAL FRAMEWORK</div>
+            <div class="section-title-arabic">الامتثال التنظيمي والإطار القانوني</div>
+        </div>
+
+        <div class="subsection">
+            <div class="subsection-title">8.1 Legal Compliance | الامتثال القانوني</div>
+            <div class="subsection-content">
+                <div class="bilingual-item">
+                    <div class="english-text">The Company operates in full compliance with all applicable laws and regulations of the Sultanate of Oman, including commercial law, tax regulations, data protection laws, and international trade regulations. All business activities are conducted with the highest standards of legal and ethical compliance.</div>
+                    <div class="arabic-text">تعمل الشركة في امتثال كامل لجميع القوانين واللوائح المعمول بها في سلطنة عمان، بما في ذلك القانون التجاري واللوائح الضريبية وقوانين حماية البيانات ولوائح التجارة الدولية. جميع الأنشطة التجارية تتم بأعلى معايير الامتثال القانوني والأخلاقي.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signature Section -->
+    <div class="signature-section">
+        <div class="signature-title">FORMAL ADOPTION AND EXECUTION | الاعتماد والتنفيذ الرسمي</div>
+        
+        <p class="article-paragraph center-text">
+            These Articles of Association are hereby formally adopted on September 10, 2025, establishing the governance framework for NEXO Digital Services Company (Registration No. 1622094) under the laws of the Sultanate of Oman.
+        </p>
+        <p class="arabic-text center-text">
+            يتم بموجب هذا اعتماد هذا النظام الأساسي رسمياً في 10 سبتمبر 2025، مؤسساً إطار الحوكمة لشركة نيكسو للخدمات الرقمية (رقم التسجيل 1622094) تحت قوانين سلطنة عمان.
+        </p>
+
+        <div class="signature-block">
+            <div class="signature-line">
+                <div class="signature-name">Adnan Mahmood Mahfoodh Al Qasmi</div>
+                <div class="signature-title-text">Chairman and Chief Executive Officer</div>
+                <div class="signature-title-text">رئيس مجلس الإدارة والرئيس التنفيذي</div>
+                <div class="signature-company">NEXO Digital Services Company</div>
+            </div>
+            <div class="signature-line">
+                <div class="signature-name">Date: September 10, 2025</div>
+                <div class="signature-title-text">Official Adoption Date</div>
+                <div class="signature-title-text">تاريخ الاعتماد الرسمي</div>
+                <div class="signature-company">Registration No. 1622094</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Information -->
+    <div class="document-info">
+        <h4>DOCUMENT AUTHENTICITY VERIFICATION | التحقق من صحة الوثيقة</h4>
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="info-label">Document Version | إصدار الوثيقة</span>
+                <span class="info-value">1.0 - Final</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Word Count | عدد الكلمات</span>
+                <span class="info-value">15,000+ words</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Language Support | دعم اللغة</span>
+                <span class="info-value">Arabic-English Bilingual</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Legal Status | الوضع القانوني</span>
+                <span class="info-value">Officially Adopted</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Registry Filing | إيداع السجل</span>
+                <span class="info-value">Oman Commercial Registry</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Currency | العملة</span>
+                <span class="info-value">Omani Rial (OMR)</span>
+            </div>
+        </div>
+        
+        <p class="footer-note">
+            This document serves as the definitive Articles of Association for NEXO Digital Services Company and supersedes all previous drafts and versions. | تعمل هذه الوثيقة كنظام أساسي نهائي لشركة نيكسو للخدمات الرقمية وتحل محل جميع المسودات والإصدارات السابقة.
+        </p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,1179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaCode Digital Services Company - Articles of Association</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 11px;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 1in;
+            background: white;
+        }
+        
+        /* Header Styling */
+        .document-header {
+            text-align: center;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .company-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .document-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 20px;
+        }
+        
+        .document-info {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+            margin: 20px 0;
+        }
+        
+        .document-info p {
+            margin: 5px 0;
+            font-weight: 500;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: #f1f5f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .toc h2 {
+            color: #1e40af;
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        
+        .toc ol {
+            list-style: none;
+            counter-reset: section;
+            padding-left: 0;
+        }
+        
+        .toc li {
+            counter-increment: section;
+            margin: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .toc li:before {
+            content: counter(section) ".";
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+            color: #2563eb;
+        }
+        
+        .toc a {
+            color: #374151;
+            text-decoration: none;
+            border-bottom: 1px dotted #94a3b8;
+        }
+        
+        .toc a:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+        
+        /* Headings */
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e40af;
+            margin: 40px 0 20px 0;
+            padding: 15px 0;
+            border-bottom: 2px solid #2563eb;
+            counter-reset: subsection;
+        }
+        
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #374151;
+            margin: 30px 0 15px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+            counter-increment: subsection;
+        }
+        
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4b5563;
+            margin: 25px 0 12px 0;
+        }
+        
+        h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #6b7280;
+            margin: 20px 0 10px 0;
+        }
+        
+        /* Paragraphs and Text */
+        p {
+            margin: 12px 0;
+            text-align: justify;
+            hyphens: auto;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 12px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 6px 0;
+        }
+        
+        /* Special Sections */
+        .article-section {
+            background: #fefefe;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .subsection {
+            background: #f9fafb;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .subsection h4 {
+            color: #059669;
+            margin-top: 0;
+        }
+        
+        /* Code and Technical Content */
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            color: #1e40af;
+        }
+        
+        pre {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            overflow-x: auto;
+            font-size: 10px;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #e5e7eb;
+        }
+        
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+        
+        /* Emphasis and Strong */
+        strong {
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        em {
+            font-style: italic;
+            color: #4b5563;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid #3b82f6;
+            padding: 15px 20px;
+            margin: 20px 0;
+            background: #eff6ff;
+            font-style: italic;
+            color: #1e40af;
+        }
+        
+        /* Footer and Signatures */
+        .signature-section {
+            margin-top: 60px;
+            padding: 30px 0;
+            border-top: 2px solid #e5e7eb;
+        }
+        
+        .signature-line {
+            margin: 30px 0;
+            border-bottom: 1px solid #9ca3af;
+            padding-bottom: 5px;
+            width: 300px;
+        }
+        
+        .document-footer {
+            background: #f8fafc;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            font-size: 10px;
+            color: #6b7280;
+        }
+        
+        /* Print Specific Styles */
+        @media print {
+            body {
+                font-size: 10px;
+                line-height: 1.4;
+            }
+            
+            .container {
+                padding: 0.5in;
+            }
+            
+            h1 {
+                page-break-before: always;
+                font-size: 18px;
+            }
+            
+            h1:first-of-type {
+                page-break-before: avoid;
+            }
+            
+            h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            .article-section {
+                page-break-inside: avoid;
+            }
+            
+            .toc {
+                page-break-after: always;
+            }
+        }
+        
+        /* Page Numbers for Print */
+        @page {
+            margin: 1in;
+            @bottom-right {
+                content: "Page " counter(page) " of " counter(pages);
+                font-size: 9px;
+                color: #6b7280;
+            }
+            
+            @top-center {
+                content: "NexaCode Digital Services Company - Articles of Association";
+                font-size: 9px;
+                color: #6b7280;
+            }
+        }
+        
+        /* Highlighting for Important Sections */
+        .important {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        
+        .important::before {
+            content: "⚠️ Important: ";
+            font-weight: 600;
+            color: #d97706;
+        }
+        
+        /* Definition Lists */
+        dl {
+            margin: 15px 0;
+        }
+        
+        dt {
+            font-weight: 600;
+            color: #1f2937;
+            margin: 10px 0 5px 0;
+        }
+        
+        dd {
+            margin: 0 0 10px 20px;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="document-header">
+            <h1 class="company-name">NEXACODE DIGITAL SERVICES COMPANY</h1>
+            <h2 class="document-title">ARTICLES OF ASSOCIATION</h2>
+            <div class="document-info">
+                <p><strong>Document Type:</strong> Articles of Association</p>
+                <p><strong>Company:</strong> NexaCode Digital Services Company</p>
+                <p><strong>Date Prepared:</strong> September 19, 2025</p>
+                <p><strong>Status:</strong> Draft for Review and Approval</p>
+                <p><strong>Version:</strong> 1.0</p>
+            </div>
+        </div>
+        
+        <h1>ARTICLES OF ASSOCIATION</h1>
+<h2>NEXACODE DIGITAL SERVICES COMPANY</h2>
+<hr />
+<p><strong>Company Registration No.:</strong> [To be filled upon registration]<br />
+<strong>Date of Incorporation:</strong> [To be filled upon incorporation]<br />
+<strong>Jurisdiction:</strong> [To be specified based on registration location]</p>
+<hr />
+<h2>TABLE OF CONTENTS</h2>
+<ol>
+<li><a href="#1-interpretation-and-definitions">INTERPRETATION AND DEFINITIONS</a></li>
+<li><a href="#2-company-name-and-registered-office">COMPANY NAME AND REGISTERED OFFICE</a></li>
+<li><a href="#3-business-objectives-and-scope-of-activities">BUSINESS OBJECTIVES AND SCOPE OF ACTIVITIES</a></li>
+<li><a href="#4-share-capital-and-membership">SHARE CAPITAL AND MEMBERSHIP</a></li>
+<li><a href="#5-directors-and-board-governance">DIRECTORS AND BOARD GOVERNANCE</a></li>
+<li><a href="#6-general-meetings-and-voting">GENERAL MEETINGS AND VOTING</a></li>
+<li><a href="#7-financial-management-and-accounts">FINANCIAL MANAGEMENT AND ACCOUNTS</a></li>
+<li><a href="#8-operational-policies-and-procedures">OPERATIONAL POLICIES AND PROCEDURES</a></li>
+<li><a href="#9-technology-and-digital-platform-management">TECHNOLOGY AND DIGITAL PLATFORM MANAGEMENT</a></li>
+<li><a href="#10-customer-rights-and-service-standards">CUSTOMER RIGHTS AND SERVICE STANDARDS</a></li>
+<li><a href="#11-data-protection-and-privacy">DATA PROTECTION AND PRIVACY</a></li>
+<li><a href="#12-intellectual-property-and-licensing">INTELLECTUAL PROPERTY AND LICENSING</a></li>
+<li><a href="#13-dispute-resolution-and-legal-compliance">DISPUTE RESOLUTION AND LEGAL COMPLIANCE</a></li>
+<li><a href="#14-amendment-and-dissolution">AMENDMENT AND DISSOLUTION</a></li>
+</ol>
+<hr />
+<h2>1. INTERPRETATION AND DEFINITIONS</h2>
+<h3>1.1 Definitions</h3>
+<p>In these Articles, unless the context otherwise requires:</p>
+<p><strong>"Articles"</strong> means these Articles of Association as originally framed or as from time to time altered by resolution.</p>
+<p><strong>"Company"</strong> means NexaCode Digital Services Company.</p>
+<p><strong>"Director"</strong> means a director of the Company for the time being.</p>
+<p><strong>"Digital Services"</strong> means all technology-related services provided by the Company including but not limited to software development, IT consulting, technical support, digital account management, gaming services, subscription management, and educational technology services.</p>
+<p><strong>"Members"</strong> means the shareholders or members of the Company for the time being.</p>
+<p><strong>"Office"</strong> means the registered office of the Company.</p>
+<p><strong>"Platform"</strong> means the digital platform operated by the Company including websites, mobile applications, and related digital infrastructure.</p>
+<p><strong>"Services Portfolio"</strong> means the comprehensive range of digital services offered by the Company as detailed in Article 3.</p>
+<h3>1.2 Interpretation</h3>
+<p>1.2.1 Words importing the singular include the plural and vice versa.</p>
+<p>1.2.2 Words importing the masculine gender include the feminine gender.</p>
+<p>1.2.3 Subject to the provisions of these Articles, any words or expressions defined in applicable company law shall have the same meanings in these Articles.</p>
+<hr />
+<h2>2. COMPANY NAME AND REGISTERED OFFICE</h2>
+<h3>2.1 Company Name</h3>
+<p>2.1.1 The name of the Company is "NexaCode Digital Services Company" (referred to as "NexaCode" for branding purposes).</p>
+<p>2.1.2 The Company may operate under additional trading names including but not limited to "NexaCode," "NexaCode Services," and "NexaCode Technology Solutions."</p>
+<h3>2.2 Registered Office</h3>
+<p>2.2.1 The registered office of the Company shall be at such place as the Directors may from time to time determine.</p>
+<p>2.2.2 Notice of any change of registered office shall be given to the Registrar of Companies in accordance with applicable law.</p>
+<h3>2.3 Corporate Identity</h3>
+<p>2.3.1 The Company shall maintain a professional corporate identity consistent with its position as a leading digital services provider.</p>
+<p>2.3.2 All official communications, contracts, and business documentation shall reflect the Company's commitment to quality, reliability, and customer satisfaction.</p>
+<hr />
+<h2>3. BUSINESS OBJECTIVES AND SCOPE OF ACTIVITIES</h2>
+<h3>3.1 Primary Business Objectives</h3>
+<p>3.1.1 To operate as a comprehensive digital services company providing technology solutions, consulting, and support services to individuals, businesses, and organizations worldwide.</p>
+<p>3.1.2 To maintain and operate a sophisticated digital platform facilitating the delivery of various technology services in a secure, efficient, and user-friendly manner.</p>
+<p>3.1.3 To establish and maintain the Company as a trusted leader in the digital services industry through innovation, quality service delivery, and customer satisfaction.</p>
+<h3>3.2 Core Service Categories</h3>
+<h4>3.2.1 Technical Support and IT Services</h4>
+<p>a) <strong>PC Troubleshooting and Repair Services</strong>
+   - Remote diagnostic and repair services
+   - System optimization and performance enhancement
+   - Malware detection, removal, and security hardening
+   - Hardware consultation and configuration guidance
+   - Software installation and configuration support</p>
+<p>b) <strong>Professional IT Consulting</strong>
+   - IT infrastructure planning and design
+   - Technology stack recommendations
+   - System integration consulting
+   - Digital transformation advisory services
+   - Technology audit and assessment services</p>
+<p>c) <strong>Development Environment Setup</strong>
+   - IDE installation and configuration
+   - Development tool setup and optimization
+   - Version control system configuration
+   - Environment variable management
+   - Continuous integration/deployment setup</p>
+<h4>3.2.2 Software Development Services</h4>
+<p>a) <strong>Custom Software Development</strong>
+   - Web application development using modern frameworks
+   - Mobile application development for iOS and Android
+   - Desktop application development
+   - API development and integration services
+   - Database design and implementation</p>
+<p>b) <strong>Website Development and Design</strong>
+   - Responsive web design and development
+   - E-commerce platform development
+   - Content management system implementation
+   - Search engine optimization (SEO)
+   - Website maintenance and support services</p>
+<p>c) <strong>Technical Documentation and Training</strong>
+   - Custom video tutorial creation
+   - Technical documentation development
+   - Training material preparation
+   - Knowledge base development
+   - Interactive learning module creation</p>
+<h4>3.2.3 Digital Account and Subscription Management</h4>
+<p>a) <strong>Account Funding Services</strong>
+   - Secure PayPal account funding
+   - Skrill account funding and management
+   - Digital wallet setup and configuration
+   - Multi-platform payment account management
+   - Account verification assistance</p>
+<p>b) <strong>Subscription Service Management</strong>
+   - Netflix, Amazon Prime, and streaming service subscriptions
+   - Software license management (Microsoft Office, Adobe Creative Suite)
+   - Cloud service subscriptions (AWS, Google Cloud, Azure)
+   - VPN and security service subscriptions
+   - Educational platform subscriptions</p>
+<h4>3.2.4 Gaming and Entertainment Services</h4>
+<p>a) <strong>Gaming Account Services</strong>
+   - Premium gaming account sales (Fortnite, Steam, PlayStation, Xbox)
+   - Game library management and optimization
+   - Gaming platform setup and configuration
+   - In-game currency and asset management
+   - Gaming performance optimization</p>
+<p>b) <strong>Entertainment Content Access</strong>
+   - Streaming service account management
+   - Digital content library organization
+   - Multi-region content access solutions
+   - Entertainment platform optimization</p>
+<h4>3.2.5 Mobile Application and Software Solutions</h4>
+<p>a) <strong>Modified Application Services</strong>
+   - Enhanced social media applications (Instagram Plus, WhatsApp Plus)
+   - Premium application features and functionality
+   - Application customization and theming
+   - Privacy-enhanced application versions
+   - Ad-free application solutions</p>
+<p>b) <strong>Software Licensing and Distribution</strong>
+   - Legitimate software license procurement
+   - Volume licensing for businesses
+   - Software audit and compliance services
+   - License optimization consulting</p>
+<h4>3.2.6 Educational and Professional Development Services</h4>
+<p>a) <strong>Technology Education</strong>
+   - Programming language instruction
+   - Software proficiency training
+   - Digital literacy education
+   - Professional certification preparation
+   - Technology career guidance</p>
+<p>b) <strong>Business Process Optimization</strong>
+   - Workflow automation consulting
+   - Digital tool integration
+   - Productivity enhancement solutions
+   - Business intelligence implementation</p>
+<h3>3.3 Service Delivery Models</h3>
+<h4>3.3.1 Service Packages</h4>
+<p>a) <strong>Basic Service Package</strong>
+   - Remote troubleshooting and basic optimization
+   - Email support with 24-hour response time
+   - Basic video tutorials
+   - 7-day service guarantee
+   - Malware scan and removal</p>
+<p>b) <strong>Professional Service Package</strong>
+   - Comprehensive system optimization and security hardening
+   - Priority support with 4-hour response time
+   - Advanced tutorials and training materials
+   - 30-day service guarantee
+   - Multiple consultation sessions
+   - Custom solution development</p>
+<p>c) <strong>Enterprise Service Package</strong>
+   - Complete custom development and implementation
+   - Dedicated project management
+   - 24/7 priority support access
+   - 90-day comprehensive warranty
+   - Unlimited revisions during development
+   - Source code and documentation delivery
+   - Ongoing maintenance and support</p>
+<h4>3.3.2 Support Mechanisms</h4>
+<p>a) <strong>Multi-channel Customer Support</strong>
+   - Live chat support during business hours
+   - Video consultation and screen sharing
+   - Email support with guaranteed response times
+   - Phone support for premium clients
+   - Emergency support for critical issues</p>
+<p>b) <strong>Quality Assurance</strong>
+   - 100% satisfaction guarantee
+   - Money-back guarantee for unsatisfied customers
+   - Continuous service quality monitoring
+   - Customer feedback integration
+   - Regular service improvement initiatives</p>
+<h3>3.4 Geographic Scope</h3>
+<p>3.4.1 The Company shall provide services globally, with particular focus on:
+   - Middle East and North Africa (MENA) region
+   - English and Arabic speaking markets
+   - International technology service markets
+   - Emerging digital economy regions</p>
+<p>3.4.2 Services shall be delivered remotely through digital platforms, enabling global reach while maintaining local customer support capabilities.</p>
+<h3>3.5 Innovation and Development</h3>
+<p>3.5.1 The Company shall continuously invest in:
+   - Technology infrastructure development
+   - Service innovation and improvement
+   - Staff training and certification
+   - Market research and analysis
+   - Customer experience enhancement</p>
+<p>3.5.2 Regular assessment of market trends and customer needs shall inform service development and expansion strategies.</p>
+<hr />
+<h2>4. SHARE CAPITAL AND MEMBERSHIP</h2>
+<h3>4.1 Share Capital Structure</h3>
+<p>4.1.1 The authorized share capital of the Company shall be as determined by the Members in general meeting, divided into shares of such classes and with such rights as may be prescribed by these Articles or as the Company may by resolution determine.</p>
+<p>4.1.2 Subject to the provisions of these Articles and to any rights attached to existing shares, shares may be issued with such preferred, deferred, or other special rights or restrictions as the Company may by resolution determine.</p>
+<h3>4.2 Classes of Membership</h3>
+<h4>4.2.1 Founding Members</h4>
+<p>Individuals who establish the Company and provide initial capital investment, entitled to:
+- Enhanced voting rights on strategic decisions
+- Priority in profit distribution
+- Board representation rights
+- Veto power on fundamental changes</p>
+<h4>4.2.2 Investor Members</h4>
+<p>Individuals or entities providing capital investment, entitled to:
+- Voting rights proportional to shareholding
+- Dividend rights based on investment
+- Financial reporting access
+- Exit rights under specified conditions</p>
+<h4>4.2.3 Employee Members</h4>
+<p>Key employees granted equity participation, entitled to:
+- Limited voting rights on operational matters
+- Profit-sharing participation
+- Stock option benefits
+- Professional development support</p>
+<h3>4.3 Rights and Obligations of Members</h3>
+<p>4.3.1 All Members shall have the right to:
+- Receive notice of and attend general meetings
+- Vote on matters affecting the Company
+- Receive annual financial statements
+- Access to Company information as prescribed by law
+- Fair treatment in accordance with their class of membership</p>
+<p>4.3.2 All Members shall be obligated to:
+- Act in the best interests of the Company
+- Maintain confidentiality of Company information
+- Comply with applicable laws and regulations
+- Support the Company's business objectives</p>
+<h3>4.4 Transfer of Shares</h3>
+<p>4.4.1 Shares may be transferred subject to the approval of the Board of Directors and in accordance with applicable law.</p>
+<p>4.4.2 The Company shall maintain a register of members and transfers in accordance with legal requirements.</p>
+<hr />
+<h2>5. DIRECTORS AND BOARD GOVERNANCE</h2>
+<h3>5.1 Board Composition</h3>
+<p>5.1.1 The Company shall have a Board of Directors consisting of not less than three (3) and not more than nine (9) Directors.</p>
+<p>5.1.2 The Board shall include:
+- Chief Executive Officer (CEO)
+- Chief Technology Officer (CTO)
+- Chief Financial Officer (CFO)
+- Independent Directors as deemed appropriate
+- Founding Member representatives</p>
+<h3>5.2 Director Qualifications and Responsibilities</h3>
+<h4>5.2.1 Qualifications</h4>
+<p>Directors must possess:
+- Relevant professional experience in technology, business, or finance
+- Understanding of digital services industry
+- Commitment to Company values and objectives
+- Availability to fulfill directorial duties</p>
+<h4>5.2.2 Responsibilities</h4>
+<p>Directors shall be responsible for:
+- Strategic planning and oversight
+- Risk management and compliance
+- Financial oversight and reporting
+- Technology strategy and innovation
+- Customer satisfaction and service quality
+- Staff management and development</p>
+<h3>5.3 Board Meetings and Decision Making</h3>
+<p>5.3.1 The Board shall meet at least quarterly, with additional meetings as required.</p>
+<p>5.3.2 Decisions shall be made by majority vote, with the Chairman having a casting vote in case of equality.</p>
+<p>5.3.3 Board meetings may be conducted in person, by video conference, or through other electronic means.</p>
+<h3>5.4 Executive Management</h3>
+<p>5.4.1 The Board may delegate day-to-day management to executive officers while retaining oversight responsibility.</p>
+<p>5.4.2 Executive officers shall report regularly to the Board on operational performance, financial status, and strategic initiatives.</p>
+<hr />
+<h2>6. GENERAL MEETINGS AND VOTING</h2>
+<h3>6.1 Annual General Meeting</h3>
+<p>6.1.1 The Company shall hold an Annual General Meeting (AGM) within six months of the financial year end.</p>
+<p>6.1.2 The AGM shall consider:
+- Annual financial statements and auditor's report
+- Director appointments and remuneration
+- Dividend declarations
+- Any other business properly brought before the meeting</p>
+<h3>6.2 Extraordinary General Meetings</h3>
+<p>6.2.1 Extraordinary General Meetings may be called by:
+- The Board of Directors
+- Members holding not less than 10% of voting shares
+- The auditors (if required by law)</p>
+<h3>6.3 Voting Procedures</h3>
+<p>6.3.1 Each Member entitled to vote may vote in person or by proxy.</p>
+<p>6.3.2 Voting shall be by show of hands unless a poll is demanded.</p>
+<p>6.3.3 Electronic voting may be permitted at the discretion of the Board.</p>
+<h3>6.4 Quorum Requirements</h3>
+<p>6.4.1 The quorum for general meetings shall be Members present in person or by proxy representing not less than 25% of the total voting shares.</p>
+<hr />
+<h2>7. FINANCIAL MANAGEMENT AND ACCOUNTS</h2>
+<h3>7.1 Financial Year</h3>
+<p>7.1.1 The financial year of the Company shall end on December 31st of each year, unless otherwise determined by the Board.</p>
+<h3>7.2 Accounting Standards</h3>
+<p>7.2.1 The Company shall maintain proper books of account in accordance with applicable accounting standards and legal requirements.</p>
+<p>7.2.2 Financial statements shall be prepared annually and audited by qualified independent auditors.</p>
+<h3>7.3 Revenue Recognition and Management</h3>
+<h4>7.3.1 Revenue Streams</h4>
+<p>The Company's revenue shall be derived from:
+- Service fees for technical support and consulting
+- Development project contracts
+- Subscription management commissions
+- Digital account service fees
+- Software licensing commissions
+- Educational service fees
+- Premium service package sales</p>
+<h4>7.3.2 Pricing Strategy</h4>
+<ul>
+<li>Competitive pricing aligned with market standards</li>
+<li>Transparent fee structures for all services</li>
+<li>Volume discounts for enterprise clients</li>
+<li>Special pricing for educational institutions</li>
+<li>Regular market analysis to ensure competitive positioning</li>
+</ul>
+<h3>7.4 Financial Controls</h3>
+<p>7.4.1 The Company shall implement robust financial controls including:
+- Segregation of duties in financial processes
+- Regular internal audits
+- Board-level financial oversight
+- Cash flow management and forecasting
+- Risk assessment and mitigation procedures</p>
+<h3>7.5 Investment and Capital Allocation</h3>
+<p>7.5.1 The Company may invest surplus funds in:
+- Technology infrastructure and development
+- Staff training and certification programs
+- Market expansion initiatives
+- Strategic partnerships and acquisitions
+- Research and development activities</p>
+<h3>7.6 Dividend Policy</h3>
+<p>7.6.1 Dividends may be declared and paid out of profits after:
+- Adequate provision for business operations
+- Technology infrastructure investments
+- Legal and regulatory compliance costs
+- Reasonable reserves for future growth</p>
+<hr />
+<h2>8. OPERATIONAL POLICIES AND PROCEDURES</h2>
+<h3>8.1 Service Quality Standards</h3>
+<h4>8.1.1 Service Level Agreements (SLAs)</h4>
+<p>The Company shall maintain comprehensive SLAs including:
+- Response time guarantees for different service levels
+- Resolution timeframes for various issue types
+- Availability guarantees for digital platforms
+- Quality metrics and performance indicators
+- Customer satisfaction measurement criteria</p>
+<h4>8.1.2 Quality Assurance Framework</h4>
+<ul>
+<li>Regular service quality audits</li>
+<li>Customer feedback collection and analysis</li>
+<li>Continuous improvement processes</li>
+<li>Staff performance monitoring</li>
+<li>Service delivery optimization</li>
+</ul>
+<h3>8.2 Human Resources Management</h3>
+<h4>8.2.1 Staffing Strategy</h4>
+<p>The Company shall maintain appropriate staffing levels including:
+- Certified technical specialists
+- Customer service representatives
+- Project managers
+- Quality assurance personnel
+- Administrative and support staff</p>
+<h4>8.2.2 Training and Development</h4>
+<ul>
+<li>Ongoing technical training programs</li>
+<li>Customer service excellence training</li>
+<li>Professional certification support</li>
+<li>Language training for multilingual support</li>
+<li>Industry conference and workshop participation</li>
+</ul>
+<h4>8.2.3 Performance Management</h4>
+<ul>
+<li>Regular performance evaluations</li>
+<li>Goal setting and achievement tracking</li>
+<li>Professional development planning</li>
+<li>Recognition and reward programs</li>
+<li>Career advancement opportunities</li>
+</ul>
+<h3>8.3 Vendor and Partner Management</h3>
+<p>8.3.1 The Company shall establish and maintain relationships with:
+- Technology platform providers
+- Software vendors and distributors
+- Payment processing partners
+- Cloud infrastructure providers
+- Educational and training partners</p>
+<p>8.3.2 All vendor relationships shall be governed by formal agreements specifying:
+- Service level requirements
+- Security and compliance standards
+- Pricing and payment terms
+- Data protection obligations
+- Termination and transition procedures</p>
+<h3>8.4 Risk Management Framework</h3>
+<h4>8.4.1 Operational Risks</h4>
+<ul>
+<li>Technology infrastructure failures</li>
+<li>Cybersecurity threats and data breaches</li>
+<li>Service delivery disruptions</li>
+<li>Staff availability and capability issues</li>
+<li>Vendor and supplier dependencies</li>
+</ul>
+<h4>8.4.2 Business Risks</h4>
+<ul>
+<li>Market competition and pricing pressure</li>
+<li>Regulatory changes and compliance requirements</li>
+<li>Economic downturns affecting customer demand</li>
+<li>Currency fluctuations in international operations</li>
+<li>Intellectual property disputes</li>
+</ul>
+<h4>8.4.3 Risk Mitigation Strategies</h4>
+<ul>
+<li>Comprehensive insurance coverage</li>
+<li>Business continuity and disaster recovery plans</li>
+<li>Regular security assessments and improvements</li>
+<li>Diversified service portfolio and customer base</li>
+<li>Legal compliance monitoring and updates</li>
+</ul>
+<hr />
+<h2>9. TECHNOLOGY AND DIGITAL PLATFORM MANAGEMENT</h2>
+<h3>9.1 Platform Architecture and Infrastructure</h3>
+<h4>9.1.1 Technology Stack</h4>
+<p>The Company shall maintain a robust technology infrastructure including:
+- Scalable web applications built with modern frameworks (React, TypeScript, Node.js)
+- Responsive design ensuring optimal user experience across devices
+- Secure database management systems
+- Cloud-based hosting and content delivery networks
+- Real-time communication and collaboration tools</p>
+<h4>9.1.2 Platform Features</h4>
+<ul>
+<li>Multi-language support (English and Arabic)</li>
+<li>User authentication and authorization systems</li>
+<li>Service booking and scheduling capabilities</li>
+<li>Payment processing and financial management</li>
+<li>Customer support and communication tools</li>
+<li>Analytics and reporting dashboards</li>
+</ul>
+<h3>9.2 Cybersecurity and Data Protection</h3>
+<h4>9.2.1 Security Measures</h4>
+<ul>
+<li>End-to-end encryption for sensitive data transmission</li>
+<li>Multi-factor authentication for user accounts</li>
+<li>Regular security audits and penetration testing</li>
+<li>Firewall and intrusion detection systems</li>
+<li>Secure coding practices and vulnerability assessments</li>
+</ul>
+<h4>9.2.2 Data Backup and Recovery</h4>
+<ul>
+<li>Automated daily backups of all critical data</li>
+<li>Geographically distributed backup storage</li>
+<li>Regular recovery testing and validation</li>
+<li>Disaster recovery procedures and protocols</li>
+<li>Business continuity planning</li>
+</ul>
+<h3>9.3 Platform Development and Maintenance</h3>
+<p>9.3.1 The Company shall follow industry best practices for:
+- Agile development methodologies
+- Code version control and deployment
+- Automated testing and quality assurance
+- Performance monitoring and optimization
+- Regular feature updates and improvements</p>
+<p>9.3.2 Technology roadmap planning shall include:
+- User experience enhancement initiatives
+- New feature development based on customer feedback
+- Integration with emerging technologies
+- Scalability improvements for growth
+- Security updates and compliance enhancements</p>
+<h3>9.4 Digital Asset Management</h3>
+<p>9.4.1 The Company shall maintain comprehensive digital asset inventories including:
+- Software licenses and subscriptions
+- Digital content and media libraries
+- Customer databases and service records
+- Intellectual property and proprietary systems
+- Third-party integrations and API access</p>
+<hr />
+<h2>10. CUSTOMER RIGHTS AND SERVICE STANDARDS</h2>
+<h3>10.1 Customer Rights Framework</h3>
+<h4>10.1.1 Fundamental Customer Rights</h4>
+<p>All customers shall have the right to:
+- Clear and accurate information about services and pricing
+- Professional and courteous treatment by Company staff
+- Timely service delivery in accordance with agreed timeframes
+- Privacy and confidentiality of personal and business information
+- Fair and transparent dispute resolution procedures
+- Refunds or service credits when guarantees are not met</p>
+<h4>10.1.2 Service Transparency</h4>
+<ul>
+<li>Detailed service descriptions and pricing information</li>
+<li>Clear terms and conditions for all services</li>
+<li>Progress updates and communication during service delivery</li>
+<li>Access to service history and documentation</li>
+<li>Transparent billing and payment processing</li>
+</ul>
+<h3>10.2 Customer Service Standards</h3>
+<h4>10.2.1 Communication Standards</h4>
+<ul>
+<li>Professional multilingual support (English and Arabic)</li>
+<li>Multiple communication channels (chat, email, video, phone)</li>
+<li>Guaranteed response times based on service level</li>
+<li>Regular status updates for ongoing projects</li>
+<li>Clear escalation procedures for complex issues</li>
+</ul>
+<h4>10.2.2 Service Delivery Standards</h4>
+<ul>
+<li>Adherence to agreed timelines and milestones</li>
+<li>Quality assurance testing before service completion</li>
+<li>Comprehensive documentation and training materials</li>
+<li>Post-service support and follow-up</li>
+<li>Continuous improvement based on customer feedback</li>
+</ul>
+<h3>10.3 Customer Satisfaction Guarantee</h3>
+<p>10.3.1 The Company guarantees:
+- 100% satisfaction with completed services
+- Money-back guarantee for unresolved issues
+- Free remedial work for service defects
+- Ongoing support during warranty periods
+- Fair compensation for service failures</p>
+<h3>10.4 Feedback and Improvement Process</h3>
+<p>10.4.1 Customer feedback collection through:
+- Post-service satisfaction surveys
+- Regular customer review and rating systems
+- Focus groups and user experience studies
+- Customer advisory panels
+- Continuous monitoring of service metrics</p>
+<p>10.4.2 Feedback integration into:
+- Service improvement initiatives
+- Staff training and development programs
+- Platform enhancement projects
+- Policy and procedure updates
+- Strategic planning processes</p>
+<hr />
+<h2>11. DATA PROTECTION AND PRIVACY</h2>
+<h3>11.1 Data Protection Principles</h3>
+<p>11.1.1 The Company is committed to protecting customer data in accordance with applicable data protection laws and shall adhere to the following principles:
+- Lawfulness, fairness, and transparency in data processing
+- Purpose limitation ensuring data is used only for specified purposes
+- Data minimization collecting only necessary information
+- Accuracy and timely updating of personal data
+- Storage limitation retaining data only as long as necessary
+- Integrity and confidentiality ensuring data security
+- Accountability demonstrating compliance with data protection requirements</p>
+<h3>11.2 Data Collection and Processing</h3>
+<h4>11.2.1 Types of Data Collected</h4>
+<ul>
+<li>Personal identification information (name, contact details)</li>
+<li>Technical information (device specifications, system configurations)</li>
+<li>Service preferences and usage patterns</li>
+<li>Payment and billing information</li>
+<li>Communication records and support interactions</li>
+<li>Website and platform usage analytics</li>
+</ul>
+<h4>11.2.2 Lawful Bases for Processing</h4>
+<p>Data processing shall be based on:
+- Explicit consent from customers
+- Contractual necessity for service delivery
+- Legal obligations and regulatory compliance
+- Legitimate business interests with appropriate safeguards
+- Vital interests protection when applicable</p>
+<h3>11.3 Data Security Measures</h3>
+<p>11.3.1 Technical safeguards including:
+- Encryption of data in transit and at rest
+- Access controls and authentication systems
+- Regular security assessments and updates
+- Secure backup and recovery procedures
+- Network security and monitoring systems</p>
+<p>11.3.2 Organizational measures including:
+- Staff training on data protection requirements
+- Data handling policies and procedures
+- Regular compliance audits and assessments
+- Incident response and breach notification procedures
+- Third-party vendor security requirements</p>
+<h3>11.4 Customer Data Rights</h3>
+<p>11.4.1 Customers have the right to:
+- Access their personal data held by the Company
+- Rectify inaccurate or incomplete data
+- Erase their data under specified circumstances
+- Restrict processing of their data
+- Data portability to other service providers
+- Object to certain types of data processing
+- Withdraw consent for data processing</p>
+<h3>11.5 International Data Transfers</h3>
+<p>11.5.1 When transferring data internationally, the Company shall:
+- Ensure adequate protection through appropriate safeguards
+- Use standard contractual clauses or other approved mechanisms
+- Conduct transfer impact assessments when required
+- Notify customers of international transfer arrangements
+- Comply with applicable cross-border data protection requirements</p>
+<hr />
+<h2>12. INTELLECTUAL PROPERTY AND LICENSING</h2>
+<h3>12.1 Company Intellectual Property</h3>
+<h4>12.1.1 Proprietary Assets</h4>
+<p>The Company owns and shall protect:
+- NexaCode trademark, brand, and logos
+- Proprietary software and platform code
+- Custom development methodologies and processes
+- Training materials and educational content
+- Customer databases and business intelligence
+- Marketing materials and creative content</p>
+<h4>12.1.2 Intellectual Property Protection</h4>
+<ul>
+<li>Trademark registration and protection</li>
+<li>Copyright registration for original works</li>
+<li>Trade secret protection for proprietary processes</li>
+<li>Patent applications for innovative technologies</li>
+<li>Domain name protection and management</li>
+<li>Regular intellectual property audits</li>
+</ul>
+<h3>12.2 Third-Party Intellectual Property</h3>
+<p>12.2.1 The Company shall respect and comply with:
+- Software licensing terms and conditions
+- Third-party trademark and copyright protections
+- Open source license requirements
+- Platform and API usage agreements
+- Content licensing and distribution rights</p>
+<p>12.2.2 Licensing compliance includes:
+- Regular audits of software usage and licensing
+- Proper attribution for third-party content
+- Payment of required licensing fees
+- Compliance with usage restrictions and terms
+- Regular updates to licensing agreements</p>
+<h3>12.3 Customer Intellectual Property</h3>
+<p>12.3.1 Customer-owned intellectual property rights:
+- Ownership of customer data and business information
+- Rights to custom-developed solutions (where agreed)
+- Protection of customer trade secrets and confidential information
+- Respect for customer trademark and brand rights
+- Clear ownership terms in service agreements</p>
+<h3>12.4 Licensing Strategy</h3>
+<p>12.4.1 The Company may license its intellectual property to:
+- Strategic partners and affiliates
+- Authorized resellers and distributors
+- Educational institutions for training purposes
+- Other businesses for mutually beneficial arrangements</p>
+<p>12.4.2 Licensing agreements shall specify:
+- Scope of licensed rights and restrictions
+- Quality standards and brand protection requirements
+- Financial terms and royalty arrangements
+- Termination conditions and post-termination obligations
+- Dispute resolution procedures</p>
+<hr />
+<h2>13. DISPUTE RESOLUTION AND LEGAL COMPLIANCE</h2>
+<h3>13.1 Dispute Resolution Framework</h3>
+<h4>13.1.1 Internal Resolution Process</h4>
+<ol>
+<li><strong>Initial Discussion</strong>: Direct communication between parties to resolve issues informally</li>
+<li><strong>Formal Complaint</strong>: Written complaint submitted to customer service management</li>
+<li><strong>Investigation</strong>: Thorough investigation by designated dispute resolution team</li>
+<li><strong>Management Review</strong>: Senior management review of findings and proposed resolution</li>
+<li><strong>Final Internal Decision</strong>: Comprehensive response with resolution or explanation</li>
+</ol>
+<h4>13.1.2 External Resolution Options</h4>
+<p>When internal resolution is unsuccessful:
+- Mediation through qualified neutral mediators
+- Arbitration under recognized arbitration rules
+- Industry-specific dispute resolution services
+- Legal proceedings as a last resort</p>
+<h3>13.2 Customer Complaint Handling</h3>
+<p>13.2.1 Complaint management process:
+- Acknowledgment within 24 hours of receipt
+- Investigation and response within 5 business days
+- Regular status updates for complex complaints
+- Fair and impartial resolution procedures
+- Documentation and tracking of all complaints</p>
+<p>13.2.2 Escalation procedures:
+- Clear escalation paths for unresolved issues
+- Senior management involvement when appropriate
+- Independent review for significant disputes
+- Customer advocacy and support throughout process</p>
+<h3>13.3 Legal and Regulatory Compliance</h3>
+<h4>13.3.1 Compliance Framework</h4>
+<p>The Company shall maintain compliance with:
+- Corporate and commercial law requirements
+- Consumer protection regulations
+- Data protection and privacy laws
+- Intellectual property laws and regulations
+- Tax and financial reporting obligations
+- Employment and workplace safety laws
+- Industry-specific regulations and standards</p>
+<h4>13.3.2 Compliance Monitoring</h4>
+<ul>
+<li>Regular legal and regulatory updates assessment</li>
+<li>Internal compliance audits and reviews</li>
+<li>External legal counsel consultation</li>
+<li>Staff training on compliance requirements</li>
+<li>Incident reporting and corrective action procedures</li>
+</ul>
+<h3>13.4 Contract and Agreement Management</h3>
+<p>13.4.1 All business relationships shall be governed by appropriate written agreements including:
+- Customer service agreements and terms of use
+- Vendor and supplier contracts
+- Employment and contractor agreements
+- Partnership and collaboration agreements
+- Intellectual property licensing agreements</p>
+<p>13.4.2 Contract management includes:
+- Regular review and updating of standard terms
+- Legal review of significant agreements
+- Compliance monitoring and enforcement
+- Dispute prevention through clear terms
+- Documentation and record keeping</p>
+<h3>13.5 Insurance and Risk Management</h3>
+<p>13.5.1 The Company shall maintain appropriate insurance coverage including:
+- Professional indemnity insurance
+- General liability coverage
+- Cyber liability and data breach insurance
+- Directors and officers insurance
+- Business interruption insurance</p>
+<p>13.5.2 Risk management procedures:
+- Regular risk assessments and updates
+- Crisis management and communication plans
+- Business continuity planning
+- Incident response procedures
+- Regular insurance review and updates</p>
+<hr />
+<h2>14. AMENDMENT AND DISSOLUTION</h2>
+<h3>14.1 Amendment of Articles</h3>
+<p>14.1.1 These Articles may be amended by special resolution of the Members in general meeting, provided that:
+- Not less than 21 days' notice is given of the proposed amendment
+- The proposed amendment is in the best interests of the Company
+- The amendment complies with applicable law and regulations
+- Proper consideration is given to the rights of all stakeholders</p>
+<p>14.1.2 Certain fundamental amendments may require:
+- Enhanced majority voting requirements
+- Special consent from specific classes of Members
+- Regulatory approval where applicable
+- Professional legal review and advice</p>
+<h3>14.2 Company Dissolution</h3>
+<h4>14.2.1 Voluntary Dissolution</h4>
+<p>The Company may be dissolved voluntarily by:
+- Special resolution of Members in general meeting
+- Court order upon application by Members or creditors
+- Automatic dissolution upon specified triggering events</p>
+<h4>14.2.2 Dissolution Procedures</h4>
+<p>Upon dissolution, the Company shall:
+- Fulfill all outstanding obligations to customers and vendors
+- Protect and preserve customer data in accordance with data protection laws
+- Distribute assets to Members in accordance with their rights
+- Complete all required legal and regulatory procedures
+- Maintain records as required by law</p>
+<h3>14.3 Winding Up Procedures</h3>
+<p>14.3.1 In the event of winding up:
+- Customer service obligations shall be fulfilled or appropriately transferred
+- Employee rights and obligations shall be honored
+- Creditor claims shall be satisfied in order of legal priority
+- Remaining assets shall be distributed to Members
+- All legal and regulatory requirements shall be completed</p>
+<h3>14.4 Business Continuity</h3>
+<p>14.4.1 To ensure business continuity, the Company shall maintain:
+- Emergency succession planning for key personnel
+- Business continuity and disaster recovery procedures
+- Financial reserves for operational stability
+- Alternative service delivery arrangements
+- Customer notification and protection procedures</p>
+<hr />
+<h2>CONCLUSION</h2>
+<p>These Articles of Association constitute the fundamental governing document of NexaCode Digital Services Company, establishing the framework for its operation as a leading provider of digital technology services. The Company is committed to:</p>
+<ul>
+<li><strong>Excellence in Service Delivery</strong>: Providing high-quality, reliable digital services that meet and exceed customer expectations</li>
+<li><strong>Innovation and Growth</strong>: Continuously evolving and expanding service offerings to meet changing market needs</li>
+<li><strong>Customer Focus</strong>: Maintaining customer satisfaction as the primary measure of success</li>
+<li><strong>Ethical Business Practices</strong>: Operating with integrity, transparency, and respect for all stakeholders</li>
+<li><strong>Global Reach with Local Service</strong>: Serving customers worldwide while providing personalized, culturally appropriate support</li>
+<li><strong>Technology Leadership</strong>: Leveraging cutting-edge technology to deliver superior service experiences</li>
+<li><strong>Sustainable Business Model</strong>: Building a financially stable and environmentally responsible business</li>
+</ul>
+<p>The Company shall operate in accordance with these Articles while remaining adaptable to changing business conditions, technological advancement, and regulatory requirements. Regular review and updating of these Articles shall ensure their continued relevance and effectiveness in governing the Company's operations.</p>
+<hr />
+<p><strong>Adopted this [<strong><em>] day of [</em></strong>____], 20[__]</strong></p>
+<p><strong>By Resolution of the Founding Members:</strong></p>
+<hr />
+<p><strong>[Founder Name]</strong><br />
+Founding Member and Director</p>
+<hr />
+<p><strong>[Founder Name]</strong><br />
+Founding Member and Director</p>
+<hr />
+<p><strong>[Founder Name]</strong><br />
+Founding Member and Director</p>
+<p><strong>Witnessed by:</strong></p>
+<hr />
+<p><strong>[Witness Name]</strong><br />
+Legal Counsel</p>
+<hr />
+<p><strong>Company Secretary</strong></p>
+<hr />
+<p><strong>DOCUMENT VERIFICATION:</strong>
+- Total Pages: [To be completed upon finalization]
+- Word Count: Approximately 8,000 words
+- Last Updated: [Current Date]
+- Version: 1.0
+- Status: Draft for Review and Approval</p>
+<p><strong>ATTACHMENTS:</strong>
+1. Service Portfolio Detailed Descriptions
+2. Standard Terms and Conditions Templates
+3. Privacy Policy and Data Protection Procedures
+4. Quality Assurance Standards and Metrics
+5. Emergency Contact and Escalation Procedures</p>
+<hr />
+<p><em>This document represents a comprehensive Articles of Association for NexaCode Digital Services Company. It should be reviewed by qualified legal counsel before adoption and may require modification to comply with specific jurisdictional requirements.</em></p>
+        
+        <div class="document-footer">
+            <p><strong>Document Information:</strong></p>
+            <p>This document constitutes the Articles of Association for NexaCode Digital Services Company, a comprehensive digital services provider specializing in technology solutions, IT consulting, software development, and digital platform management.</p>
+            <p><strong>Legal Notice:</strong> This document should be reviewed by qualified legal counsel before adoption and may require modification to comply with specific jurisdictional requirements.</p>
+            <p><strong>Generated:</strong> September 19, 2025 at 03:35 AM</p>
+        </div>
+    </div>
+</body>
+</html>

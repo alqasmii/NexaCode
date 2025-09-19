@@ -17,7 +17,20 @@ import {
   Zap,
   Crown,
   Gift,
-  TrendingUp
+  TrendingUp,
+  Monitor,
+  Briefcase,
+  Shield,
+  Smartphone,
+  Users,
+  Download,
+  Coins,
+  TrendingUp as LevelUp,
+  Target,
+  Store,
+  Bitcoin,
+  Gamepad2,
+  Music
 } from 'lucide-react'
 
 const Products = () => {
@@ -38,6 +51,148 @@ const Products = () => {
       description: `${item} (${price}) تم إضافته إلى سلة التسوق.`,
     })
   }
+
+  // Subscription categories for navigation
+  const subscriptionCategories = [
+    {
+      id: 'streaming',
+      title: 'البث والترفيه',
+      description: '🎬 استمتع بأفضل المحتوى العالمي - نتفليكس، شاهد، OSN، سبوتيفاي وأكثر بأسعار لا تُقاوم!',
+      icon: Monitor,
+      href: '/subscriptions/streaming',
+      available: true,
+      gradient: 'from-red-500 via-purple-500 to-pink-500',
+      bgImage: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=200&fit=crop&q=80'
+    },
+    {
+      id: 'productivity',
+      title: 'الإنتاجية والعمل والتصميم',
+      description: '💼 اطلق إبداعك المهني - مايكروسوفت أوفيس، أدوبي، كانفا وجميع الأدوات التي تحتاجها للنجاح!',
+      icon: Briefcase,
+      href: '/subscriptions/productivity',
+      available: true,
+      gradient: 'from-blue-500 via-cyan-500 to-teal-500',
+      bgImage: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=400&h=200&fit=crop&q=80'
+    },
+    {
+      id: 'security',
+      title: 'التقنية/الحماية/الأدوات',
+      description: '🛡️ احمِ عالمك الرقمي - أقوى برامج الحماية، VPN متقدم، وأدوات تقنية احترافية بأفضل الأسعار!',
+      icon: Shield,
+      href: '/subscriptions/security',
+      available: true,
+      gradient: 'from-green-500 via-emerald-500 to-cyan-500',
+      bgImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=200&fit=crop&q=80'
+    },
+    {
+      id: 'esim',
+      title: 'eSIM',
+      description: '📱 تواصل بلا حدود - بطاقات eSIM عالمية للسفر والاتصالات، قريباً بعروض حصرية!',
+      icon: Smartphone,
+      href: '/subscriptions/esim',
+      available: false,
+      gradient: 'from-gray-400 via-gray-500 to-gray-600',
+      bgImage: 'https://images.unsplash.com/photo-1551808525-51a94da548ce?w=400&h=200&fit=crop&q=80'
+    }
+  ]
+
+  // Gaming categories for navigation
+  const gamingCategories = [
+    {
+      id: 'accounts',
+      title: 'حسابات الألعاب',
+      description: '🎮 حسابات جاهزة للألعاب الشهيرة - فورتنايت، PUBG، كول أوف ديوتي، فيفا وأكثر!',
+      icon: Users,
+      href: '/gaming/accounts',
+      available: true,
+      gradient: 'from-orange-500 via-red-500 to-pink-500',
+      bgImage: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=200&fit=crop&q=80'
+    },
+    {
+      id: 'games',
+      title: 'شراء الألعاب',
+      description: '🛒 اشترِ ألعابك المفضلة رسمياً - Steam، Epic Games، PlayStation، Xbox بأفضل الأسعار!',
+      icon: Download,
+      href: '/gaming/games',
+      available: true,
+      gradient: 'from-blue-500 via-indigo-500 to-purple-500',
+      bgImage: 'https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=200&fit=crop&q=80'
+    },
+    {
+      id: 'subscriptions',
+      title: 'اشتراكات الألعاب',
+      description: '⭐ اشتراكات احترافية - Xbox Game Pass، PlayStation Plus، Battle Pass وجميع الاشتراكات!',
+      icon: Crown,
+      href: '/gaming/subscriptions',
+      available: true,
+      gradient: 'from-purple-500 via-violet-500 to-indigo-500',
+      bgImage: 'https://images.unsplash.com/photo-1542549240-ecfabb7c2d23?w=400&h=200&fit=crop&q=80'
+    },
+    {
+      id: 'currency',
+      title: 'العملات والعناصر',
+      description: '💰 عملات ومواد الألعاب - V-Bucks، UC، CP، Coins لجميع الألعاب الشهيرة بتسليم فوري!',
+      icon: Coins,
+      href: '/gaming/currency',
+      available: true,
+      gradient: 'from-yellow-500 via-orange-500 to-red-500',
+      bgImage: 'https://images.unsplash.com/photo-1614029655965-2464911905a7?w=400&h=200&fit=crop&q=80'
+    },
+    {
+      id: 'boosting',
+      title: 'خدمات رفع المستوى',
+      description: '🚀 خدمات احترافية لرفع مستوى حسابك - لاعبون محترفون يساعدونك للوصول للقمة بأمان!',
+      icon: Target,
+      href: '/gaming/boosting',
+      available: true,
+      gradient: 'from-green-500 via-teal-500 to-cyan-500',
+      bgImage: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=200&fit=crop&q=80'
+    }
+  ]
+
+  // Gift card categories for navigation - Most popular and purchasable
+  const giftCardCategories = [
+    {
+      id: 'gaming',
+      title: 'بطاقات الألعاب والترفيه',
+      description: '🎮 العب أكثر، ادفع أقل - Steam، PlayStation، Xbox، Google Play، iTunes وجميع بطاقات الألعاب!',
+      icon: Gamepad2,
+      href: '/giftcards/gaming',
+      available: true,
+      gradient: 'from-violet-500 via-purple-500 to-fuchsia-500',
+      bgImage: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=200&fit=crop&q=80'
+    },
+    {
+      id: 'shopping',
+      title: 'بطاقات التسوق العالمية',
+      description: '🛍️ تسوق بلا حدود - Amazon، eBay، Zalando، Nike، Adidas وجميع متاجرك المفضلة بأفضل الأسعار!',
+      icon: Store,
+      href: '/giftcards/shopping',
+      available: true,
+      gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
+      bgImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=200&fit=crop&q=80'
+    },
+    {
+      id: 'digital-services',
+      title: 'الخدمات الرقمية والاشتراكات',
+      description: '📱 عالم رقمي متكامل - Netflix، Spotify، ChatGPT، PayPal وجميع الخدمات الرقمية المميزة!',
+      icon: Monitor,
+      href: '/giftcards/digital',
+      available: true,
+      gradient: 'from-blue-500 via-indigo-500 to-purple-500',
+      bgImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop&q=80'
+    },
+    {
+      id: 'crypto-finance',
+      title: 'العملات الرقمية والمالية',
+      description: '₿ مستقبل المال - Binance، Coinbase، BitPay، Crypto Voucher وجميع حلول العملات الرقمية الآمنة!',
+      icon: Bitcoin,
+      href: '/giftcards/crypto',
+      available: true,
+      gradient: 'from-amber-500 via-orange-500 to-red-500',
+      bgImage: 'https://images.unsplash.com/photo-1605792657660-596af9009e82?w=400&h=200&fit=crop&q=80'
+    }
+  ]
 
   // Product data
   const subscriptions = [
@@ -159,10 +314,10 @@ const Products = () => {
 
   const getProductData = () => {
     switch (activeCategory) {
-      case 'subscriptions': return subscriptions
-      case 'gaming': return gaming
-      case 'codes': return codes
-      default: return subscriptions
+      case 'subscriptions': return subscriptionCategories
+      case 'gaming': return gamingCategories
+      case 'codes': return giftCardCategories
+      default: return subscriptionCategories
     }
   }
 
@@ -177,10 +332,10 @@ const Products = () => {
 
   const getCategoryDescription = () => {
     switch (activeCategory) {
-      case 'subscriptions': return 'نتفليكس وسبوتيفاي وديزني+ والمزيد بأسعار لا تُقاوم'
-      case 'gaming': return 'أرصدة ستيم وبلايستيشن وإكس بوكس واشتراكات الألعاب'
+      case 'subscriptions': return 'اختر من الفئات التالية لاستكشاف الاشتراكات والتطبيقات المتاحة'
+      case 'gaming': return 'اختر من فئات الألعاب لاستكشاف الحسابات، الألعاب، العملات، الاشتراكات وخدمات رفع المستوى'
       case 'codes': return 'بطاقات هدايا أمازون وجوجل بلاي وآيتونز والبطاقات العالمية'
-      default: return 'اشتراكات مميزة بأسعار مخفضة'
+      default: return 'اختر من الفئات التالية لاستكشاف المنتجات المتاحة'
     }
   }
 
@@ -286,7 +441,7 @@ const Products = () => {
                   transition={{ duration: 0.5 }}
                   className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6"
                 >
-                  {getProductData().map((product, index) => (
+                  {getProductData().map((item, index) => (
                     <motion.div
                       key={`${activeCategory}-${index}`}
                       initial={{ opacity: 0, y: 20 }}
@@ -295,57 +450,63 @@ const Products = () => {
                       whileHover={{ y: -5, scale: 1.02 }}
                       className="group"
                     >
-                      <Card className="h-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:border-purple-300 dark:hover:border-purple-600">
-                        <CardHeader className="pb-4">
-                          <div className="flex items-start justify-between mb-3">
-                            <div className="p-2 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg text-white">
-                              {product.icon}
-                            </div>
-                            <Badge variant="secondary" className="bg-gradient-to-r from-purple-600 to-blue-600 text-white border-0">
-                              {product.badge}
-                            </Badge>
-                          </div>
-                          <CardTitle className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                            {product.name}
-                          </CardTitle>
-                          <CardDescription className="text-gray-600 dark:text-gray-300">
-                            {product.description}
-                          </CardDescription>
-                        </CardHeader>
-                        
-                        <CardContent className="pt-0">
-                          <div className="mb-4">
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-                                {product.price}
-                              </span>
-                              <span className="text-sm text-gray-500 line-through">
-                                {product.originalPrice}
-                              </span>
-                            </div>
-                            <div className="text-xs text-green-600 dark:text-green-400 font-medium">
-                              وفر {((parseFloat(product.originalPrice.replace(/[$]/g, '')) - parseFloat(product.price.replace(/[$]/g, ''))) / parseFloat(product.originalPrice.replace(/[$]/g, '')) * 100).toFixed(0)}%
-                            </div>
-                          </div>
-
-                          <div className="space-y-2 mb-6">
-                            {product.features.map((feature, featureIndex) => (
-                              <div key={featureIndex} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
-                                {feature}
+                      {/* Render category cards for all sections */}
+                      <Card className={`h-full backdrop-blur-sm border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden group ${
+                        !item.available 
+                          ? 'bg-gray-100/80 dark:bg-gray-700/80 opacity-60' 
+                          : 'bg-white/80 dark:bg-gray-800/80 hover:border-purple-300 dark:hover:border-purple-600 hover:scale-105'
+                      }`}>
+                          {/* Background Image */}
+                          <div className="relative">
+                            <div 
+                              className="h-32 bg-cover bg-center relative overflow-hidden"
+                              style={{ backgroundImage: `url(${item.bgImage})` }}
+                            >
+                              {/* Gradient Overlay */}
+                              <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-80 group-hover:opacity-90 transition-opacity`}></div>
+                              
+                              {/* Category Icon */}
+                              <div className="absolute top-4 right-4">
+                                <div className="p-3 bg-white/20 backdrop-blur-sm rounded-lg text-white">
+                                  <item.icon className="h-6 w-6" />
+                                </div>
                               </div>
-                            ))}
+
+                              {/* Coming Soon Badge */}
+                              {!item.available && (
+                                <div className="absolute top-4 left-4">
+                                  <Badge className="bg-gray-500/80 text-white border-0">
+                                    قريباً
+                                  </Badge>
+                                </div>
+                              )}
+                            </div>
                           </div>
 
-                          <Button 
-                            onClick={() => handleAddToCart(product.name, product.price)}
-                            className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0 group"
-                          >
-                            <ShoppingCart className="h-4 w-4 ml-2 group-hover:scale-110 transition-transform" />
-                            إضافة للسلة
-                          </Button>
-                        </CardContent>
-                      </Card>
+                          <CardHeader className="pb-4 text-right">
+                            <CardTitle className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors mb-2 text-right">
+                              {item.title}
+                            </CardTitle>
+                            <CardDescription className="text-gray-600 dark:text-gray-300 mb-4 text-right leading-relaxed">
+                              {item.description}
+                            </CardDescription>
+                          </CardHeader>
+                          
+                          <CardContent className="pt-0">
+                            <Button 
+                              onClick={() => item.available && (window.location.href = item.href)}
+                              disabled={!item.available}
+                              className={`w-full border-0 group ${
+                                !item.available 
+                                  ? 'bg-gray-400 cursor-not-allowed text-gray-600' 
+                                  : 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white'
+                              }`}
+                            >
+                              <Star className="h-4 w-4 ml-2 group-hover:scale-110 transition-transform" />
+                              {!item.available ? 'قريباً' : 'استكشف المنتجات'}
+                            </Button>
+                          </CardContent>
+                        </Card>
                     </motion.div>
                   ))}
                 </motion.div>
